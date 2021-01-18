@@ -1,0 +1,273 @@
+{
+
+  "recommended": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine Übersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in überdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 („conscious proning“ erwägen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls müssen Ausnahmen begründen werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
+
+  "recommendationId": {
+
+   "terminology": "Magicapp",
+
+    "id": "69591"
+
+  },
+
+  "recommendations": [
+
+    {
+
+      "population": [
+
+        {
+
+          "name": "Intensive Care unit",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "10sx0v1p36wyv"
+
+          },
+
+          "inclusion": true
+
+        },
+
+        {
+
+          "name": "COVID-19",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "NrO30O5ZnYIkjE"
+
+          },
+
+          "inclusion": true
+
+        },
+
+        {
+
+          "name": "Supine body position",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "r4hp39rbgq4j"
+
+          },
+
+          "inclusion": true
+
+        }
+
+      ],
+
+      "intervention": [
+
+        {
+
+          "name": "RASS",
+
+          "id": {
+
+            "terminology": "ceosys",
+
+            "id": "0001"
+
+          },
+
+          "strength": "consensus",
+
+          "value": {
+
+            "min": -1,
+
+            "max": 0
+
+          },
+
+          "inclusion": true
+
+        }
+
+      ],
+
+      
+
+      "population": [
+
+        {
+
+          "name": "Intensive Care unit",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "10sx0v1p36wyv"
+
+          },
+
+          "inclusion": true
+
+        },
+
+        {
+
+          "name": "COVID-19",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "NrO30O5ZnYIkjE"
+
+          },
+
+          "inclusion": true
+
+        },
+
+        {
+
+          "name": "semiprone position",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "r4hp398d718f"
+
+          },
+
+          "inclusion": true
+
+        }
+
+      ],
+
+      "intervention": [
+
+        {
+
+          "name": "RASS",
+
+          "id": {
+
+            "terminology": "ceosys",
+
+            "id": "0001"
+
+          },
+
+          "strength": "consensus",
+
+          "value": {
+
+            "min": -2,
+
+            "max": 0
+
+          },
+
+          "inclusion": true
+
+        }
+
+      ],
+
+      
+
+      "population": [
+
+        {
+
+          "name": "Intensive Care unit",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "10sx0v1p36wyv"
+
+          },
+
+          "inclusion": true
+
+        },
+
+        {
+
+          "name": "COVID-19",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "NrO30O5ZnYIkjE"
+
+          },
+
+          "inclusion": true
+
+        },
+
+        {
+
+          "name": "Prone Body Position",
+
+          "id": {
+
+            "terminology": "cochrane",
+
+            "id": "r4hp38mb0nt7"
+
+          },
+
+          "inclusion": true
+
+        }
+
+      ],
+
+      "intervention": [
+
+        {
+
+          "name": "RASS",
+
+          "id": {
+
+            "terminology": "ceosys",
+
+            "id": "0001"
+
+          },
+
+    "strength": "consensus",
+
+          "value": {
+
+            "min": -2,
+
+            "max": 0,
+
+            "alternative" : "conscious sedation"
+
+          },
+
+          "inclusion": true
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+}
