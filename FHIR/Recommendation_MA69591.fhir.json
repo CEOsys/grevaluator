@@ -1,0 +1,488 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://covid-evidenz.de/fhir/EvidenceReport/MA4546",
+      "resource": {
+        "resourceType": "EvidenceReport",
+        "status": "draft",
+        "title": "Sedierung bei COVID-19 Patienten",
+        "text": {
+          "status": "generated",
+          "div": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine \u00dcbersedierung ist vermeiden!<br/>Ziel-RASS in RL: 0/-1<br/>Ziel-RASS in \u00fcberdrehter Seitenlage: 0/-1/-2<br/>Ziel-RASS in BL:  -3/-4 (\"conscious proning\" erw\u00e4gen bei technischen und patientenindividuellen Voraussetzungen)<br/>Andernfalls m\u00fcssen Ausnahmen begr\u00fcnden werden.<br/>Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!"
+        },
+        "identifier": [
+          {
+            "value": "4546",
+            "system": "https://app.magicapp.org/#/guidelines"
+          },
+          {
+            "value": "69591",
+            "system": "https://api.magicapp.org/api/v1/recommendations"
+          }
+        ],
+        "subject": {
+          "characteristic": [
+            {
+              "code": {
+                "text": "Population"
+              },
+              "valueReference": {
+                "reference": "Population_BodyPosition-Supine_COVID-19_Ventilated"
+              }
+            },
+            {
+              "code": {
+                "text": "Intervention"
+              },
+              "valueReference": {
+                "reference": "Intervention_RASS-1to0"
+              }
+            },
+            {
+              "code": {
+                "text": "Recommendation"
+              },
+              "valueReference": {
+                "reference": "Recommendation_https://app.magicapp.org/#/guidelines_4546_1"
+              }
+            }
+          ]
+        },
+        "section": [
+          {
+            "title": "Population Section",
+            "focus": {
+              "text": "EvidenceVariable-population"
+            },
+            "text": {
+              "status": "generated",
+              "div": "BodyPosition-Supine_COVID-19_Ventilated"
+            },
+            "entryReference": [
+              {
+                "type": "Group",
+                "identifier": {
+                  "value": "Population_BodyPosition-Supine_COVID-19_Ventilated",
+                  "system": "https://covid-evidenz.de/"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Intervention Section",
+            "focus": {
+              "text": "EvidenceVariable-intended"
+            },
+            "text": {
+              "status": "generated",
+              "div": "RASS-1to0"
+            },
+            "entryReference": [
+              {
+                "type": "EvidenceVariable",
+                "identifier": {
+                  "value": "Intervention_RASS-1to0",
+                  "system": "https://covid-evidenz.de/"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Recommendation Section",
+            "focus": {
+              "text": "Recommendation"
+            },
+            "text": {
+              "status": "generated",
+              "div": "https://app.magicapp.org/#/guidelines / 4546"
+            },
+            "entryReference": [
+              {
+                "type": "Evidence",
+                "identifier": {
+                  "value": "Recommendation_https://app.magicapp.org/#/guidelines_4546_1",
+                  "system": "https://covid-evidenz.de/"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_BodyPosition-Supine_COVID-19_Ventilated",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "BodyPosition-Supine_COVID-19_Ventilated"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Ventilated"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Treatment",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Population",
+                  "display": "Cochrane Pico Ontology - Treatment"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "BodyPosition-Supine"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Ventilated",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "Ventilated"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp38jjqmxs",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Ventilation Finding"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "128258000",
+                  "display": "SnomedCT: Ventilation Finding (finding) "
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp399q34v1",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Patient Ventilated"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "371820004",
+                  "display": "SnomedCT: Patient ventilated (finding) "
+                }
+              ]
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "BodyPosition-Supine",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "BodyPosition-Supine"
+        },
+        "type": "person",
+        "actual": false,
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp3b1kljyy",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Body Position Finding"
+                },
+                {
+                  "system": "https://snomed.info/sct/",
+                  "code": "9851009",
+                  "display": "SnomedCT: Body position finding (finding)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp39rbgq4j",
+                  "display": "Cochrane Linked Data Vocabulary: Setting - BodyPosition  - Supine"
+                },
+                {
+                  "system": "https://snomed.info/sct/",
+                  "code": "40199007",
+                  "display": "SnomedCT: Supine body position (finding)"
+                }
+              ]
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "COVID-19",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "COVID-19"
+        },
+        "type": "person",
+        "actual": false,
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "NrO30O5ZnYIkjE",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "840539006",
+                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "RASS-1to0",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "text": {
+          "status": "generated",
+          "div": "RASS-1to0"
+        },
+        "type": "person",
+        "actual": false,
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://covid-evidenz.de/concepts/",
+                  "code": "score_RASS"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": -1
+              },
+              "high": {
+                "value": 0
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "EvidenceVariable",
+        "identifier": [
+          {
+            "value": "Intervention_RASS-1to0",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "status": "draft",
+        "description": "RASS-1to0",
+        "characteristic": [
+          {
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "RASS-1to0"
+              }
+            },
+            "method": {
+              "text": "Intervention",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Intervention",
+                  "display": "Cochrane Pico Ontology - Intervention"
+                }
+              ]
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Evidence",
+        "identifier": [
+          {
+            "value": "Recommendation_https://app.magicapp.org/#/guidelines_4546_1",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "title": "https://app.magicapp.org/#/guidelines / 4546",
+        "status": "draft",
+        "description": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine \u00dcbersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in \u00fcberdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 (\"conscious proning\" erw\u00e4gen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls m\u00fcssen Ausnahmen begr\u00fcnden werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
+        "variableDefinition": [
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_BodyPosition-Supine_COVID-19_Ventilated"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4546 with characteristics: BodyPosition-Supine, COVID-19, Ventilated"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "exposure"
+                }
+              ]
+            },
+            "observed": {
+              "type": "EvidenceVariable",
+              "identifier": {
+                "value": "Intervention_RASS-1to0"
+              },
+              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4546 with characteristics:: RASS -1 to 0"
+            }
+          }
+        ],
+        "statistic": [
+          {
+            "description": "net effect estimate",
+            "statisticType": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/statistic-type",
+                  "code": "C93152",
+                  "display": "Relative Risk"
+                }
+              ]
+            },
+            "quantity": {
+              "value": 2
+            }
+          }
+        ],
+        "certainty": [
+          {
+            "description": "Low certainty due to ...",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://hl7.org/fhir/ValueSet/certainty-type/",
+                  "code": "Overall"
+                }
+              ]
+            },
+            "rating": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/certainty-rating/",
+                  "code": "low"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
