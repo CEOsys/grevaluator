@@ -31,10 +31,10 @@
                 "id": {
                   "$ref": "#/definitions/terminologyIdentifier"
                 },
-              "inclusion": {
-              "description": "include if true, exlcude if false",
-              "type": "boolean"
-              }
+                "inclusion": {
+                  "description": "include if true, exlcude if false",
+                  "type": "boolean"
+                }
               },
               "required": [
                 "name",
@@ -60,7 +60,7 @@
                 "strength": {
                   "description": "strength of recommendation",
                   "type": "string"
-                }, 
+                },
                 "value": {
                   "oneOf": [
                     {
@@ -89,10 +89,10 @@
                     }
                   ]
                 },
-              "inclusion": {
-              "description": "include if true, exlcude if false",
-              "type": "boolean"
-              }
+                "inclusion": {
+                  "description": "include if true, exlcude if false",
+                  "type": "boolean"
+                }
               },
               "required": [
                 "name",
@@ -101,36 +101,35 @@
                 "inclusion"
               ],
               "additionalProperties": false
-              }
             }
-          },
+          }
+        },
         "required": [
           "population",
           "intervention"
-          ],
+        ],
         "additionalProperties": false
-        }
       }
-    },
-    "required": [
+    }
+  },
+  "required": [
     "recommendations",
     "recommendationId",
     "recommended"
-    ],
-    "additionalProperties": false,
-    "definitions": {
-      "terminologyIdentifier": {
-          "description": "ID and terminology",
-          "type": "object",
-          "properties": {
-              "id": {
-                  "type": "string"
-                  },
-              "terminology": {
-                  "type": "string"
-                  }
-              }
-          }
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "terminologyIdentifier": {
+      "description": "ID and terminology",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "terminology": {
+          "type": "string"
+        }
       }
     }
+  }
 }
