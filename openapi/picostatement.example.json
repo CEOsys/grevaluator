@@ -1,0 +1,45 @@
+{
+  "recommendationId": 123,
+  "recommendations": [
+    {
+      "population": [
+        {
+          "name": "Intensive Care unit",
+          "id": {
+            "terminology": "cochrane",
+            "id": "10sx0v1p36wyv"
+          },
+          "value": true
+        },
+        {
+          "name": "COVID-19",
+          "id": {
+            "terminology": "cochrane",
+            "id": "NrO30O5ZnYIkjE"
+          },
+          "value": true
+        },
+        {
+          "name": "Supine body position",
+          "id": {
+            "terminology": "cochrane",
+            "id": "r4hp39rbgq4j"
+          },
+          "value": true
+        }
+      ],
+      "intervention": [
+        {
+          "name": "RASS",
+          "id": {
+            "terminology": "cochrane",
+            "id": "r4hp39rbgq4j"
+          },
+          "value": {
+            "min": -1
+          }
+        }
+      ]
+    }
+  ]
+}

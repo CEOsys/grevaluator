@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/2019-09/schema#",
+  "$id": "http://preevent-covid.charite.de/picostatement.schema.json",
+  "title": "Recommendation",
+  "description": "A Recommendation from any MagicApp guidline",
+  "version": "1-0-0",
+  "type": "object",
+  "properties": {
+    "recommendationId": {
+      "type": "number"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "population": {
+            "description": "Properties of the population for the recommended intervention",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "name of main population",
+                  "type": "string"
+                },
+                "id": {
+                  "$ref": "#/definitions/terminologyIdentifier"
+                }
+              },
+              "required": [
+                "name",
+                "id"
+              ]
+            }
+          },
+          "intervention": {
+            "description": "Properties of the recommended intervention",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "name of main intervention",
+                  "type": "string"
+                },
+                "id": {
+                  "$ref": "#/definitions/terminologyIdentifier"
+                },
+                "value": {
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "array"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "min": {
+                          "type": "number"
+                        },
+                        "max": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "id",
+                "value"
+              ]
+            }
+          }
+        },
+        "required": [
+          "population",
+          "intervention"
+        ]
+      }
+    }
+  },
+  "required": [
+    "recommendationId",
+    "recommendations"
+  ],
+  "definitions": {
+    "terminologyIdentifier": {
+      "description": "main population ID in cochrane or ceosys",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "terminology": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
