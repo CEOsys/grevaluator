@@ -1,0 +1,23 @@
+{
+    "resource" : "Bundle",
+    "type": "collection",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Evidence",
+                "exposureBackground": {
+                    "characteristic": 
+                }
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "EvidenceVariable",
+                ""
+            }
+
+        }
+
+
+    ]
+}
