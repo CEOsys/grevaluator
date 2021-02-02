@@ -3,7 +3,7 @@
     "type": "collection",
     "entry": [
         {
-            "fullUrl": "urn:uuid:pico1",
+            "fullUrl": "urn:uuid:pop1",
             "resource":  {
                 "resourceType": "EvidenceVariable",
                 "id": "p1",
@@ -16,7 +16,7 @@
                             "text": "Intensive Care unit",
                             "coding": [
                                 {
-                                    "system": "cochrane",
+                                    "system": "https://data.cochrane.org/concepts/",
                                     "code": "10sx0v1p36wyv"
                                 }
                             ]
@@ -29,7 +29,7 @@
                             "text": "COVID-19",
                             "coding": [
                                 {
-                                    "system": "cochrane",
+                                    "system": "https://data.cochrane.org/concepts/",
                                     "code": "NrO30O5ZnYIkjE"
                                 }
                             ]
@@ -42,7 +42,7 @@
                             "text": "Supine body position",
                             "coding": [
                                 {
-                                    "system": "cochrane",
+                                    "system": "https://data.cochrane.org/concepts/",
                                     "code": "r4hp39rbgq4j"
                               }
                             ]
@@ -53,6 +53,7 @@
             }
         },
         {
+            "fullUrl": "urn:uuid:int1",
             "resource":{
                 "resourceType":"EvidenceVariable",
                 "id": "i1",
@@ -67,6 +68,7 @@
             }
         },
         {
+            "fullUrl": "urn:uuid:int1gr1",
             "resource": {
                 "resourceType": "Group",
                 "id": "g1",
@@ -77,7 +79,7 @@
                         "code": {
                             "coding": [
                                 {
-                                    "system": "ceosys",
+                                    "system": "https://ceosys.de",
                                     "code": "ci0001"
                                 }
                             ]
