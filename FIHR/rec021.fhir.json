@@ -35,103 +35,103 @@
             "id": "CJ"            
         }
     ],
-    "exposureBackground": {
-        "resourceType":"EvidenceVariable",
-        "identifier": [
-            {
-                "value": "Population 1"
-            }
-        ],
-        "status": "draft",
-        "description": "Population 1 for MA_69591",
-        "characteristic": [
-            {
-                "description": "Population 1 for MA_69591, 3 elements",
-                "definitionReference": {
-                    "resourceType":"Group",
-                    "type": "person",
-                    "actual": false,
-                    "characteristic": [
-                        {
-                            "code": {
-                                "text": "Intensive Care unit",
-                                "coding": [
-                                    {
-                                        "system": "cochrane",
-                                        "code": "10sx0v1p36wyv"
-                                    }
-                                ]
-                            },
-                            "valueBoolean": true,
-                            "exclude": false
-                        },
-                        {
-                            "code": {
-                                "text": "COVID-19",
-                                "coding": [
-                                    {
-                                        "system": "cochrane",
-                                        "code": "NrO30O5ZnYIkjE"
-                                    }
-                                ]
-                            },
-                            "valueBoolean": true,
-                            "exclude": false
-                        },
-                        {
-                            "code": {
-                                "text": "Supine body position",
-                                "coding": [
-                                    {
-                                        "system": "cochrane",
-                                        "code": "r4hp39rbgq4j"
-                                    }
-                                ]
-                            },
-                            "valueBoolean": true,
-                            "exclude": false
-                        }
-                    ]
+        "exposureBackground": {
+            "reference":"http://www.hl7.org/fhir/evidencevariable.html",
+            "identifier": [
+                {
+                    "value": "Population 1"
                 }
-            }
-        ]
-    },
-    "exposureVariant": [
-        {
-            "resourceType":"EvidenceVariable",
-            "description": "Intervention in Population 1 for MA_69591",
+            ],
             "status": "draft",
+            "description": "Population 1 for MA_69591",
             "characteristic": [
                 {
-                "definitionReference": {
-                    "resourceType":"Group",
-                    "type": "person",
-                    "actual": false,                    
-                    "characteristic": [
-                        {
-                            "code": {
-                                "text": "RASS",
-                                "coding": [
-                                    {
-                                        "system": "ceosys",
-                                        "code": "ci0001"
-                                    }
-                                ]
+                    "description": "Population 1 for MA_69591, 3 elements",
+                    "definitionReference": {
+                        "resourceType":"Group",
+                        "type": "person",
+                        "actual": false,
+                        "characteristic": [
+                            {
+                                "code": {
+                                    "text": "Intensive Care unit",
+                                    "coding": [
+                                        {
+                                            "system": "cochrane",
+                                            "code": "10sx0v1p36wyv"
+                                        }
+                                    ]
+                                },
+                                "valueBoolean": true,
+                                "exclude": false
                             },
-                            "valueRange": {
-                                "low": {
-                                    "value": -1
+                            {
+                                "code": {
+                                    "text": "COVID-19",
+                                    "coding": [
+                                        {
+                                            "system": "cochrane",
+                                            "code": "NrO30O5ZnYIkjE"
+                                        }
+                                    ]
                                 },
-                                "high": {
-                                    "value": 0
-                                    }
+                                "valueBoolean": true,
+                                "exclude": false
+                            },
+                            {
+                                "code": {
+                                    "text": "Supine body position",
+                                    "coding": [
+                                        {
+                                            "system": "cochrane",
+                                            "code": "r4hp39rbgq4j"
+                                        }
+                                    ]
                                 },
-                            "exclude": false
+                                "valueBoolean": true,
+                                "exclude": false
                             }
                         ]
                     }
                 }
             ]
-        }
-    ]
-}
+        },
+        "exposureVariant": [
+            {
+                "resourceType":"EvidenceVariable",
+                "description": "Intervention in Population 1 for MA_69591",
+                "status": "draft",
+                "characteristic": [
+                    {
+                    "definitionReference": {
+                        "resourceType":"Group",
+                        "type": "person",
+                        "actual": false,                    
+                        "characteristic": [
+                            {
+                                "code": {
+                                    "text": "RASS",
+                                    "coding": [
+                                        {
+                                            "system": "ceosys",
+                                            "code": "ci0001"
+                                        }
+                                    ]
+                                },
+                                "valueRange": {
+                                    "low": {
+                                        "value": -1
+                                    },
+                                    "high": {
+                                        "value": 0
+                                        }
+                                    },
+                                "exclude": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }

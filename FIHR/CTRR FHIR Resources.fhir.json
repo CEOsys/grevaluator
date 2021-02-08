@@ -1,0 +1,1137 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "total": 15,
+  "entry": [
+    {
+      "resourceType": "EvidenceReport",
+      "status": "draft",
+      "useContext": [
+        {
+          "code": {
+            "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+            "code": "program",
+            "display": "Program"
+          },
+          "valueCodeableConcept": {
+            "text": "Clinical Trial Results Reporter"
+          }
+        }
+      ],
+      "date": "2021-02-07 11:59:44",
+      "title": "CeoRec Evidence Report",
+      "relatedIdentifier": [
+        {
+          "system": "https://clinicaltrials.gov",
+          "value": "Rec-MA6591"
+        }
+      ],
+      "subject": {
+        "characteristic": [
+          {
+            "code": {
+              "text": "ClinicalTrials.gov entry"
+            },
+            "valueReference": {
+              "display": "Rec-MA6591"
+            }
+          },
+          {
+            "code": {
+              "text": "Study Report Component"
+            },
+            "valueReference": {
+              "display": "Results"
+            }
+          }
+        ]
+      },
+      "publisher": "Computable Publishing LLC",
+      "contact": [
+        {
+          "name": "Brian S. Alper",
+          "telecom": [
+            {
+              "system": "email",
+              "value": "support@computablepublishing.com"
+            }
+          ]
+        }
+      ],
+      "author": [
+        {
+          "name": "Joanne Dehnbostel",
+          "telecom": [
+            {
+              "system": "email",
+              "value": "jdehnbostel@computablepublishing.com"
+            }
+          ]
+        }
+      ],
+      "section": [
+        {
+          "title": "Form Settings",
+          "focus": {
+            "text": "form settings"
+          },
+          "section": [
+            {
+              "title": "Unit of Measure dropdown choices",
+              "focus": {
+                "text": "Unit of Measure dropdown choices"
+              },
+              "section": [
+                {
+                  "title": "coded",
+                  "entryClassifier": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "d",
+                          "display": "days"
+                        }
+                      ]
+                    },
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "wk",
+                          "display": "weeks"
+                        }
+                      ]
+                    },
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "mo",
+                          "display": "months"
+                        }
+                      ]
+                    },
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "a",
+                          "display": "years"
+                        }
+                      ]
+                    },
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "mg",
+                          "display": "mg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Unit of Time dropdown choices",
+              "focus": {
+                "text": "Unit of Time dropdown choices"
+              },
+              "section": [
+                {
+                  "title": "coded",
+                  "entryClassifier": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "d",
+                          "display": "days"
+                        }
+                      ]
+                    },
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "wk",
+                          "display": "weeks"
+                        }
+                      ]
+                    },
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "mo",
+                          "display": "months"
+                        }
+                      ]
+                    },
+                    {
+                      "coding": [
+                        {
+                          "system": "http://unitsofmeasure.org/",
+                          "code": "a",
+                          "display": "years"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Default quantities",
+              "focus": {
+                "text": "Default quantities"
+              },
+              "section": [
+                {
+                  "title": "Baseline Measures Default Quantities",
+                  "focus": {
+                    "text": "Baseline Measures"
+                  },
+                  "section": [
+                    {
+                      "title": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants",
+                      "focusReference": {
+                        "type": "Group",
+                        "identifier": {
+                          "value": "Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+                        },
+                        "display": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+                      }
+                    },
+                    {
+                      "title": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants",
+                      "focusReference": {
+                        "type": "Group",
+                        "identifier": {
+                          "value": "Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+                        },
+                        "display": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "title": "Outcome Measures Default Quantities",
+                  "focus": {
+                    "text": "Outcome Measures"
+                  },
+                  "section": [
+                    {
+                      "title": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants",
+                      "focusReference": {
+                        "type": "Group",
+                        "identifier": {
+                          "value": "Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+                        },
+                        "display": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+                      }
+                    },
+                    {
+                      "title": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants",
+                      "focusReference": {
+                        "type": "Group",
+                        "identifier": {
+                          "value": "Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+                        },
+                        "display": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Evidence Variables and Groups",
+          "focus": {
+            "text": "Evidence Variables and Groups"
+          },
+          "section": [
+            {
+              "title": "Population Identifier",
+              "focus": {
+                "text": "Population Identifier"
+              },
+              "entryReference": [
+                {
+                  "type": "Group",
+                  "identifier": {
+                    "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+                  },
+                  "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+                }
+              ]
+            },
+            {
+              "title": "Population Descriptor",
+              "focus": {
+                "text": "Population Descriptor"
+              },
+              "entryReference": [
+                {
+                  "type": "Group",
+                  "identifier": {
+                    "value": "Population-MA-69591"
+                  },
+                  "display": "Population MA_69591"
+                }
+              ]
+            },
+            {
+              "title": "Sub Populations",
+              "focus": {
+                "text": "Sub Populations"
+              },
+              "section": [
+                {
+                  "title": "Exposures - Trial Arms",
+                  "focus": {
+                    "text": "Exposures - Trial Arms"
+                  },
+                  "entryReference": [
+                    {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "Intervention1-for-MA-69591"
+                      },
+                      "display": "Intervention1 for MA_69591"
+                    },
+                    {
+                      "type": "EvidenceVariable"
+                    }
+                  ]
+                },
+                {
+                  "title": "Groups",
+                  "focus": {
+                    "text": "Groups"
+                  },
+                  "entryReference": [
+                    {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+                      },
+                      "display": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+                    },
+                    {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+                      },
+                      "display": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Baseline Measures",
+              "focus": {
+                "text": "Baseline Measures"
+              },
+              "entryReference": [
+                {
+                  "type": "EvidenceVariable"
+                }
+              ]
+            },
+            {
+              "title": "Outcome Measures",
+              "focus": {
+                "text": "Outcome Measures"
+              },
+              "entryReference": [
+                {
+                  "type": "EvidenceVariable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Baseline Results",
+          "focus": {
+            "text": "Baseline Results"
+          },
+          "section": [
+            {
+              "title": "Intervention1 for MA_69591 Baseline Results",
+              "focus": {
+                "text": "Intervention1 for MA_69591"
+              },
+              "entryReference": [
+                {
+                  "type": "Evidence",
+                  "identifier": {
+                    "value": "for-Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591"
+                  },
+                  "display": " for Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591"
+                }
+              ]
+            },
+            {
+              "title": " Baseline Results",
+              "entryReference": [
+                {
+                  "type": "Evidence",
+                  "identifier": {
+                    "value": "for-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591"
+                  },
+                  "display": " for  Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591"
+                }
+              ]
+            },
+            {
+              "title": "Total Population Baseline Results",
+              "focus": {
+                "text": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+              },
+              "entryReference": [
+                {
+                  "type": "Evidence",
+                  "identifier": {
+                    "value": "for-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591"
+                  },
+                  "display": " for Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Outcome Results",
+          "focus": {
+            "text": "Outcome Results"
+          },
+          "section": [
+            {
+              "title": "Intervention1 for MA_69591 Outcome Results",
+              "focus": {
+                "text": "Intervention1 for MA_69591"
+              },
+              "entryReference": [
+                {
+                  "type": "Evidence",
+                  "identifier": {
+                    "value": "for-Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591"
+                  },
+                  "display": " for Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591"
+                }
+              ]
+            },
+            {
+              "title": " Outcome Results",
+              "entryReference": [
+                {
+                  "type": "Evidence",
+                  "identifier": {
+                    "value": "for-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591"
+                  },
+                  "display": " for  Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591"
+                }
+              ]
+            },
+            {
+              "title": "Intervention1 for MA_69591 vs.  Outcome Results",
+              "focus": {
+                "text": "Intervention1 for MA_69591 vs. "
+              },
+              "entryReference": [
+                {
+                  "type": "Evidence",
+                  "identifier": {
+                    "value": "for-Intervention1-for-MA-69591-vs-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591"
+                  },
+                  "display": " for Intervention1 for MA_69591 vs  in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resourceType": "Group",
+      "id": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants",
+      "type": "person",
+      "actual": true,
+      "name": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants",
+      "quantity": 100,
+      "characteristic": [
+        {
+          "code": {
+            "text": "participation in research study"
+          },
+          "valueReference": {
+            "identifier": {
+              "value": "Rec-MA6591"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591"
+          },
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "resourceType": "Group",
+      "id": "Population-MA-69591",
+      "type": "person",
+      "actual": false,
+      "name": "Population MA_69591",
+      "characteristic": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "397669002",
+                "display": "Age"
+              }
+            ]
+          },
+          "valueRange": {
+            "low": {
+              "value": 18,
+              "unit": "years",
+              "system": "http://unitsofmeasure.org/",
+              "code": "a"
+            },
+            "high": {
+              "value": 99,
+              "unit": "years",
+              "system": "http://unitsofmeasure.org/",
+              "code": "a"
+            }
+          },
+          "exclude": false
+        },
+        {
+          "code": {
+            "text": "sex"
+          },
+          "valueCodeableConcept": {
+            "text": "All"
+          },
+          "exclude": false
+        },
+        {
+          "code": {
+            "text": "specific question"
+          },
+          "valueCodeableConcept": {
+            "text": "Accepts Healthy Volunteers"
+          },
+          "exclude": true
+        }
+      ]
+    },
+    {
+      "resourceType": "Group",
+      "id": "Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants",
+      "type": "person",
+      "actual": true,
+      "name": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants",
+      "characteristic": [
+        {
+          "code": {
+            "text": "participation in research study"
+          },
+          "valueReference": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "exclude": false
+        },
+        {
+          "code": {
+            "text": "trial arm"
+          },
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "identifier": {
+              "value": "Intervention1-for-MA-69591"
+            },
+            "display": "Intervention1 for MA_69591"
+          },
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "resourceType": "Group",
+      "id": "Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants",
+      "type": "person",
+      "actual": true,
+      "name": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants",
+      "characteristic": [
+        {
+          "code": {
+            "text": "participation in research study"
+          },
+          "valueReference": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "exclude": false
+        },
+        {
+          "code": {
+            "text": "trial arm"
+          },
+          "valueReference": {
+            "type": "EvidenceVariable"
+          },
+          "exclude": false
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "Intervention1-for-MA-69591",
+      "name": "Intervention1 for MA_69591",
+      "description": "RASS 0 to -1",
+      "actual": true
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "actual": true
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "actual": true,
+      "handling": "dichotomous"
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "actual": true,
+      "handling": "dichotomous"
+    },
+    {
+      "resourceType": "Evidence",
+      "id": "for-Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591",
+      "title": " for Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591",
+      "status": "draft",
+      "variableDefinition": [
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "population",
+                "display": "population"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "intended": {
+            "type": "Group",
+            "identifier": {
+              "value": "Population-MA-69591"
+            },
+            "display": "Population MA_69591"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "subpopulation",
+                "display": "subpopulation"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "measuredVariable",
+                "display": "measured variable"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable"
+          }
+        }
+      ],
+      "studyType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/study-type",
+            "code": "cohort",
+            "display": "comparative cohort study"
+          }
+        ]
+      },
+      "statistic": [
+        {
+          "statisticType": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/statistic-type",
+                "code": "C44256",
+                "display": "Proportion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Evidence",
+      "id": "for-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591",
+      "title": " for  Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591",
+      "status": "draft",
+      "variableDefinition": [
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "population",
+                "display": "population"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "intended": {
+            "type": "Group",
+            "identifier": {
+              "value": "Population-MA-69591"
+            },
+            "display": "Population MA_69591"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "subpopulation",
+                "display": "subpopulation"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "measuredVariable",
+                "display": "measured variable"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable"
+          }
+        }
+      ],
+      "studyType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/study-type",
+            "code": "cohort",
+            "display": "comparative cohort study"
+          }
+        ]
+      },
+      "statistic": [
+        {
+          "statisticType": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/statistic-type",
+                "code": "C44256",
+                "display": "Proportion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Evidence",
+      "id": "for-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591",
+      "title": " for Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591",
+      "status": "draft",
+      "variableDefinition": [
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "population",
+                "display": "population"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "intended": {
+            "type": "Group",
+            "identifier": {
+              "value": "Population-MA-69591"
+            },
+            "display": "Population MA_69591"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "measuredVariable",
+                "display": "measured variable"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable"
+          }
+        }
+      ],
+      "studyType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/study-type",
+            "code": "cohort",
+            "display": "comparative cohort study"
+          }
+        ]
+      },
+      "statistic": [
+        {
+          "statisticType": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/statistic-type",
+                "code": "C44256",
+                "display": "Proportion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Evidence",
+      "id": "for-Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591",
+      "title": " for Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591",
+      "status": "draft",
+      "variableDefinition": [
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "population",
+                "display": "population"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "intended": {
+            "type": "Group",
+            "identifier": {
+              "value": "Population-MA-69591"
+            },
+            "display": "Population MA_69591"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "subpopulation",
+                "display": "subpopulation"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Intervention1-for-MA-69591-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Intervention1 for MA_69591 Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "measuredVariable",
+                "display": "measured variable"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable"
+          }
+        }
+      ],
+      "studyType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/study-type",
+            "code": "cohort",
+            "display": "comparative cohort study"
+          }
+        ]
+      },
+      "statistic": [
+        {
+          "statisticType": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/statistic-type"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Evidence",
+      "id": "for-Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591",
+      "title": " for  Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591",
+      "status": "draft",
+      "variableDefinition": [
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "population",
+                "display": "population"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "intended": {
+            "type": "Group",
+            "identifier": {
+              "value": "Population-MA-69591"
+            },
+            "display": "Population MA_69591"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "subpopulation",
+                "display": "subpopulation"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Cohort-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": " Cohort in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "measuredVariable",
+                "display": "measured variable"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable"
+          }
+        }
+      ],
+      "studyType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/study-type",
+            "code": "cohort",
+            "display": "comparative cohort study"
+          }
+        ]
+      },
+      "statistic": [
+        {
+          "statisticType": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/statistic-type"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Evidence",
+      "id": "for-Intervention1-for-MA-69591-vs-in-Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591",
+      "title": " for Intervention1 for MA_69591 vs  in Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591",
+      "status": "draft",
+      "variableDefinition": [
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "population",
+                "display": "population"
+              }
+            ]
+          },
+          "observed": {
+            "type": "Group",
+            "identifier": {
+              "value": "Guideline-4546-S1-Leitlinie-zur-Sedierung-von-Patienten-mit-COVID-19-Patienten-in-der-Intensivmedizin-recommendation-MA6591-participants"
+            },
+            "display": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - recommendation MA6591 participants"
+          },
+          "intended": {
+            "type": "Group",
+            "identifier": {
+              "value": "Population-MA-69591"
+            },
+            "display": "Population MA_69591"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "exposure",
+                "display": "exposure"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable",
+            "identifier": {
+              "value": "Intervention1-for-MA-69591"
+            },
+            "display": "Intervention1 for MA_69591"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "referenceExposure",
+                "display": "reference exposure"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable"
+          }
+        },
+        {
+          "variableRole": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                "code": "measuredVariable",
+                "display": "measured variable"
+              }
+            ]
+          },
+          "observed": {
+            "type": "EvidenceVariable"
+          }
+        }
+      ],
+      "studyType": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/study-type",
+            "code": "cohort",
+            "display": "comparative cohort study"
+          }
+        ]
+      },
+      "statistic": [
+        {
+          "statisticType": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/statistic-type"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

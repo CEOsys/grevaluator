@@ -5,6 +5,17 @@
         {
             "fullUrl": "urn:uuid:pop1",
             "resource":  {
+                "resourceType": "Evidence",
+
+            }
+            
+        }
+    ]
+}
+
+
+
+
                 "resourceType": "EvidenceVariable",
                 "id": "p1",
                 "status": "draft",

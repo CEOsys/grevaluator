@@ -55,7 +55,7 @@
                                 "text": "Intensive Care unit",
                                 "coding": [
                                     {
-                                        "system": "cochrane",
+                                        "system": "https://data.cochrane.org/concepts/",
                                         "code": "10sx0v1p36wyv"
                                     }
                                 ]
@@ -68,8 +68,8 @@
                                 "text": "COVID-19",
                                 "coding": [
                                     {
-                                        "system": "cochrane",
-                                        "code": "NrO30O5ZnYIkjE"
+                                        "system": "https://data.cochrane.org/concepts/",
+                                        "code": "r4hp398d718f"
                                     }
                                 ]
                             },
@@ -81,7 +81,7 @@
                                 "text": "semiprone position",
                                 "coding": [
                                     {
-                                        "system": "cochrane",
+                                        "system": "https://data.cochrane.org/concepts/",
                                         "code": "r4hp398d718f"
                                     }
                                 ]

@@ -1,0 +1,416 @@
+{
+    "resourceType": "Bundle",
+    "type": "collection",
+    "entry": [
+        {
+          "resource":  {
+                "resourceType": "Evidence",
+                "url": "http://ceosys.org/Rec/MA6591/",
+                "title": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - Ceosys recommendation MA_6591",
+                "author": [
+                    {
+                        "name": "Carlo Jurth"
+                    }
+                ],
+                "status": "draft",
+                "description": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine Übersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in überdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 („conscious proning“ erwägen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls müssen Ausnahmen begründen werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
+                "variableDefinition": [
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "population",
+                          "display": "population"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Population1-for-MA-6591"
+                      },
+                      "display": "Population1 for MA_6591"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "population",
+                          "display": "population"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Population2-for-MA-6591"
+                      },
+                      "display": "Population2 for MA_6591"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "population",
+                          "display": "population"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Population3-for-MA-6591"
+                      },
+                      "display": "Population3 for MA_6591"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "exposure",
+                          "display": "exposure"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "Intervention1-for-MA-6591"
+                      },
+                      "display": "Intervention1 for MA_6591"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "exposure",
+                          "display": "exposure"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "Intervention2-for-MA-6591"
+                      },
+                      "display": "Intervention2 for MA_6591"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "exposure",
+                          "display": "exposure"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "Intervention3-for-MA-6591"
+                      },
+                      "display": "Intervention3 for MA_6591"
+                    }
+                  }
+                ],
+                "certainty": [
+                  {
+                    "description": "Moderate certainty due to ...",
+                    "type": {
+                      "coding": [
+                        {
+                          "system": "http://hl7.org/fhir/ValueSet/certainty-type",
+                          "code": "Overall",
+                          "display": "Overall quality"
+                        }
+                      ]
+                    },
+                    "rating": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/certainty-rating",
+                          "code": "low",
+                          "display": "low"
+                        }
+                      ]
+                    }
+                  }
+                ]
+            }
+        },
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Population1-for-MA-6591",
+            "type": "person",
+            "actual": false,
+            "name": "Population1 for MA_6591",
+            "characteristic": [
+              {
+                  "code": {
+                      "text": "Intensive Care unit",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "10sx0v1p36wyv"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              },
+              {
+                  "code": {
+                      "text": "COVID-19",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "NrO30O5ZnYIkjE"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              },
+              {
+                  "code": {
+                      "text": "Supine body position",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "r4hp39rbgq4j"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Population2-for-MA-6591",
+            "type": "person",
+            "actual": false,
+            "name": "Population2 for MA_6591",
+            "characteristic": [
+              {
+                  "code": {
+                      "text": "Intensive Care unit",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "10sx0v1p36wyv"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              },
+              {
+                  "code": {
+                      "text": "COVID-19",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "NrO30O5ZnYIkjE"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              },
+              {
+                  "code": {
+                      "text": "semiprone position",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "r4hp398d718f"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Population3-for-MA-6591",
+            "type": "person",
+            "actual": false,
+            "name": "Population3 for MA_6591",
+            "characteristic": [
+              {
+                  "code": {
+                      "text": "Intensive Care unit",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "10sx0v1p36wyv"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              },
+              {
+                  "code": {
+                      "text": "COVID-19",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "NrO30O5ZnYIkjE"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              },
+              {
+                  "code": {
+                      "text": "Prone Body Position",
+                      "coding": [
+                          {
+                              "system": "https://data.cochrane.org/concepts/",
+                              "code": "r4hp38mb0nt7"
+                          }
+                      ]
+                  },
+                  "valueBoolean": true,
+                  "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "EvidenceVariable",
+            "id": "Intervention1-for-MA-6591",
+            "status": "draft",
+            "description": "Intervention in Population 1 for MA_69591",
+            "name": "Intervention1 for MA_6591",
+            "characteristic": [
+                {
+                  "description": "RASS 0 to -1",
+                  "definitionCodeableConcept": {
+                    "text": "RASS",
+                    "coding": [
+                      {
+                        "system": "https://ceosys.org/newcodes/",
+                        "code": "cnc0001"
+                      }
+                    ]
+                  },
+                  "exclude": false
+                }  
+              ],
+              "category":[
+                {
+                  "valueRange": {
+                    "low": {
+                        "value": -1
+                    },
+                    "high": {
+                        "value": 0
+                        }
+                    }
+                  }
+                ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "EvidenceVariable",
+            "id": "Intervention2-for-MA-6591",
+            "status": "draft",
+            "description": "Intervention in Population 1 for MA_69591",
+            "name": "Intervention2 for MA_6591",
+            "characteristic": [
+                {
+                  "description": "RASS 0 to -2",
+                  "definitionCodeableConcept": {
+                    "text": "RASS",
+                    "coding": [
+                      {
+                        "system": "https://ceosys.org/newcodes/",
+                        "code": "cnc0001"
+                      }
+                    ]
+                  },
+                  "exclude": false
+                }  
+              ],
+              "category":[
+                {
+                  "valueRange": {
+                    "low": {
+                        "value": -2
+                    },
+                    "high": {
+                        "value": 0
+                        }
+                    }
+                  }
+                ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "EvidenceVariable",
+            "id": "Intervention3-for-MA-6591",
+            "status": "draft",
+            "description": "Intervention in Population 1 for MA_69591",
+            "name": "Intervention3 for MA_6591",
+            "characteristic": [
+                {
+                  "description": "RASS 0 to -1",
+                  "definitionCodeableConcept": {
+                    "text": "RASS",
+                    "coding": [
+                      {
+                        "system": "https://ceosys.org/newcodes/",
+                        "code": "cnc0001"
+                      }
+                    ]
+                  },
+                  "exclude": false
+                }  
+              ],
+              "category":[
+                {
+                  "valueRange": {
+                    "low": {
+                        "value": -4
+                    },
+                    "high": {
+                        "value": -3
+                        }
+                    }
+                  }
+                ]
+          }
+        }
+    ]
+  }
+
+
+  
+
+
