@@ -14,6 +14,11 @@
                 ],
                 "status": "draft",
                 "description": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine Übersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in überdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 („conscious proning“ erwägen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls müssen Ausnahmen begründen werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
+                "note": [
+                  {
+                    "text": "PICO: Population 3 parts, Intervention 3 parts"
+                  }
+                ],
                 "variableDefinition": [
                   {
                     "variableRole": {
