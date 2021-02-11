@@ -98,31 +98,60 @@
                         ]
                       },
                       {
-                        "title": "Groups",
+                        "title": "Populations in Reccomendations",
                         "focus": {
-                          "text": "Groups"
+                          "text": "Populations in Reccomendations"
                         },
                         "entryReference": [
                           {
                             "type": "Group",
                             "identifier": {
-                              "value": "Covid19-Supine"
+                              "value": "Pop1-69591-Covid19-Supine"
                             },
-                            "display": "Covid19 patients in supine body position"
+                            "display": "Population1 for Reccomandation 69591: Covid19 patients in supine body position"
                           },
                           {
                             "type": "Group",
                             "identifier": {
-                              "value": "Covid19-Semiprone"
+                              "value": "Pop2-69591-Covid19-Semiprone"
                             },
-                            "display": "Covid19 patients in semiprone body position"
+                            "display": "Population2 for Reccomandation 69591: Covid19 patients in semiprone body position"
                           },
                           {
                             "type": "Group",
                             "identifier": {
-                              "value": "Covid19-Prone"
+                              "value": "Pop3-69591-Covid19-Prone"
                             },
-                            "display": "Covid19 patients in prone body position"
+                            "display": "Population3 for Reccomandation 69591: Covid19 patients in prone body position"
+                          }
+                        ]
+                      },
+                      {
+                        "title": "Interventions in Reccomendations",
+                        "focus": {
+                          "text": "Populations in Reccomendations"
+                        },
+                        "entryReference": [
+                          {
+                            "type": "EvidenceVariable",
+                            "identifier": {
+                              "value": "Int1-69591-RASS-from-1to0"
+                            },
+                            "display": "Intervention1 for Reccomandation 69591: Rass -1 to 0"
+                          },
+                          {
+                            "type": "EvidenceVariable",
+                            "identifier": {
+                              "value": "Int2-69591-RASS-from-2to0"
+                            },
+                            "display": "Intervention2 for Reccomandation 69591: Rass -2 to 0"
+                          },
+                          {
+                            "type": "EvidenceVariable",
+                            "identifier": {
+                              "value": "Int3-69591-RASS-from-4to-3"
+                            },
+                            "display": "Intervention3 for Reccomandation 69591: Rass -4 to -3"
                           }
                         ]
                       }
@@ -239,10 +268,60 @@
         {
           "resource": {
             "resourceType": "Group",
-            "id": "Covid19-Supine",
+            "id": "Pop1-69591-Covid19-Supine-ICU",
             "type": "person",
             "actual": false,
             "name": "Covid19 patients in supin Body Position",
+            "characteristic": [
+              {
+                "code": {
+                  "text": "COVID-19 patients"
+                },
+                "valueReference": {
+                  "type": "Group",
+                  "identifier": {
+                    "value": "COVID-19"
+                  },
+                  "display": "patients with COVID-19 desease"
+                },
+                "exclude": false
+              },
+              {
+                "code": {
+                  "text": "Supine body position"
+                },
+                "valueReference": {
+                  "type": "EvidenceVariable",
+                  "identifier": {
+                    "value": "BodyPosition-Supine"
+                  },
+                  "display": "patients in supine body position"
+                },
+                "exclude": false
+              },
+              {
+                "code": {
+                  "text": "Setting IntensiveCareUnit"
+                },
+                "valueReference": {
+                  "type": "EvidenceVariable",
+                  "identifier": {
+                    "value": "Setting-IntensiveCareUnit"
+                  },
+                  "display": "patients in Setting of IntensiveCareUnit"
+                },
+                "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Pop2-69591-Covid19-Semiprone-ICU",
+            "type": "person",
+            "actual": false,
+            "name": "Covid19 patients in semiprone Body Position",
             "characteristic": [
               {
                 "code": {
@@ -264,48 +343,24 @@
                 "valueReference": {
                   "type": "EvidenceVariable",
                   "identifier": {
-                    "value": "BodyPosition-Supine"
-                  },
-                  "display": "patients in supine body position"
-                },
-                "exclude": false
-              }
-            ]
-          }
-        },
-        {
-          "resource": {
-            "resourceType": "Group",
-            "id": "Covid19-Semiprone",
-            "type": "person",
-            "actual": false,
-            "name": "Covid19 patients in semiprone Body Position",
-            "characteristic": [
-              {
-                "code": {
-                  "text": "COVID-19 patients"
-                },
-                "valueReference": {
-                  "type": "Group",
-                  "identifier": {
-                    "value": "COVID-19"
-                  },
-                  "display": "patients with COVID-19 deseas"
-                },
-                "exclude": false
-              },
-              {
-                "code": {
-                  "text": "Semiprone body position"
-                },
-                "valueReference": {
-                  "type": "EvidenceVariable",
-                  "identifier": {
                     "value": "BodyPosition-Semiprone"
                   },
                   "display": "patients in semiprone body position"
                 },
                 "exclude": false
+              },
+              {
+                "code": {
+                  "text": "Setting IntensiveCareUnit"
+                },
+                "valueReference": {
+                  "type": "EvidenceVariable",
+                  "identifier": {
+                    "value": "Setting-IntensiveCareUnit"
+                  },
+                  "display": "patients in Setting of IntensiveCareUnit"
+                },
+                "exclude": false
               }
             ]
           }
@@ -313,7 +368,7 @@
         {
           "resource": {
             "resourceType": "Group",
-            "id": "Covid19-Prone",
+            "id": "Pop3-69591-Covid19-Prone-ICU",
             "type": "person",
             "actual": false,
             "name": "Covid19 patients in rone Body Position",
@@ -340,7 +395,20 @@
                   "identifier": {
                     "value": "BodyPosition-Prone"
                   },
-                  "display": "patients in semiprone body position"
+                  "display": "patients in prone body position"
+                },
+                "exclude": false
+              },
+              {
+                "code": {
+                  "text": "Setting IntensiveCareUnit"
+                },
+                "valueReference": {
+                  "type": "EvidenceVariable",
+                  "identifier": {
+                    "value": "Setting-IntensiveCareUnit"
+                  },
+                  "display": "patients in Setting of IntensiveCareUnit"
                 },
                 "exclude": false
               }
@@ -514,13 +582,12 @@
           },
          
 
-
           {
             "resource": {
               "resourceType": "EvidenceVariable",
-              "id": "RASS-from-1-to0",
+              "id": "Int1-69591-RASS-from-1to0",
               "status": "draft",
-              "description": "RASS-from-1-to0",
+              "description": "RASS_from-1to0",
               "name": "Intervention1 for MA_6591",
               "characteristic": [
                   {
@@ -529,8 +596,7 @@
                       "type": "EvidenceVariable",
                       "identifier": {
                         "value": "RASS"
-                    },
-                    "exclude": false
+                    }
                   },
                   "exclude": false
                 }  
@@ -552,19 +618,18 @@
           {
             "resource": {
               "resourceType": "EvidenceVariable",
-              "id": "RASS-from-1-to0",
+              "id": "Int2-69591-RASS-from-1-to0",
               "status": "draft",
-              "description": "RASS-from-1-to0",
+              "description": "RASS_from-2to0",
               "name": "Intervention1 for MA_6591",
               "characteristic": [
                   {
-                    "description": "RASS 0 to -1",
+                    "description": "RASS 0 to -2",
                     "definitionReference": {
                       "type": "EvidenceVariable",
                       "identifier": {
                         "value": "RASS"
-                    },
-                    "exclude": false
+                    }
                   },
                   "exclude": false
                 }  
@@ -573,7 +638,7 @@
                 {
                   "valueRange": {
                     "low": {
-                        "value": -1
+                        "value": -2
                     },
                     "high": {
                         "value": 0
@@ -586,19 +651,18 @@
           {
             "resource": {
               "resourceType": "EvidenceVariable",
-              "id": "RASS-from-1-to0",
+              "id": "Int1-69591-RASS-from-4to-3",
               "status": "draft",
               "description": "RASS-from-1-to0",
               "name": "Intervention1 for MA_6591",
               "characteristic": [
                   {
-                    "description": "RASS 0 to -1",
+                    "description": "RASS -4 to -3",
                     "definitionReference": {
                       "type": "EvidenceVariable",
                       "identifier": {
                         "value": "RASS"
-                    },
-                    "exclude": false
+                    }
                   },
                   "exclude": false
                 }  
@@ -607,35 +671,25 @@
                 {
                   "valueRange": {
                     "low": {
-                        "value": -1
+                        "value": -4
                     },
                     "high": {
-                        "value": 0
+                        "value": -3
                         }
                     }
                   }
                 ]
               }
           },
-
-
-
-
-
-
-
-
-
-
 
 
 
         {
-          "fullUrl": "http://example.org/fhir/Evidence/MA6591",
+          "fullUrl": "http://example.org/fhir/Evidence/Recommendation69591",
           "resource":  {
                 "resourceType": "Evidence",
                 "url": "http://ceosys.org/Rec/MA6591/",
-                "id": "Recommendation-MA6591",
+                "id": "Recommendation69591-MA6591",
                 "title": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - Ceosys recommendation MA_6591",
                 "author": [
                     {
@@ -663,9 +717,9 @@
                     "observed": {
                       "type": "Group",
                       "identifier": {
-                        "value": "Covid19-Supine"
+                        "value": "Pop1-69591-Covid19-Supine-ICU"
                       },
-                      "display": "Population1 for MA_6591: Covid19 patinest in supine Bodyposition"
+                      "display": "Population1 for Reccomandation 69591 in guidline  MA6591: Covid19 patinest in supine Bodyposition"
                     }
                   },
                   {
@@ -681,9 +735,9 @@
                     "observed": {
                       "type": "Group",
                       "identifier": {
-                        "value": "Covid19-Semiprone"
+                        "value": "Pop1-69591-Covid19-Semiprone-ICU"
                       },
-                      "display": "Population2 for MA_6591: Covid19 patinest in semiprone Bodyposition"
+                      "display": "Population2 for Reccomandation 69591 in guidline MA6591: Covid19 patinest in semiprone Bodyposition"
                     }
                   },
                   {
@@ -699,9 +753,9 @@
                     "observed": {
                       "type": "Group",
                       "identifier": {
-                        "value": "Covid19-Prone"
+                        "value": "Pop1-69591-Covid19-Prone-ICU"
                       },
-                      "display": "Population3 for MA_6591: Covid19 patinest in prone Bodyposition"
+                      "display": "Population3 for Reccomandation 69591 in guidline MA_6591: Covid19 patinest in prone Bodyposition"
                     }
                   },
                   {
@@ -717,9 +771,9 @@
                     "observed": {
                       "type": "EvidenceVariable",
                       "identifier": {
-                        "value": "Intervention1-for-MA-6591"
+                        "value": "Int1-69591-RASS-from-1to0"
                       },
-                      "display": "Intervention1 for MA_6591"
+                      "display": "Intervention1for Reccomandation 69591 in guidline MA_6591: Rass -1 to 0"
                     }
                   },
                   {
@@ -735,9 +789,9 @@
                     "observed": {
                       "type": "EvidenceVariable",
                       "identifier": {
-                        "value": "Intervention2-for-MA-6591"
+                        "value": "Int2-69591-RASS-from-2to0"
                       },
-                      "display": "Intervention2 for MA_6591"
+                      "display": "Intervention2 for Reccomandation 69591 in guidline MA_6591: Rass -2 to 0"
                     }
                   },
                   {
@@ -753,9 +807,9 @@
                     "observed": {
                       "type": "EvidenceVariable",
                       "identifier": {
-                        "value": "Intervention3-for-MA-6591"
+                        "value": "Int3-69591-RASS-from-4to-4"
                       },
-                      "display": "Intervention3 for MA_6591"
+                      "display": "Intervention3 for Reccomandation 69591 in guidline MA_6591: Rass -4 to -3"
                     }
                   }
                 ],
@@ -783,7 +837,7 @@
                   }
                 ]
             }
-        },
+        }
        
     ]
   }
