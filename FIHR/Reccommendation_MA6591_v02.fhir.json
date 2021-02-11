@@ -1,0 +1,794 @@
+{
+    "resourceType": "Bundle",
+    "type": "collection",
+    "entry": [
+        {
+          "fullUrl": "http://example.org/fhir/EvidenceReport/MA6591",
+          "resource": {
+            "resourceType": "EvidenceReport",
+            
+            "status": "draft",
+            "title": "MA6591 Evidence Report",
+            "subject": {
+              "characteristic": [
+                {
+                  "code": {
+                    "text": "MA6591 Evidence Report"
+                  },
+                  "valueReference": {
+                    "display": "MA6591"
+                  }
+                }
+              ]
+            },
+           
+            "author": [
+              {
+                "name": "Carlo Jurth",
+                "telecom": [
+                  {
+                    "system": "email",
+                    "value": "test@test.com"
+                  }
+                ]
+              }
+            ],
+            "section": [     
+              {   
+                "title": "Form Settings",  
+                "focus": {
+                  "text": "form settings"
+                }
+              },
+              {   
+                "title": "Evidence Variables and Groups",    
+                "focus": {
+                  "text": "Evidence Variables and Groups"
+                },
+                "section": [   
+
+                  {   
+                    "title": "Population Identifier",  
+                    "focus": {
+                      "text": "Population Identifier"
+                    },
+                    "entryReference": [
+                      {
+                        "type": "Group",
+                        "identifier": {
+                          "value": "Covid19"
+                        },
+                        "display": "Patienst with Covid19 deseas"
+                      }
+                    ]
+                  },
+                  {   
+                    "title": "Sub Populations",   
+                    "focus": {
+                      "text": "Sub Populations"
+                    },
+                    "section": [
+                      {
+                        "title": "Body Position",
+                        "focus": {
+                          "text": "Body Position"
+                        },
+                        "entryReference": [
+                          {
+                            "type": "EvidenceVariable",
+                            "identifier": {
+                              "value": "BodyPosition-Supine"
+                            },
+                            "display": "Body Position - Supine"
+                          },
+                          {
+                            "type": "EvidenceVariable",
+                            "identifier": {
+                              "value": "BodyPosition-Semiprone"
+                            },
+                            "display": "Body Position - Semiprone"
+                          },
+                          {
+                            "type": "EvidenceVariable",
+                            "identifier": {
+                              "value": "BodyPosition-Prone"
+                            },
+                            "display": "Body Position - Prone"
+                          }
+                        ]
+                      },
+                      {
+                        "title": "Groups",
+                        "focus": {
+                          "text": "Groups"
+                        },
+                        "entryReference": [
+                          {
+                            "type": "Group",
+                            "identifier": {
+                              "value": "Covid19-Supine"
+                            },
+                            "display": "Covid19 patients in supine body position"
+                          },
+                          {
+                            "type": "Group",
+                            "identifier": {
+                              "value": "Covid19-Semiprone"
+                            },
+                            "display": "Covid19 patients in semiprone body position"
+                          },
+                          {
+                            "type": "Group",
+                            "identifier": {
+                              "value": "Covid19-Prone"
+                            },
+                            "display": "Covid19 patients in prone body position"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {   
+                    "title": "Baseline Measures",   
+                    "focus": {
+                      "text": "Baseline Measures"
+                    },
+                    "entryReference": [
+                      {
+                        "type": "EvidenceVariable",
+                        "identifier": {
+                          "value": "Age"
+                        },
+                        "display": "Age"
+                      },
+                      {
+                        "type": "EvidenceVariable",
+                        "identifier": {
+                          "value": "RASS"
+                        },
+                        "display": "RASS"
+                      },
+                      {
+                        "type": "EvidenceVariable",
+                        "identifier": {
+                          "value": "Setting-IntensiveCareUnit"
+                        },
+                        "display": "Setting - Intensive Care Unit"
+                      }
+                    ]
+                  },
+                  {   
+                    "title": "Outcome Measures",   
+                    "focus": {
+                      "text": "Outcome Measures"
+                    }
+                    
+                    
+                  }
+                ]
+              },
+              {   
+                "title": "Baseline Results",  
+                "focus": {
+                  "text": "Baseline Results"
+                }
+
+              },
+              {   
+                "title": "Outcome Results",   
+                "focus": {
+                  "text": "Outcome Results"
+                },
+                "section": [
+                  {
+                    "title": "Recommendations",
+                    "focus": {
+                      "text": "Recommendations"
+                    },
+                    "entryReference": [
+                      {
+                        "type": "Evidence",
+                        "identifier": {
+                          "value": "Recommendation69591-MA6591"
+                        },
+                        "display": "Recommendation 69591 in guidline MA6591"
+                      }
+                    ]
+                  }
+                ]
+
+              }
+            ]
+          }
+        },
+
+
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Covid19",
+            "type": "person",
+            "actual": false,
+            "name": "Patienst with Covid-19 desease",
+            "characteristic": [
+              {
+                "code": {
+                  "text": "COVID-19",
+                  "coding": [
+                    {
+                      "system": "http://data.cochrane.org/ontologies/pico/",
+                      "code": "Condition",
+                      "display": "Cochrane Pico Concept: Condition"
+                    }
+                    ]
+                },
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://data.cochrane.org/concepts/",
+                      "code": "NrO30O5ZnYIkjE",
+                      "display": "Cochrane Core Concept: Condition - COVID-19"
+                    }
+                  ]
+                },
+                "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Covid19-Supine",
+            "type": "person",
+            "actual": false,
+            "name": "Covid19 patients in supin Body Position",
+            "characteristic": [
+              {
+                "code": {
+                  "text": "COVID-19 patients"
+                },
+                "valueReference": {
+                  "type": "Group",
+                  "identifier": {
+                    "value": "COVID-19"
+                  },
+                  "display": "patients with COVID-19 desease"
+                },
+                "exclude": false
+              },
+              {
+                "code": {
+                  "text": "Semiprone body position"
+                },
+                "valueReference": {
+                  "type": "EvidenceVariable",
+                  "identifier": {
+                    "value": "BodyPosition-Supine"
+                  },
+                  "display": "patients in supine body position"
+                },
+                "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Covid19-Semiprone",
+            "type": "person",
+            "actual": false,
+            "name": "Covid19 patients in semiprone Body Position",
+            "characteristic": [
+              {
+                "code": {
+                  "text": "COVID-19 patients"
+                },
+                "valueReference": {
+                  "type": "Group",
+                  "identifier": {
+                    "value": "COVID-19"
+                  },
+                  "display": "patients with COVID-19 deseas"
+                },
+                "exclude": false
+              },
+              {
+                "code": {
+                  "text": "Semiprone body position"
+                },
+                "valueReference": {
+                  "type": "EvidenceVariable",
+                  "identifier": {
+                    "value": "BodyPosition-Semiprone"
+                  },
+                  "display": "patients in semiprone body position"
+                },
+                "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "Group",
+            "id": "Covid19-Prone",
+            "type": "person",
+            "actual": false,
+            "name": "Covid19 patients in rone Body Position",
+            "characteristic": [
+              {
+                "code": {
+                  "text": "COVID-19 patients"
+                },
+                "valueReference": {
+                  "type": "Group",
+                  "identifier": {
+                    "value": "COVID-19"
+                  },
+                  "display": "patients with COVID-19 desease"
+                },
+                "exclude": false
+              },
+              {
+                "code": {
+                  "text": "Prone body position"
+                },
+                "valueReference": {
+                  "type": "EvidenceVariable",
+                  "identifier": {
+                    "value": "BodyPosition-Prone"
+                  },
+                  "display": "patients in semiprone body position"
+                },
+                "exclude": false
+              }
+            ]
+          }
+        },
+        {
+          "resource": {
+            "resourceType": "EvidenceVariable",
+            "id": "Setting-IntensiveCareUnit",
+            "status": "draft",
+            "name": "Setting of an intervention in IntensiveCareUnit",
+            "description": "Setting - Intensive Care Unit",
+            "characteristic": [
+                {
+                  "description": "Coding for : Setting - Intensive Care Unit",
+                  "definitionCodeableConcept": {
+                   "coding": [
+                     {
+                      
+                      "system": "https://data.cochrane.org/concepts/",
+                      "code": "10sx0v1p36wyv",
+                      "display": "Cochrane Core Concept: Setting - Intensive Care Unit"
+                     }
+                   ]
+                 },
+                 "method": {
+                   "coding": [
+                     {
+                      "system": "http://data.cochrane.org/ontologies/pico/",
+                      "code": "Intervention",
+                      "display": "Cohcrane Pico ontolgy - Intervention"
+                     }
+                   ]
+                  }
+                }
+              ]
+            }
+        },
+        {
+          "resource": {
+            "resourceType": "EvidenceVariable",
+            "id": "RASS",
+            "status": "draft",
+            "name": "RASS value",
+            "description": "RASS value in Richmond Aggitation and Sedatino Scale",
+            "characteristic": [
+                {
+                  "description": "Coding for : RASS",
+                  "definitionCodeableConcept": {
+                   "coding": [
+                     {
+                      
+                      "system": "https://ceosys/concepts/",
+                      "code": "coc0001",
+                      "display": "CeOsys Concept: RASS"
+                     }
+                   ]
+                 },
+                 "method": {
+                   "coding": [
+                     {
+                      "system": "http://data.cochrane.org/ontologies/pico/",
+                      "code": "Intervention",
+                      "display": "Cohcrane Pico ontolgy - Intervention"
+                     }
+                   ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "resource": {
+              "resourceType": "EvidenceVariable",
+              "id": "BodyPosition-Supine",
+              "status": "draft",
+              "name": "RASS",
+              "description": "BodyPosition-Supine",
+              "characteristic": [
+                  {
+                    "description": "Coding for : BodyPosition  - Supine ",
+                    "definitionCodeableConcept": {
+                     "coding": [
+                       {
+                        
+                        "system": "https://data.cochrane.org/concepts/",
+                        "code": "r4hp39rbgq4j",
+                        "display": "Cochrane Core Concept: Setting - BodyPosition  - Supine"
+                       }
+                     ]
+                   },
+                   "method": {
+                     "coding": [
+                       {
+                        "system": "http://data.cochrane.org/ontologies/pico/",
+                        "code": "Intervention",
+                        "display": "Cohcrane Pico ontolgy - Intervention"
+                       }
+                     ]
+                    }
+                  }
+                ]
+              }
+          },
+          {
+            "resource": {
+              "resourceType": "EvidenceVariable",
+              "id": "BodyPosition-Semiprone",
+              "status": "draft",
+              "name": "RASS",
+              "description": "BodyPosition-Semiprone",
+              "characteristic": [
+                  {
+                    "description": "Coding for : BodyPosition  - Semiprone",
+                    "definitionCodeableConcept": {
+                     "coding": [
+                       {
+                        
+                        "system": "https://data.cochrane.org/concepts/",
+                        "code": "r4hp398d718f",
+                        "display": "Cochrane Core Concept: Setting - BodyPosition  - Semiprone"
+                       }
+                     ]
+                   },
+                   "method": {
+                     "coding": [
+                       {
+                        "system": "http://data.cochrane.org/ontologies/pico/",
+                        "code": "Intervention",
+                        "display": "Cohcrane Pico ontolgy - Intervention"
+                       }
+                     ]
+                    }
+                  }
+                ]
+              }
+          },
+          {
+            "resource": {
+              "resourceType": "EvidenceVariable",
+              "id": "BodyPosition-Prone",
+              "status": "draft",
+              "name": "RASS",
+              "description": "BodyPosition-Prone",
+              "characteristic": [
+                  {
+                    "description": "Coding for : BodyPosition  - Prone",
+                    "definitionCodeableConcept": {
+                     "coding": [
+                       {
+                        
+                        "system": "https://data.cochrane.org/concepts/",
+                        "code": "r4hp38mb0nt7",
+                        "display": "Cochrane Core Concept: Setting -  BodyPosition  - Prone"
+                       }
+                     ]
+                   },
+                   "method": {
+                     "coding": [
+                       {
+                        "system": "http://data.cochrane.org/ontologies/pico/",
+                        "code": "Intervention",
+                        "display": "Cohcrane Pico ontolgy - Intervention"
+                       }
+                     ]
+                    }
+                  }
+                ]
+              }
+          },
+         
+
+
+          {
+            "resource": {
+              "resourceType": "EvidenceVariable",
+              "id": "RASS-from-1-to0",
+              "status": "draft",
+              "description": "RASS-from-1-to0",
+              "name": "Intervention1 for MA_6591",
+              "characteristic": [
+                  {
+                    "description": "RASS 0 to -1",
+                    "definitionReference": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "RASS"
+                    },
+                    "exclude": false
+                  },
+                  "exclude": false
+                }  
+              ],
+              "category":[
+                {
+                  "valueRange": {
+                    "low": {
+                        "value": -1
+                    },
+                    "high": {
+                        "value": 0
+                        }
+                    }
+                  }
+                ]
+              }
+          },
+          {
+            "resource": {
+              "resourceType": "EvidenceVariable",
+              "id": "RASS-from-1-to0",
+              "status": "draft",
+              "description": "RASS-from-1-to0",
+              "name": "Intervention1 for MA_6591",
+              "characteristic": [
+                  {
+                    "description": "RASS 0 to -1",
+                    "definitionReference": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "RASS"
+                    },
+                    "exclude": false
+                  },
+                  "exclude": false
+                }  
+              ],
+              "category":[
+                {
+                  "valueRange": {
+                    "low": {
+                        "value": -1
+                    },
+                    "high": {
+                        "value": 0
+                        }
+                    }
+                  }
+                ]
+              }
+          },
+          {
+            "resource": {
+              "resourceType": "EvidenceVariable",
+              "id": "RASS-from-1-to0",
+              "status": "draft",
+              "description": "RASS-from-1-to0",
+              "name": "Intervention1 for MA_6591",
+              "characteristic": [
+                  {
+                    "description": "RASS 0 to -1",
+                    "definitionReference": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "RASS"
+                    },
+                    "exclude": false
+                  },
+                  "exclude": false
+                }  
+              ],
+              "category":[
+                {
+                  "valueRange": {
+                    "low": {
+                        "value": -1
+                    },
+                    "high": {
+                        "value": 0
+                        }
+                    }
+                  }
+                ]
+              }
+          },
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {
+          "fullUrl": "http://example.org/fhir/Evidence/MA6591",
+          "resource":  {
+                "resourceType": "Evidence",
+                "url": "http://ceosys.org/Rec/MA6591/",
+                "id": "Recommendation-MA6591",
+                "title": "Guideline 4546: S1 Leitlinie zur Sedierung von Patienten mit COVID-19 Patienten in der Intensivmedizin - Ceosys recommendation MA_6591",
+                "author": [
+                    {
+                        "name": "Carlo Jurth"
+                    }
+                ],
+                "status": "draft",
+                "description": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine Übersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in überdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 („conscious proning“ erwägen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls müssen Ausnahmen begründen werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
+                "note": [
+                  {
+                    "text": "PICO: Population 3 parts, Intervention 3 parts"
+                  }
+                ],
+                "variableDefinition": [
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "population",
+                          "display": "population"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Covid19-Supine"
+                      },
+                      "display": "Population1 for MA_6591: Covid19 patinest in supine Bodyposition"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "population",
+                          "display": "population"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Covid19-Semiprone"
+                      },
+                      "display": "Population2 for MA_6591: Covid19 patinest in semiprone Bodyposition"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "population",
+                          "display": "population"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "Group",
+                      "identifier": {
+                        "value": "Covid19-Prone"
+                      },
+                      "display": "Population3 for MA_6591: Covid19 patinest in prone Bodyposition"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "exposure",
+                          "display": "exposure"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "Intervention1-for-MA-6591"
+                      },
+                      "display": "Intervention1 for MA_6591"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "exposure",
+                          "display": "exposure"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "Intervention2-for-MA-6591"
+                      },
+                      "display": "Intervention2 for MA_6591"
+                    }
+                  },
+                  {
+                    "variableRole": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/variable-role",
+                          "code": "exposure",
+                          "display": "exposure"
+                        }
+                      ]
+                    },
+                    "observed": {
+                      "type": "EvidenceVariable",
+                      "identifier": {
+                        "value": "Intervention3-for-MA-6591"
+                      },
+                      "display": "Intervention3 for MA_6591"
+                    }
+                  }
+                ],
+                "certainty": [
+                  {
+                    "description": "Moderate certainty due to ...",
+                    "type": {
+                      "coding": [
+                        {
+                          "system": "http://hl7.org/fhir/ValueSet/certainty-type",
+                          "code": "Overall",
+                          "display": "Overall quality"
+                        }
+                      ]
+                    },
+                    "rating": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/certainty-rating",
+                          "code": "low",
+                          "display": "low"
+                        }
+                      ]
+                    }
+                  }
+                ]
+            }
+        },
+       
+    ]
+  }
+
+
+  
+
+
