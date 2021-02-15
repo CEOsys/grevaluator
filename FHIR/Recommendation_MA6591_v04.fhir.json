@@ -5,7 +5,6 @@
     {
       "fullUrl": "http://example.org/fhir/EvidenceReport/MA6591",
       "resource": {
-        "resource": "name",
         "resourceType": "EvidenceReport",
         "status": "draft",
         "title": "MA6591 Evidence Report",
@@ -41,60 +40,60 @@
         ],
         "section": [
           {
-            "title": "Populations in Reccomendations",
+            "title": "Populations in Recomendations",
             "focus": {
-              "text": "Populations in Reccomendations"
+              "text": "Populations in Recomendations"
             },
             "entryReference": [
               {
                 "type": "Group",
                 "identifier": {
-                  "value": "Population1-Reccomndation69591"
+                  "value": "Population1-Recomendation69591"
                 },
-                "display": "Population 1 for Reccomndation 69591 in guidline 6591 in MAGICapp"
+                "display": "Population 1 for Recomendation 69591 in guideline 6591 in MAGICapp"
               },
               {
                 "type": "Group",
                 "identifier": {
-                  "value": "Population2-Reccomndation69591"
+                  "value": "Population2-Recomendation69591"
                 },
-                "display": "Population 2 for Reccomndation 69591 in guidline 6591 in MAGICapp"
+                "display": "Population 2 for Recomendation 69591 in guideline 6591 in MAGICapp"
               },
               {
                 "type": "Group",
                 "identifier": {
-                  "value": "Population3-Reccomndation69591"
+                  "value": "Population3-Recomendation69591"
                 },
-                "display": "Population 3 for Reccomndation 69591 in guidline 6591 in MAGICapp"
+                "display": "Population 3 for Recomendation 69591 in guideline 6591 in MAGICapp"
               }
             ]
           },
           {
-            "title": "Interventions in Reccomendations",
+            "title": "Interventions in Recomendation",
             "focus": {
-              "text": "Interventions in Reccomendations"
+              "text": "Interventions in Recomendation"
             },
             "entryReference": [
               {
                 "type": "EvidenceVariable",
                 "identifier": {
-                  "value": "Intervention1-Reccomndation69591"
+                  "value": "Intervention1-Recomendation69591"
                 },
-                "display": "Intervention 1 for Reccomndation 69591 in guidline 6591 in MAGICapp"
+                "display": "Intervention 1 for Recomendation 69591 in guideline 6591 in MAGICapp"
               },
               {
                 "type": "EvidenceVariable",
                 "identifier": {
-                  "value": "Intervention2-Reccomndation69591"
+                  "value": "Intervention2-Recomendation69591"
                 },
-                "display": "Intervention 2 for Reccomndation 69591 in guidline 6591 in MAGICapp"
+                "display": "Intervention 2 for Recomendation 69591 in guideline 6591 in MAGICapp"
               },
               {
                 "type": "EvidenceVariable",
                 "identifier": {
-                  "value": "Intervention3-Reccomndation69591"
+                  "value": "Intervention3-Recomendation69591"
                 },
-                "display": "Intervention 3 for Reccomndation 69591 in guidline 6591 in MAGICapp"
+                "display": "Intervention 3 for Recomendation 69591 in guideline 6591 in MAGICapp"
               }
             ]
           },
@@ -115,21 +114,21 @@
                 "identifier": {
                   "value": "Recommendation16959-1"
                 },
-                "display": "Part1 of Recommendation 69591 in guidline MA6591"
+                "display": "Part1 of Recommendation 69591 in guideline MA6591"
               },
               {
                 "type": "Evidence",
                 "identifier": {
                   "value": "Recommendation69591-2"
                 },
-                "display": "Part2 of Recommendation 69591 in guidline MA6591"
+                "display": "Part2 of Recommendation 69591 in guideline MA6591"
               },
               {
                 "type": "Evidence",
                 "identifier": {
                   "value": "Recommendation69591-3"
                 },
-                "display": "Part3 of Recommendation 69591 in guidline MA6591"
+                "display": "Part3 of Recommendation 69591 in guideline MA6591"
               }
             ]
           }
@@ -139,14 +138,23 @@
     {
       "resource": {
         "resourceType": "Group",
-        "id": "Population1-Reccomndation69591",
+        "id": "Population1-Recomendation69591",
         "type": "person",
         "actual": false,
-        "name": "Population1 for Reccomndation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Supine",
+        "name": "Population1 for Recomendation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Supine",
         "characteristic": [
           {
             "code": {
               "text": "COVID-19",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Concept: Condition"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -160,20 +168,20 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Condition",
-                  "display": "Cochrane Pico Concept: Condition"
-                }
-              ]
-            },
             "exclude": false
           },
           {
             "code": {
               "text": "Setting IntensiveCareUnit",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Intervention",
+                  "display": "Cohcrane Pico ontolgy - Intervention"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -187,7 +195,11 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "BodyPosition Supine",
               "coding": [
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
@@ -196,11 +208,7 @@
                 }
               ]
             },
-            "exclude": false
-          },
-          {
-            "code": {
-              "text": "BodyPosition Supine",
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -214,15 +222,6 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Intervention",
-                  "display": "Cohcrane Pico ontolgy - Intervention"
-                }
-              ]
-            },
             "exclude": false
           }
         ]
@@ -231,14 +230,23 @@
     {
       "resource": {
         "resourceType": "Group",
-        "id": "Population2-Reccomndation69591",
+        "id": "Population2-Recomendation69591",
         "type": "person",
         "actual": false,
-        "name": "Population2 for Reccomndation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Semiprone",
+        "name": "Population2 for Recomendation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Semiprone",
         "characteristic": [
           {
             "code": {
               "text": "COVID-19",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Concept: Condition"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -252,20 +260,20 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Condition",
-                  "display": "Cochrane Pico Concept: Condition"
-                }
-              ]
-            },
             "exclude": false
           },
           {
             "code": {
               "text": "Setting IntensiveCareUnit",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Intervention",
+                  "display": "Cohcrane Pico ontolgy - Intervention"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -279,7 +287,11 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "BodyPosition Semiprone",
               "coding": [
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
@@ -288,11 +300,7 @@
                 }
               ]
             },
-            "exclude": false
-          },
-          {
-            "code": {
-              "text": "BodyPosition Semiprone",
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -306,15 +314,6 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Intervention",
-                  "display": "Cohcrane Pico ontolgy - Intervention"
-                }
-              ]
-            },
             "exclude": false
           }
         ]
@@ -323,14 +322,23 @@
     {
       "resource": {
         "resourceType": "Group",
-        "id": "Population3-Reccomndation69591",
+        "id": "Population3-Recomendation69591",
         "type": "person",
         "actual": false,
-        "name": "Population3 for Reccomndation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Prone",
+        "name": "Population3 for Recomendation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Prone",
         "characteristic": [
           {
             "code": {
               "text": "COVID-19",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Concept: Condition"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -344,20 +352,20 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Condition",
-                  "display": "Cochrane Pico Concept: Condition"
-                }
-              ]
-            },
             "exclude": false
           },
           {
             "code": {
               "text": "Setting IntensiveCareUnit",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Intervention",
+                  "display": "Cohcrane Pico ontolgy - Intervention"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -371,7 +379,11 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "BodyPosition Prone",
               "coding": [
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
@@ -380,11 +392,7 @@
                 }
               ]
             },
-            "exclude": false
-          },
-          {
-            "code": {
-              "text": "BodyPosition Prone",
+            "valueCodeableConcept": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -398,15 +406,6 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Intervention",
-                  "display": "Cohcrane Pico ontolgy - Intervention"
-                }
-              ]
-            },
             "exclude": false
           }
         ]
@@ -415,9 +414,9 @@
     {
       "resource": {
         "resourceType": "EvidenceVariable",
-        "id": "Intervention1-Reccomndation69591",
+        "id": "Intervention1-Recomendation69591",
         "status": "draft",
-        "name": "Intervention1 for Reccomndation69591 - RASS -1 to 0",
+        "name": "Intervention1 for Recomendation69591 - RASS -1 to 0",
         "characteristic": [
           {
             "definitionCodeableConcept": {
@@ -447,9 +446,9 @@
     {
       "resource": {
         "resourceType": "EvidenceVariable",
-        "id": "Intervention2-Reccomndation69591",
+        "id": "Intervention2-Recomendation69591",
         "status": "draft",
-        "name": "Intervention3 for Reccomndation69591 - RASS -2 to 0",
+        "name": "Intervention3 for Recomendation69591 - RASS -2 to 0",
         "characteristic": [
           {
             "definitionCodeableConcept": {
@@ -479,9 +478,9 @@
     {
       "resource": {
         "resourceType": "EvidenceVariable",
-        "id": "Intervention3-Reccomndation69591",
+        "id": "Intervention3-Recomendation69591",
         "status": "draft",
-        "name": "Intervention1 for Reccomndation69591 - RASS -4 to -3",
+        "name": "Intervention1 for Recomendation69591 - RASS -4 to -3",
         "characteristic": [
           {
             "definitionCodeableConcept": {
@@ -541,9 +540,9 @@
             "observed": {
               "type": "Group",
               "identifier": {
-                "value": "Population1-Reccomndation69591"
+                "value": "Population1-Recomendation69591"
               },
-              "display": "Population1 for Reccomandation 69591 in guidline  MA6591: Covid19 patients in supine Bodyposition"
+              "display": "Population1 for Reccomandation 69591 in guideline  MA6591: Covid19 patients in supine Bodyposition"
             }
           },
           {
@@ -559,9 +558,9 @@
             "observed": {
               "type": "EvidenceVariable",
               "identifier": {
-                "value": "Intervention1-Reccomndation69591"
+                "value": "Intervention1-Recomendation69591"
               },
-              "display": "Intervention1 for Reccomandation 69591 in guidline MA6591: Rass -1 to 0"
+              "display": "Intervention1 for Reccomandation 69591 in guideline MA6591: Rass -1 to 0"
             }
           }
         ],
@@ -623,9 +622,9 @@
             "observed": {
               "type": "Group",
               "identifier": {
-                "value": "Population2-Reccomndation69591"
+                "value": "Population2-Recomendation69591"
               },
-              "display": "Population2 for Reccomandation 69591 in guidline  MA6591: Covid19 patients in semiprine Bodyposition"
+              "display": "Population2 for Reccomandation 69591 in guideline  MA6591: Covid19 patients in semiprine Bodyposition"
             }
           },
           {
@@ -641,9 +640,9 @@
             "observed": {
               "type": "EvidenceVariable",
               "identifier": {
-                "value": "Intervention2-Reccomndation69591"
+                "value": "Intervention2-Recomendation69591"
               },
-              "display": "Intervention2 for Reccomandation 69591 in guidline MA6591: Rass -2 to 0"
+              "display": "Intervention2 for Reccomandation 69591 in guideline MA6591: Rass -2 to 0"
             }
           }
         ],
@@ -705,9 +704,9 @@
             "observed": {
               "type": "Group",
               "identifier": {
-                "value": "Population3-Reccomndation69591"
+                "value": "Population3-Recomendation69591"
               },
-              "display": "Population3 for Reccomandation 69591 in guidline  MA6591: Covid19 patients in ptone Bodyposition"
+              "display": "Population3 for Reccomandation 69591 in guideline  MA6591: Covid19 patients in ptone Bodyposition"
             }
           },
           {
@@ -723,9 +722,9 @@
             "observed": {
               "type": "EvidenceVariable",
               "identifier": {
-                "value": "Intervention3-Reccomndation69591"
+                "value": "Intervention3-Recomendation69591"
               },
-              "display": "Intervention3 for Reccomandation 69591 in guidline MA6591: Rass -4 to -3"
+              "display": "Intervention3 for Reccomandation 69591 in guideline MA6591: Rass -4 to -3"
             }
           }
         ],

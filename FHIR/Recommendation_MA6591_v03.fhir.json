@@ -16,7 +16,8 @@
                   {
                     "system": "https://app.magicapp.org/#/guidelines",
                     "code": "6591",
-                    "display": "EvidenceReport MAGICapp guideline 6591"
+                    "display": "EvidenceReport MAGICapp guideline 6591",
+                    "name":"Carlo Jurth"
                   }
                 ],
                 "text": "MA6591 Evidence Report"
