@@ -58,12 +58,12 @@
                         "identifier": {
                           "value": "Covid19"
                         },
-                        "display": "Patienst with Covid19 deseas"
+                        "display": "Patienst with Covid19 desease"
                       }
                     ]
                   },
                   {   
-                    "title": "Sub Populations",   
+                    "title": "Iems definitions for Recommendastion",   
                     "focus": {
                       "text": "Sub Populations"
                     },
@@ -106,14 +106,14 @@
                           {
                             "type": "Group",
                             "identifier": {
-                              "value": "Pop1-69591-Covid19-Supine"
+                              "value": "Pop1-69591-Covid19-Supine-ICU"
                             },
                             "display": "Population1 for Reccomandation 69591: Covid19 patients in supine body position"
                           },
                           {
                             "type": "Group",
                             "identifier": {
-                              "value": "Pop2-69591-Covid19-Semiprone"
+                              "value": "Pop2-69591-Covid19-Semiprone-ICU"
                             },
                             "display": "Population2 for Reccomandation 69591: Covid19 patients in semiprone body position"
                           },
@@ -552,7 +552,7 @@
               "resourceType": "EvidenceVariable",
               "id": "BodyPosition-Prone",
               "status": "draft",
-              "name": "RASS",
+              "name": "BodyPosition-Prone",
               "description": "BodyPosition-Prone",
               "characteristic": [
                   {
@@ -651,10 +651,10 @@
           {
             "resource": {
               "resourceType": "EvidenceVariable",
-              "id": "Int1-69591-RASS-from-4to-3",
+              "id": "Int3-69591-RASS-from-4to-3",
               "status": "draft",
-              "description": "RASS-from-1-to0",
-              "name": "Intervention1 for MA_6591",
+              "description": "RASS-from-4-to-3",
+              "name": "Intervention3 for MA_6591",
               "characteristic": [
                   {
                     "description": "RASS -4 to -3",
@@ -737,7 +737,7 @@
                       "identifier": {
                         "value": "Pop1-69591-Covid19-Semiprone-ICU"
                       },
-                      "display": "Population2 for Reccomandation 69591 in guidline MA6591: Covid19 patinest in semiprone Bodyposition"
+                      "display": "Population1 for Reccomandation 69591 in guideline MA6591: Covid19 patinest in semiprone Bodyposition"
                     }
                   },
                   {
