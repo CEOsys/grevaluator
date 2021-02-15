@@ -742,10 +742,10 @@
             },
             "rating": {
               "coding": [
-                    {
+                {
                   "system": "http://terminology.hl7.org/CodeSystem/certainty-rating",
-                      "code": "low",
-                    "display": "low"
+                  "code": "low",
+                  "display": "low"
                 }
               ]
             }
