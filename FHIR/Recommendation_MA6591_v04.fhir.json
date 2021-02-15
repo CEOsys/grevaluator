@@ -5,6 +5,7 @@
     {
       "fullUrl": "http://example.org/fhir/EvidenceReport/MA6591",
       "resource": {
+        "resource": "name",
         "resourceType": "EvidenceReport",
         "status": "draft",
         "title": "MA6591 Evidence Report",
