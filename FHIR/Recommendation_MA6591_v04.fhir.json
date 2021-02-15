@@ -33,7 +33,7 @@
             "telecom": [
               {
                 "system": "email",
-                "value": "test@test.com"
+                "value": "carlo.jurth@charite.de"
               }
             ]
           }
@@ -141,7 +141,7 @@
         "id": "Population1-Recommendation69591",
         "type": "person",
         "actual": false,
-        "name": "Population1 for Recommendation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Supine",
+        "name": "Population1 for Recommendation69591 - COVID 19 + Setting IntensiveCareUnit + body position Supine",
         "characteristic": [
           {
             "code": {
@@ -177,7 +177,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -199,12 +199,12 @@
           },
           {
             "code": {
-              "text": "BodyPosition Supine",
+              "text": "body position Supine",
               "coding": [
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -213,7 +213,7 @@
                 {
                   "system": "https://data.cochrane.org/concepts/",
                   "code": "r4hp39rbgq4j",
-                  "display": "Cochrane Core Concept: Setting - BodyPosition  - Supine"
+                  "display": "Cochrane Core Concept: Setting - body position  - Supine"
                 },
                 {
                   "system": "http://snomed.info/sct",
@@ -233,7 +233,7 @@
         "id": "Population2-Recommendation69591",
         "type": "person",
         "actual": false,
-        "name": "Population2 for Recommendation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Semiprone",
+        "name": "Population2 for Recommendation69591 - COVID 19 + Setting IntensiveCareUnit + body position Semiprone",
         "characteristic": [
           {
             "code": {
@@ -269,7 +269,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -291,12 +291,12 @@
           },
           {
             "code": {
-              "text": "BodyPosition Semiprone",
+              "text": "body position Semiprone",
               "coding": [
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -305,7 +305,7 @@
                 {
                   "system": "https://data.cochrane.org/concepts/",
                   "code": "r4hp398d718f",
-                  "display": "Cochrane Core Concept: Setting - BodyPosition  - Semiprone"
+                  "display": "Cochrane Core Concept: Setting - body position  - Semiprone"
                 },
                 {
                   "system": "http://snomed.info/sct",
@@ -325,7 +325,7 @@
         "id": "Population3-Recommendation69591",
         "type": "person",
         "actual": false,
-        "name": "Population3 for Recommendation69591 - COVID 19 + Setting IntensiveCareUnit + BodyPosition Prone",
+        "name": "Population3 for Recommendation69591 - COVID 19 + Setting IntensiveCareUnit + body position Prone",
         "characteristic": [
           {
             "code": {
@@ -361,7 +361,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -383,12 +383,12 @@
           },
           {
             "code": {
-              "text": "BodyPosition Prone",
+              "text": "body position Prone",
               "coding": [
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -397,7 +397,7 @@
                 {
                   "system": "https://data.cochrane.org/concepts/",
                   "code": "r4hp38mb0nt7",
-                  "display": "Cochrane Core Concept: Setting - BodyPosition  - Prone"
+                  "display": "Cochrane Core Concept: Setting - body position  - Prone"
                 },
                 {
                   "system": "http://snomed.info/sct",
@@ -425,7 +425,7 @@
                 {
                   "system": "https://ceosys/concepts/",
                   "code": "coc0001",
-                  "display": "CeOsys Concept: RASS -1 to 0"
+                  "display": "CEOsys Concept: RASS -1 to 0"
                 }
               ]
             },
@@ -434,7 +434,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -457,7 +457,7 @@
                 {
                   "system": "https://ceosys/concepts/",
                   "code": "coc0002",
-                  "display": "CeOsys Concept: RASS -2 to 0"
+                  "display": "CEOsys Concept: RASS -2 to 0"
                 }
               ]
             },
@@ -466,7 +466,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -489,7 +489,7 @@
                 {
                   "system": "https://ceosys/concepts/",
                   "code": "coc0003",
-                  "display": "CeOsys Concept: RASS -4 to -3"
+                  "display": "CEOsys Concept: RASS -4 to -3"
                 }
               ]
             },
@@ -498,7 +498,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -542,7 +542,7 @@
               "identifier": {
                 "value": "Population1-Recommendation69591"
               },
-              "display": "Population1 for Reccomandation 69591 in guideline  MA6591: Covid19 patients in supine Bodyposition"
+              "display": "Population1 for Recommendation 69591 in guideline  MA6591: Covid19 patients in supine body position"
             }
           },
           {
@@ -560,7 +560,7 @@
               "identifier": {
                 "value": "Intervention1-Recommendation69591"
               },
-              "display": "Intervention1 for Reccomandation 69591 in guideline MA6591: Rass -1 to 0"
+              "display": "Intervention1 for Recommendation 69591 in guideline MA6591: Rass -1 to 0"
             }
           }
         ],
@@ -624,7 +624,7 @@
               "identifier": {
                 "value": "Population2-Recommendation69591"
               },
-              "display": "Population2 for Reccomandation 69591 in guideline  MA6591: Covid19 patients in semiprine Bodyposition"
+              "display": "Population2 for Recommendation 69591 in guideline  MA6591: Covid19 patients in semiprine body position"
             }
           },
           {
@@ -642,7 +642,7 @@
               "identifier": {
                 "value": "Intervention2-Recommendation69591"
               },
-              "display": "Intervention2 for Reccomandation 69591 in guideline MA6591: Rass -2 to 0"
+              "display": "Intervention2 for Recommendation 69591 in guideline MA6591: Rass -2 to 0"
             }
           }
         ],
@@ -706,7 +706,7 @@
               "identifier": {
                 "value": "Population3-Recommendation69591"
               },
-              "display": "Population3 for Reccomandation 69591 in guideline  MA6591: Covid19 patients in ptone Bodyposition"
+              "display": "Population3 for Recommendation 69591 in guideline  MA6591: Covid19 patients in prone body position"
             }
           },
           {
@@ -724,7 +724,7 @@
               "identifier": {
                 "value": "Intervention3-Recommendation69591"
               },
-              "display": "Intervention3 for Reccomandation 69591 in guideline MA6591: Rass -4 to -3"
+              "display": "Intervention3 for Recommendation 69591 in guideline MA6591: Rass -4 to -3"
             }
           }
         ],

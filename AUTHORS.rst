@@ -1,7 +1,7 @@
 Authors
 =======
 
-Project team 
+Project team
 
 * Gregor Lichtner `@glichtner <https://github.com/glichtner>`_
 * Carlo Jurth
