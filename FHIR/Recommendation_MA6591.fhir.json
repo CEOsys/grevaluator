@@ -7,9 +7,11 @@
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
-        "identifier": [{
-          "value": "EvidenceReport_MAGICapp_6591"
-        }],
+        "identifier": [
+          {
+            "value": "EvidenceReport_MAGICapp_6591"
+          }
+        ],
         "subject": {
           "characteristic": [
             {
@@ -28,17 +30,6 @@
             }
           ]
         },
-        "author": [
-          {
-            "name": "Carlo Jurth",
-            "telecom": [
-              {
-                "system": "email",
-                "value": "test@test.com"
-              }
-            ]
-          }
-        ],
         "section": [
           {
             "title": "Populations, Interventions and Recommendations",
@@ -55,9 +46,9 @@
                   {
                     "type": "Group",
                     "identifier": {
-                      "value": "Population_<characteristic-1>…<characteristic-n>"
-                      },
-                    "display": "Population for guideline from  MAGICapp / 6591 with characteristics: <characteristic-1>…<characteristic-n>"
+                      "value": "Population_<characteristic-1>\u2026<characteristic-n>"
+                    },
+                    "display": "Population for guideline from  MAGICapp / 6591 with characteristics: <characteristic-1>\u2026<characteristic-n>"
                   }
                 ]
               },
@@ -70,9 +61,9 @@
                   {
                     "type": "EvidenceVariable",
                     "identifier": {
-                      "value": "Intervention_<characteristic-1>…<characteristic-n>"
+                      "value": "Intervention_<characteristic-1>\u2026<characteristic-n>"
                     },
-                    "display": "Intervention for guideline from MAGICapp / 6591 with characteristics: <characteristic-1>…<characteristic-n>"
+                    "display": "Intervention for guideline from MAGICapp / 6591 with characteristics: <characteristic-1>\u2026<characteristic-n>"
                   }
                 ]
               },
@@ -99,9 +90,11 @@
     {
       "resource": {
         "resourceType": "Group",
-        "identifier": [{
-          "value" : "Population_COVID-19_Intensive-Care-Unit_BodyPosition-Supine"
-        }],
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Intensive-Care-Unit_BodyPosition-Supine"
+          }
+        ],
         "type": "person",
         "actual": false,
         "name": "Population for guideline from  MAGICapp / 6591 with characteristics: COVID-19, Intensive-Care-Unit, BodyPosition-Supine",
@@ -141,7 +134,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Population",
-                  "display": "Cochrane Pico ontolgy - Population"
+                  "display": "Cochrane Pico ontology - Population"
                 }
               ]
             },
@@ -169,7 +162,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Population"
+                  "display": "Cochrane Pico ontology - Population"
                 }
               ]
             },
@@ -193,13 +186,14 @@
         ]
       }
     },
-   
     {
       "resource": {
         "resourceType": "EvidenceVariable",
-        "identifier": [{
-          "value" : "Intervention_RASS-1to0"
-        }],
+        "identifier": [
+          {
+            "value": "Intervention_RASS-1to0"
+          }
+        ],
         "status": "draft",
         "name": "Intervetion for guideline from MAGICapp / 6591 with characteristics:  RASS -1 to 0",
         "characteristic": [
@@ -220,7 +214,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico ontology - Intervention"
                 }
               ]
             },
@@ -229,15 +223,15 @@
         ]
       }
     },
-    
-
     {
       "resource": {
         "resourceType": "Evidence",
         "url": "http://ceosys.org/Rec/16959-1",
-        "identifier": [{
-          "value" : "Recommendation_MAGICapp_6591_16324"
-        }],
+        "identifier": [
+          {
+            "value": "Recommendation_MAGICapp_6591_16324"
+          }
+        ],
         "title": "Recommendation 16959 for guideline from MAGICapp / 6591",
         "status": "draft",
         "author": [
