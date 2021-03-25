@@ -21,7 +21,15 @@
             },
             {
               "code": "Intervention",
-              "valueReference": "Intervention_RASS-1to0"
+              "valueReference": {
+                "reference": "Intervention_RASS-1to0"
+              }
+            },
+            {
+              "code": "Recommendation",
+              "valueReference":{
+                "reference": "Recommendation_https://app.magicapp.org/#/guidelines_6591_1"
+              }
             }
           ]
         },
@@ -91,7 +99,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Condition",
-                  "display": "Cochrane Pico Concept: Condition"
+                  "display": "Cochrane Pico Ontology: Condition"
                 }
               ]
             },
@@ -101,12 +109,12 @@
                 {
                   "system": "https://data.cochrane.org/concepts/",
                   "code": "NrO30O5ZnYIkjE",
-                  "display": "Cochrane Core Concept: Condition - COVID-19"
+                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
                 },
                 {
                   "system": "http://snomed.info/sct",
                   "code": "840539006",
-                  "display": "Snomed: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
+                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
                 }
               ]
             },
@@ -119,7 +127,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Condition",
-                  "display": "Cochrane Pico ontolgy - Condition"
+                  "display": "Cochrane Pico Ontology - Condition"
                 }
               ]
             },
@@ -129,12 +137,12 @@
                 {
                   "system": "https://data.cochrane.org/concepts/",
                   "code": "r4hp399q34v1",
-                  "display": "Cochrane Core Concept: Condition - Patient Ventilated"
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Patient Ventilated"
                 },
                 {
                   "system": "http://snomed.info/sct",
                   "code": "371820004",
-                  "display": "Snomed: Patient ventilated (finding) "
+                  "display": "SnomedCT: Patient ventilated (finding) "
                 }
               ]
             },
@@ -142,12 +150,12 @@
           },
           {
             "code": {
-              "text": "Population",
+              "text": "Treatment",
               "coding": [
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Population",
-                  "display": "Cochrane Pico ontolgy - Population"
+                  "display": "Cochrane Pico Ontology - Treatment"
                 }
               ]
             },
@@ -157,12 +165,12 @@
                 {
                   "system": "https://data.cochrane.org/concepts/",
                   "code": "r4hp39rbgq4j",
-                  "display": "Cochrane Core Concept: Setting - BodyPosition  - Supine"
+                  "display": "Cochrane Linked Data Vocabulary: Setting - BodyPosition  - Supine"
                 },
                 {
                   "system": "http://snomed.info/sct/",
                   "code": "40199007",
-                  "display": "Snomed: Supine body position (finding)"
+                  "display": "SnomedCT: Supine body position (finding)"
                 }
               ]
             },
@@ -189,9 +197,17 @@
               "text": "RASS-1to0",
               "coding": [
                 {
-                  "system": "https://ceosys/concepts/",
+                  "system": "https://covid-evidenz.de/concepts/",
                   "code": "coc0001",
                   "display": "CeOsys Concept: RASS -1 to 0"
+                },
+                {
+                  "system": "https://covid-evidenz.de/min",
+                  "code": "-1"
+                },
+                {
+                  "system": "https://covid-evidenz.de/max",
+                  "code": "0"
                 }
               ]
             },
@@ -201,24 +217,11 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico ontolgy - Intervention"
+                  "display": "Cochrane Pico Ontolgy - Intervention"
                 }
               ]
             },
             "exclude": false
-          }
-        ],
-        "category": [
-          {
-            "name": "RASS-1to0",
-            "valueRange": {
-              "low": {
-                "value": -1
-              },
-              "high": {
-                "value": 
-              }
-            }
           }
         ]
       }
@@ -228,7 +231,6 @@
     {
       "resource": {
         "resourceType": "Evidence",
-        "url": "http://ceosys.org/Rec/16959-1",
         "identifier": [
           {
             "value" : "Recommendation_https://app.magicapp.org/#/guidelines_6591_1",
@@ -243,7 +245,7 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/variable-role/",
-                  "code": "population",
+                  "code": "population"
                 }
               ]
             },
@@ -260,7 +262,7 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/variable-role/",
-                  "code": "exposure",
+                  "code": "exposure"
                 }
               ]
             },
