@@ -2,9 +2,9 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
 ENV CEOSYS_BASE_PATH /
 
-COPY ./viz-backend /app
+COPY ./apps/viz-backend /app
 COPY ./data /data
 
 RUN pip install --upgrade pip
-ADD ./viz-backend/requirements.txt .
+ADD ./apps/viz-backend/requirements.txt .
 RUN pip install -r requirements.txt

@@ -1,20 +1,33 @@
 version: '2'
 services:
+
   guideline-server:
     build:
       context: .
       dockerfile: apps/guideline-server/Dockerfile
     ports:
-      - "5000:80"
+      - "5001:80"
   viz-backend:
     build:
       context: .
       dockerfile: apps/viz-backend/Dockerfile
     ports:
-      - "5001:80"
+      - "5002:80"
   patientdata-server:
     build:
       context: .
       dockerfile: apps/patientdata-server/Dockerfile
     ports:
-      - "5002:80"
+      - "5003:80"
+  comparator:
+    build:
+      context: .
+      dockerfile: apps/comparator/Dockerfile
+    ports:
+      - "5004:80"
+  viz:
+    build:
+      context: .
+      dockerfile: apps/viz/Dockerfile
+    ports:
+      - "5000:3838"
