@@ -2,7 +2,7 @@
 
 ## Introduction
 Development of a software-based automated evaluation of the adherence to clinical guidelines in the context of the
-[CEO-sys - COVID-19 Evidenz-Ökosystems zur Verbesserung von Wissensmanagement und -translation](https://www.netzwerk-universitaetsmedizin.de/projekte/ceo-sys).
+[CEO-sys - COVID-19 Evidenz-Ökosystems zur Verbesserung von Wissensmanagement und -translation](https://covid-evidenz.de/).
 
 ## Quickstart
 
@@ -10,28 +10,13 @@ Development of a software-based automated evaluation of the adherence to clinica
    ``` shell
    git clone https://github.com/glichtner/ceosys.git
    ```
-2. Install dependencies
+2. Build docker containers
    ``` shell
-   pip install connexion[swagger-ui]
+   cd ceosys/
+   docker-compose build
    ```
-3. Run app.py
+3. Run containers
    ``` shell
-   cd ceosys
-   python app.py
+   docker-compose up
    ```
-4. Visit http://localhost:8088/ui
-
-## Modules
-
-### Machine-readable PICO Statement
-* See json files in pico/ folder
-
-### Comparator Engine
-```python
-raise NotImplementedError()
-````
-
-### Visualization
-```python
-raise NotImplementedError()
-````
+4. Visit http://localhost:5000/
