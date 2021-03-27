@@ -202,7 +202,7 @@
               "text": "RASS-1to0",
               "coding": [
                 {
-                  "system": "https://ceosys/concepts/",
+                  "system": "https://covid-evidenz.de/concepts/",
                   "code": "coc0001",
                   "display": "CeOsys Concept: RASS -1 to 0"
                 }

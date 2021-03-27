@@ -8,7 +8,7 @@ data = {}
 
 @app.on_event("startup")
 async def startup_event():
-    data["patients"] = pd.read_csv("../data/sample_data_shuffle.csv.gz")
+    data["patients"] = pd.read_csv("../../data/sample_data_shuffle.csv.gz")
 
 
 @app.get("/")
@@ -29,4 +29,4 @@ async def list_patient(fallnr: str):
     if len(patient) == 0:
         raise HTTPException(status_code=404, detail="Patient not found")
 
-    return patient.fillna("")
+    return patient.fillna("").to_dict(orient="list")
