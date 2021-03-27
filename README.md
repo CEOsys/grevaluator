@@ -1,13 +1,20 @@
-# CEO-sys AP5 automatic guideline adherence evaluator
+CEO-sys AP5 automatic guideline adherence evaluator
+######################################################
 
-## Introduction
+<img src="docs/img/logo_ceosys.jpg" alt="CEOsys" width="20%" />
+<img src="docs/img/logo_num.jpg" alt="NUM" width="20%" />
+
+
+Introduction
+============
 Development of a software-based automated evaluation of the adherence to clinical guidelines in the context of the
 [CEO-sys - COVID-19 Evidenz-Ökosystems zur Verbesserung von Wissensmanagement und -translation](https://covid-evidenz.de/).
 
-## Quickstart
+Quickstart
+==========
 
 1. Clone repository
-   ``` shell
+   ..code-block shell
    git clone https://github.com/glichtner/ceosys.git
    ```
 2. Build docker containers
@@ -19,4 +26,4 @@ Development of a software-based automated evaluation of the adherence to clinica
    ``` shell
    docker-compose up
    ```
-4. Visit http://localhost:5000/
+4. Visit dashboard at http://localhost:5000/
