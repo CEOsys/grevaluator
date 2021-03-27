@@ -53,7 +53,7 @@
           {
             "title": "Intervention Section",
             "focus": "EvidenceVariable-intended",
-            "text": "6mg_10d_Dexamethason_once/d",
+            "text": "6mg_10d_Dexamethasone_once/d",
             "entryReference": [
               {
                 "type": "EvidenceVariable",
@@ -129,7 +129,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Condition",
-                  "display": "Cochrane Pico Ontolgy - Condition"
+                  "display": "Cochrane Pico Ontology - Condition"
                 }
               ]
             },
@@ -173,7 +173,7 @@
           }
         ],
         "status": "draft",
-        "name": "Intervetion for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethason, 6mg, 10d, once/d",
+        "name": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethasone, 6mg, 10d, once/d",
         "characteristic": [
           {
             "definitionCodeableConcept": {
@@ -182,7 +182,7 @@
                 {
                   "system": "https://covid-evidenz.de/",
                   "code": "6mg",
-                  "display": "6 miligram"
+                  "display": "6 milligram"
                 },
                 {
                   "system": "http://snomed.info/sct",
@@ -205,7 +205,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Dose",
-                  "display": "Cochrane Pico Ontolgy - Dose"
+                  "display": "Cochrane Pico Ontology - Dose"
                 }
               ]
             },
@@ -241,7 +241,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Duration",
-                  "display": "Cochrane Pico Ontolgy - Duration"
+                  "display": "Cochrane Pico Ontology - Duration"
                 }
               ]
             },
@@ -269,7 +269,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico Ontolgy - Intervention"
+                  "display": "Cochrane Pico Ontology - Intervention"
                 }
               ]
             },
@@ -292,7 +292,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Schedule",
-                  "display": "Cochrane Pico Ontolgy - Schedule"
+                  "display": "Cochrane Pico Ontology - Schedule"
                 }
               ]
             },
@@ -345,22 +345,29 @@
               "identifier": {
                 "value": "Intervention_6mg_10d_Dexamethasone_once/d"
               },
-              "display": "Intervetion for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethasone, 6mg, 10d, once/d"
+              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethasone, 6mg, 10d, once/d"
             }
           }
         ],
         "statistic": [
           {
             "description": "net effect estimate of 28d mortality",
-            "statisticType": "reltive risk",
+            "statisticType": "relative risk",
             "modelCharacteristic": [
               {
                 "code": "relative risk",
                 "value": "0.9",
-                "valueRange": {
-                  "low": "0.83",
-                  "high": "0.97"
-                }
+                "variable": [
+                  {
+                    "variableDefinition": "test",
+                    "valueRange": [
+                      {
+                        "low": "0.83",
+                        "high": "0.97"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -384,9 +391,11 @@
                 }
               ]
             },
-            "note": {
-              "text": "strong reccomendation"
-            }
+            "note": [
+              {
+                "text": "strong recommendation"
+              }
+            ]
           }
         ]
       }
