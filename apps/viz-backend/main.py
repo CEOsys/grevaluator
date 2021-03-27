@@ -1,14 +1,17 @@
+import os
+from pathlib import Path
 from fastapi import FastAPI, HTTPException
 import pandas as pd
 
-app = FastAPI()
+BASE_PATH = Path(os.getenv("CEOSYS_BASE_PATH")) / "data"  # type: ignore
 
 data = {}
+app = FastAPI()
 
 
 @app.on_event("startup")
 async def startup_event():
-    data["patients"] = pd.read_csv("../../data/sample_data_shuffle.csv.gz")
+    data["patients"] = pd.read_csv(BASE_PATH / "sample_data_shuffle.csv.gz")
 
 
 @app.get("/")
