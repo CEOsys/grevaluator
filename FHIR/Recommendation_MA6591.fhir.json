@@ -7,10 +7,12 @@
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
-        "identifier": [{
-          "value": "6591",
-          "system": "https://app.magicapp.org/#/guidelines"
-        }],
+        "identifier": [
+          {
+            "value": "6591",
+            "system": "https://app.magicapp.org/#/guidelines"
+          }
+        ],
         "subject": {
           "characteristic": [
             {
@@ -27,7 +29,7 @@
             },
             {
               "code": "Recommendation",
-              "valueReference":{
+              "valueReference": {
                 "reference": "Recommendation_https://app.magicapp.org/#/guidelines_6591_1"
               }
             }
@@ -84,8 +86,8 @@
         "resourceType": "Group",
         "identifier": [
           {
-          "value" : "Population_BodyPosition-Supine_COVID-19_Ventilated",
-          "system": "https://covid-evidenz.de/"
+            "value": "Population_BodyPosition-Supine_COVID-19_Ventilated",
+            "system": "https://covid-evidenz.de/"
           }
         ],
         "type": "person",
@@ -179,16 +181,15 @@
         ]
       }
     },
-   
     {
       "resource": {
         "resourceType": "EvidenceVariable",
         "identifier": [
           {
-            "value" : "Intervention_RASS-1to0",
+            "value": "Intervention_RASS-1to0",
             "system": "https://covid-evidenz.de/"
-            }
-          ],
+          }
+        ],
         "status": "draft",
         "description": "RASS-1to0",
         "characteristic": [
@@ -226,16 +227,15 @@
         ]
       }
     },
-    
-
     {
       "resource": {
         "resourceType": "Evidence",
         "identifier": [
           {
-            "value" : "Recommendation_https://app.magicapp.org/#/guidelines_6591_1",
+            "value": "Recommendation_https://app.magicapp.org/#/guidelines_6591_1",
             "system": "https://covid-evidenz.de/"
-        }],
+          }
+        ],
         "title": "https://app.magicapp.org/#/guidelines / 6591",
         "status": "draft",
         "description": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine \u00dcbersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in \u00fcberdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 (\u201econscious proning\u201c erw\u00e4gen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls m\u00fcssen Ausnahmen begr\u00fcnden werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
