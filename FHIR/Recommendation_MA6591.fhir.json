@@ -1,0 +1,305 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://example.org/fhir/EvidenceReport/MA6591",
+      "resource": {
+        "resourceType": "EvidenceReport",
+        "status": "draft",
+        "identifier": [
+          {
+            "value": "EvidenceReport_MAGICapp_6591"
+          }
+        ],
+        "subject": {
+          "characteristic": [
+            {
+              "code": {
+                "coding": [
+                  {
+                    "system": "https://app.magicapp.org/#/guidelines",
+                    "code": "6591",
+                    "display": "Recommendations from guideline in MAGICapp identified by 6591"
+                  }
+                ]
+              },
+              "valueReference": {
+                "display": "EvidenceReport_MAGICapp_6591"
+              }
+            }
+          ]
+        },
+        "section": [
+          {
+            "title": "Populations, Interventions and Recommendations",
+            "focus": {
+              "text": "Populations, Interventions and Recommendations in EvidenceReport in MAGICapp /  6591"
+            },
+            "section": [
+              {
+                "title": "Population Section",
+                "focus": {
+                  "text": "Population descriptions for recommendations in EvidenceReport in  MAGICapp /  6591"
+                },
+                "entryReference": [
+                  {
+                    "type": "Group",
+                    "identifier": {
+                      "value": "Population_<characteristic-1>\u2026<characteristic-n>"
+                    },
+                    "display": "Population for guideline from  MAGICapp / 6591 with characteristics: <characteristic-1>\u2026<characteristic-n>"
+                  }
+                ]
+              },
+              {
+                "title": "Intervention Section",
+                "focus": {
+                  "text": "Intervention descriptions for recommendations in EvidenceReport in  MAGICapp /  6591"
+                },
+                "entryReference": [
+                  {
+                    "type": "EvidenceVariable",
+                    "identifier": {
+                      "value": "Intervention_<characteristic-1>\u2026<characteristic-n>"
+                    },
+                    "display": "Intervention for guideline from MAGICapp / 6591 with characteristics: <characteristic-1>\u2026<characteristic-n>"
+                  }
+                ]
+              },
+              {
+                "title": "Recommendation Section",
+                "focus": {
+                  "text": "Recommendation descriptions for recommendations in EvidenceReport in  MAGICapp /  6591"
+                },
+                "entryReference": [
+                  {
+                    "type": "Evidence",
+                    "identifier": {
+                      "value": "Recommendation_MAGIVapp_6591_16324"
+                    },
+                    "display": "Recommendation 16324 for guideline from MAGICapp / 6591 "
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Intensive-Care-Unit_BodyPosition-Supine"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from  MAGICapp / 6591 with characteristics: COVID-19, Intensive-Care-Unit, BodyPosition-Supine",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Concept: Condition"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Covid-19",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "NrO30O5ZnYIkjE",
+                  "display": "Cochrane Core Concept: Condition - COVID-19"
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "840539006",
+                  "display": "Snomed: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
+                }
+              ]
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Population",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Population",
+                  "display": "Cochrane Pico ontology - Population"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Intensive-Care-Unit",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "10sx0v1p36wyv",
+                  "display": "Cochrane Core Concept: Setting - Intensive Care Unit"
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "309904001",
+                  "display": "Snomed: Intensive care unit (environment)"
+                }
+              ]
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Population",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Intervention",
+                  "display": "Cochrane Pico ontology - Population"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "BodyPosition-Supine",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp39rbgq4j",
+                  "display": "Cochrane Core Concept: Setting - BodyPosition  - Supine"
+                },
+                {
+                  "system": "http://snomed.info/sct/",
+                  "code": "40199007",
+                  "display": "Snomed: Supine body position (finding)"
+                }
+              ]
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "EvidenceVariable",
+        "identifier": [
+          {
+            "value": "Intervention_RASS-1to0"
+          }
+        ],
+        "status": "draft",
+        "name": "Intervetion for guideline from MAGICapp / 6591 with characteristics:  RASS -1 to 0",
+        "characteristic": [
+          {
+            "definitionCodeableConcept": {
+              "text": "RASS-1to0",
+              "coding": [
+                {
+                  "system": "https://covid-evidenz.de/concepts/",
+                  "code": "coc0001",
+                  "display": "CeOsys Concept: RASS -1 to 0"
+                }
+              ]
+            },
+            "method": {
+              "text": "Intervention",
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Intervention",
+                  "display": "Cochrane Pico ontology - Intervention"
+                }
+              ]
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Evidence",
+        "url": "http://ceosys.org/Rec/16959-1",
+        "identifier": [
+          {
+            "value": "Recommendation_MAGICapp_6591_16324"
+          }
+        ],
+        "title": "Recommendation 16959 for guideline from MAGICapp / 6591",
+        "status": "draft",
+        "author": [
+          {
+            "name": "Carlo Jurth"
+          }
+        ],
+        "description": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine \u00dcbersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in \u00fcberdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 (\u201econscious proning\u201c erw\u00e4gen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls m\u00fcssen Ausnahmen begr\u00fcnden werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
+        "variableDefinition": [
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "/",
+                  "code": "population",
+                  "display": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Intensive-Care-Unit_BodyPosition-Supine"
+              },
+              "display": "Population for guideline from  MAGICapp / 6591 with characteristics: COVID-19, Intensive-Care-Unit, BodyPosition-Supine"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "exposure",
+                  "display": "exposure"
+                }
+              ]
+            },
+            "observed": {
+              "type": "EvidenceVariable",
+              "identifier": {
+                "value": "Intervention_RASS-1to0"
+              },
+              "display": "Intervention1 for Recommendation 69591 in guideline MA6591: Rass -1 to 0"
+            }
+          }
+        ],
+        "certainty": [
+          {
+            "description": "Moderate certainty due to ...",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/certainty-type/",
+                  "code": "Overall"
+                }
+              ]
+            },
+            "rating": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/certainty-rating/",
+                  "code": "low"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
