@@ -105,20 +105,11 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "text": "Covid-19",
-              "coding": [
-                {
-                  "system": "https://data.cochrane.org/concepts/",
-                  "code": "NrO30O5ZnYIkjE",
-                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "840539006",
-                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
-                }
-              ]
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
             },
             "exclude": false
           },
@@ -133,8 +124,66 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "text": "Oxygen-Saturation<90",
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Oxygen-Saturation<90"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "COVID-19",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": "COVID-19",
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "NrO30O5ZnYIkjE",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "840539006",
+                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Oxygen-Saturation<90",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": "Oxygen-Saturation<90",
+        "characteristic": [
+          {
+            "code": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -145,16 +194,123 @@
                   "system": "http://snomed.info/sct",
                   "code": "431314004",
                   "display": "SnomedCT: Peripheral oxygen saturation (observable entity)"
+                }
+              ]
+            },
+            "valueRange": {
+              "high": {
+                "value": 90,
+                "unit": "%",
+                "system": "http://unitsofmeasure.org",
+                "code": "%"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "6mg_10d_Dexamethasone_once/d",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": "6mg_10d_Dexamethasone_once/d",
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Dose",
+                  "display": "Cochrane Pico Ontology - Dose"
                 },
                 {
-                  "system": "http://unitsofmeasure.org",
-                  "code": "%",
-                  "display": "Unit: %"
+                  "system": "http://snomed.info/sct",
+                  "code": "398232005",
+                  "display": "SnomedCT: Drug dose (finding) "
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 6,
+              "unit": "mg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg"
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Duration",
+                  "display": "Cochrane Pico Ontology - Duration"
                 },
                 {
-                  "system": "https://covid-evidenz.de/max",
-                  "code": "90",
-                  "display": "max-value = 90"
+                  "system": "http://snomed.info/sct",
+                  "code": "261774000",
+                  "display": "SnomedCT: Duration of treatment (qualifier value)"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 10,
+              "unit": "d",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/core/",
+                  "code": "Drug",
+                  "display": "Cochrane Core Ontology - Drug"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp13q3f0kh",
+                  "display": "Cochrane Linked Data Vocabulary: Drug - Dexamethasone"
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "372584003",
+                  "display": "SnomedCT: Dexamethasone (substance)"
+                }
+              ]
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "code": "Schedule",
+                  "display": "Cochrane Pico Ontology - Schedule"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "229797004",
+                  "display": "SnomedCT: Once daily (qualifier value)"
                 }
               ]
             },
@@ -176,92 +332,11 @@
         "name": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethasone, 6mg, 10d, once/d",
         "characteristic": [
           {
-            "definitionCodeableConcept": {
-              "text": "6mg",
-              "coding": [
-                {
-                  "system": "https://covid-evidenz.de/",
-                  "code": "6mg",
-                  "display": "6 milligram"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "398232005",
-                  "display": "SnomedCT: Drug dose (finding) "
-                },
-                {
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
-                },
-                {
-                  "system": "https://covid-evidenz.de/value",
-                  "code": "6"
-                }
-              ]
-            },
-            "method": {
-              "text": "Dose",
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Dose",
-                  "display": "Cochrane Pico Ontology - Dose"
-                }
-              ]
-            },
-            "exclude": false
-          },
-          {
-            "definitionCodeableConcept": {
-              "text": "10d",
-              "coding": [
-                {
-                  "system": "https://covid-evidenz.de/",
-                  "code": "10d",
-                  "display": "10 days"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "261774000",
-                  "display": "SnomedCT: Duration of treatment (qualifier value) "
-                },
-                {
-                  "system": "http://unitsofmeasure.org",
-                  "code": "d"
-                },
-                {
-                  "system": "https://covid-evidenz.de/value",
-                  "code": "10"
-                }
-              ]
-            },
-            "method": {
-              "text": "Duration",
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Duration",
-                  "display": "Cochrane Pico Ontology - Duration"
-                }
-              ]
-            },
-            "exclude": false
-          },
-          {
-            "definitionCodeableConcept": {
-              "text": "Dexamethasone",
-              "coding": [
-                {
-                  "system": "https://data.cochrane.org/concepts/",
-                  "code": "r4hp13q3f0kh",
-                  "display": "Cochrane Linked Data Vocabulary: Drug - Dexamethasone"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "372584003",
-                  "display": "SnomedCT: Dexamethasone (substance)"
-                }
-              ]
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "6mg_10d_Dexamethasone_once/d"
+              }
             },
             "method": {
               "text": "Intervention",
@@ -270,29 +345,6 @@
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
                   "display": "Cochrane Pico Ontology - Intervention"
-                }
-              ]
-            },
-            "exclude": false
-          },
-          {
-            "definitionCodeableConcept": {
-              "text": "once/d",
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "229797004",
-                  "display": "SnomedCT: Once daily (qualifier value)"
-                }
-              ]
-            },
-            "method": {
-              "text": "Schedule",
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Schedule",
-                  "display": "Cochrane Pico Ontology - Schedule"
                 }
               ]
             },

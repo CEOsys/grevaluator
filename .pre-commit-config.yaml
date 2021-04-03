@@ -37,3 +37,12 @@ repos:
     -   id: style-files
         args: [--style_pkg=styler, --style_fun=tidyverse_style]
     -   id: parsable-R
+- repo: https://github.com/sirosen/check-jsonschema
+  rev: 0.2.0
+  hooks:
+    - id: check-jsonschema
+      name: "Check FHIR json"
+      language: python
+      files: ^FHIR/.*\.fhir.json
+      #types: [json]
+      args: ["--schemafile", "FHIR/fhir.schema.json"]

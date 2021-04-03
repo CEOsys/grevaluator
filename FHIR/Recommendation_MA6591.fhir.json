@@ -105,20 +105,11 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "text": "Covid-19",
-              "coding": [
-                {
-                  "system": "https://data.cochrane.org/concepts/",
-                  "code": "NrO30O5ZnYIkjE",
-                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "840539006",
-                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
-                }
-              ]
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
             },
             "exclude": false
           },
@@ -133,20 +124,11 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "text": "Ventilated",
-              "coding": [
-                {
-                  "system": "https://data.cochrane.org/concepts/",
-                  "code": "r4hp399q34v1",
-                  "display": "Cochrane Linked Data Vocabulary: Condition - Patient Ventilated"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "371820004",
-                  "display": "SnomedCT: Patient ventilated (finding) "
-                }
-              ]
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Ventilated"
+              }
             },
             "exclude": false
           },
@@ -161,8 +143,66 @@
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "text": "BodyPosition-Supine",
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "BodyPosition-Supine"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Ventilated",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": "Ventilated",
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp399q34v1",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Patient Ventilated"
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "371820004",
+                  "display": "SnomedCT: Patient ventilated (finding) "
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "BodyPosition-Supine",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": "BodyPosition-Supine",
+        "characteristic": [
+          {
+            "code": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -175,6 +215,76 @@
                   "display": "SnomedCT: Supine body position (finding)"
                 }
               ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "COVID-19",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": "COVID-19",
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "NrO30O5ZnYIkjE",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "840539006",
+                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "RASS-1to0",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": "RASS-1to0",
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://covid-evidenz.de/concepts/",
+                  "code": "score_RASS"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": -1
+              },
+              "high": {
+                "value": 0
+              }
             },
             "exclude": false
           }
@@ -194,23 +304,11 @@
         "description": "RASS-1to0",
         "characteristic": [
           {
-            "definitionCodeableConcept": {
-              "text": "RASS-1to0",
-              "coding": [
-                {
-                  "system": "https://covid-evidenz.de/concepts/",
-                  "code": "coc0001",
-                  "display": "CeOsys Concept: RASS -1 to 0"
-                },
-                {
-                  "system": "https://covid-evidenz.de/min",
-                  "code": "-1"
-                },
-                {
-                  "system": "https://covid-evidenz.de/max",
-                  "code": "0"
-                }
-              ]
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "RASS-1to0"
+              }
             },
             "method": {
               "text": "Intervention",
@@ -218,7 +316,7 @@
                 {
                   "system": "http://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
-                  "display": "Cochrane Pico Ontolgy - Intervention"
+                  "display": "Cochrane Pico Ontology - Intervention"
                 }
               ]
             },
@@ -271,14 +369,14 @@
               "identifier": {
                 "value": "Intervention_RASS-1to0"
               },
-              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 6591 with characteristics:: Rass -1 to 0"
+              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 6591 with characteristics:: RASS -1 to 0"
             }
           }
         ],
         "statistic": [
           {
             "description": "net effect estimate",
-            "statisticType": "reltive risk",
+            "statisticType": "relative risk",
             "modelCharacteristic": [
               {
                 "code": "relative risk",
