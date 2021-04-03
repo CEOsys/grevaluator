@@ -16,19 +16,25 @@
         "subject": {
           "characteristic": [
             {
-              "code": "Population",
+              "code": {
+                "text": "Population"
+              },
               "valueReference": {
                 "reference": "Population_BodyPosition-Supine_COVID-19_Ventilated"
               }
             },
             {
-              "code": "Intervention",
+              "code": {
+                "text": "Intervention"
+              },
               "valueReference": {
                 "reference": "Intervention_RASS-1to0"
               }
             },
             {
-              "code": "Recommendation",
+              "code": {
+                "text": "Recommendation"
+              },
               "valueReference": {
                 "reference": "Recommendation_https://app.magicapp.org/#/guidelines_6591_1"
               }
@@ -38,8 +44,13 @@
         "section": [
           {
             "title": "Population Section",
-            "focus": "EvidenceVariable-population",
-            "text": "BodyPosition-Supine_COVID-19_Ventilated",
+            "focus": {
+              "text": "EvidenceVariable-population"
+            },
+            "text": {
+              "status": "generated",
+              "div": "BodyPosition-Supine_COVID-19_Ventilated"
+            },
             "entryReference": [
               {
                 "type": "Group",
@@ -52,8 +63,13 @@
           },
           {
             "title": "Intervention Section",
-            "focus": "EvidenceVariable-intended",
-            "text": "RASS-1to0",
+            "focus": {
+              "text": "EvidenceVariable-intended"
+            },
+            "text": {
+              "status": "generated",
+              "div": "RASS-1to0"
+            },
             "entryReference": [
               {
                 "type": "EvidenceVariable",
@@ -66,8 +82,13 @@
           },
           {
             "title": "Recommendation Section",
-            "focus": "Recommendation",
-            "text": "https://app.magicapp.org/#/guidelines / 6591",
+            "focus": {
+              "text": "Recommendation"
+            },
+            "text": {
+              "status": "generated",
+              "div": "https://app.magicapp.org/#/guidelines / 6591"
+            },
             "entryReference": [
               {
                 "type": "Evidence",
@@ -92,7 +113,10 @@
         ],
         "type": "person",
         "actual": false,
-        "text": "BodyPosition-Supine_COVID-19_Ventilated",
+        "text": {
+          "status": "generated",
+          "div": "BodyPosition-Supine_COVID-19_Ventilated"
+        },
         "characteristic": [
           {
             "code": {
@@ -165,7 +189,10 @@
         ],
         "type": "person",
         "actual": false,
-        "text": "Ventilated",
+        "text": {
+          "status": "generated",
+          "div": "Ventilated"
+        },
         "characteristic": [
           {
             "code": {
@@ -197,9 +224,12 @@
             "system": "https://covid-evidenz.de/"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "BodyPosition-Supine"
+        },
         "type": "person",
         "actual": false,
-        "text": "BodyPosition-Supine",
         "characteristic": [
           {
             "code": {
@@ -231,9 +261,12 @@
             "system": "https://covid-evidenz.de/"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "COVID-19"
+        },
         "type": "person",
         "actual": false,
-        "text": "COVID-19",
         "characteristic": [
           {
             "code": {
@@ -265,9 +298,12 @@
             "system": "https://covid-evidenz.de/"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "RASS-1to0"
+        },
         "type": "person",
         "actual": false,
-        "text": "RASS-1to0",
         "characteristic": [
           {
             "code": {
@@ -376,13 +412,18 @@
         "statistic": [
           {
             "description": "net effect estimate",
-            "statisticType": "relative risk",
-            "modelCharacteristic": [
-              {
-                "code": "relative risk",
-                "value": "2"
-              }
-            ]
+            "statisticType": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/statistic-type",
+                  "code": "C93152",
+                  "display": "Relative Risk"
+                }
+              ]
+            },
+            "quantity": {
+              "value": 2
+            }
           }
         ],
         "certainty": [
