@@ -1,0 +1,6 @@
+tbienert:
+    username: "tbienert"
+    full_name: "Thomas Bienert"
+    email: "thomas.bienert@charite.de"
+    hashed_password: "$2b$12$RXQmY/uTBSgyInWVyP4Yr.GPNtPhn1wjebISqF0HJ2ZgUZHcG1zbe"
+    disabled: false
