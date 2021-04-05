@@ -12,7 +12,7 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup_event():
-    data["patients"] = pd.read_csv(BASE_PATH / "sample_data_shuffle.csv.gz")
+    data["patients"] = pd.read_pickle(BASE_PATH / "sample_data_shuffle_large.pkl.gz")
 
 
 @app.get("/")

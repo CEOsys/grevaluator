@@ -6,7 +6,7 @@ import json
 
 app = FastAPI()
 
-BASE_PATH = Path(os.getenv("CEOSYS_BASE_PATH")) / "FHIR"  # type: ignore
+BASE_PATH = Path(os.getenv("CEOSYS_BASE_PATH"), ".") / "FHIR"
 
 
 @app.get("/")

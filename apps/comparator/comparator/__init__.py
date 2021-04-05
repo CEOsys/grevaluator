@@ -45,7 +45,7 @@ def init_mapping_table() -> pd.DataFrame:
 
     """
     path = Path(os.getenv("CEOSYS_BASE_PATH", ".")) / "res" / "concept-mappings.xlsx"
-    df_mapping = pd.read_excel(path)
+    df_mapping = pd.read_excel(path, engine="openpyxl")
     df_mapping["system"] = df_mapping["system"].str.rstrip("/")
     return df_mapping
 

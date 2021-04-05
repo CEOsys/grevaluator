@@ -12,6 +12,8 @@ from config import settings
 import yaml
 
 BASE_PATH = Path(os.getenv("CEOSYS_BASE_PATH")) / "data"  # type: ignore
+DATA_PATH = Path(os.getenv("CEOSYS_DATA_PATH"))  # type : ignore
+
 data = {}
 
 
@@ -130,7 +132,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 
 @app.on_event("startup")
 async def startup_event():
-    data["patients"] = pd.read_csv(BASE_PATH / "sample_data_shuffle.csv.gz")
+    data["patients"] = pd.read_pickle(BASE_PATH / "sample_data_shuffle_large.pkl.gz")
 
 
 @app.get("/users/me/", response_model=User)
@@ -146,6 +148,13 @@ async def read_own_items(current_user: User = Depends(get_current_active_user)):
 @app.get("/")
 async def root():
     return {"message": "Patient Viz Server"}
+
+
+@app.get("/guideline/get/{guideline_id}")
+async def get_guideline_results(
+    guideline_id: str, current_user: User = Depends(get_current_active_user)
+):
+    return pd.from_pickle(DATA_PATH / f"guideline_{guideline_id}_results.pkl")
 
 
 @app.get("/patient/list/")
