@@ -264,7 +264,7 @@
                 {
                   "system": "http://snomed.info/sct",
                   "code": "398232005",
-                  "display": "SnomedCT: Drug dose (finding) "
+                  "display": "SnomedCT: Drug dose (finding)"
                 }
               ]
             },
@@ -354,7 +354,7 @@
         "resourceType": "EvidenceVariable",
         "identifier": [
           {
-            "value": "6mg_10d_Dexamethasone_once/d",
+            "value": "Intervention_6mg_10d_Dexamethasone_once/d",
             "system": "https://covid-evidenz.de/"
           }
         ],

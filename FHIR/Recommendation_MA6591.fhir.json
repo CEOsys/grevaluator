@@ -199,6 +199,20 @@
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp38jjqmxs",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Ventilation Finding"
+                },
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "128258000",
+                  "display": "SnomedCT: Ventilation Finding (finding) "
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
                   "code": "r4hp399q34v1",
                   "display": "Cochrane Linked Data Vocabulary: Condition - Patient Ventilated"
                 },
@@ -209,7 +223,6 @@
                 }
               ]
             },
-            "valueBoolean": true,
             "exclude": false
           }
         ]
@@ -236,6 +249,20 @@
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp3b1kljyy",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Body Position Finding"
+                },
+                {
+                  "system": "http://snomed.info/sct/",
+                  "code": "9851009",
+                  "display": "SnomedCT: Body position finding (finding)"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
                   "code": "r4hp39rbgq4j",
                   "display": "Cochrane Linked Data Vocabulary: Setting - BodyPosition  - Supine"
                 },
@@ -246,7 +273,6 @@
                 }
               ]
             },
-            "valueBoolean": true,
             "exclude": false
           }
         ]
