@@ -1,8 +1,9 @@
 import os
 from pathlib import Path
 from datetime import datetime, timedelta
-from typing import Optional
+from typing import Optional, List, Dict
 import pandas as pd
+import requests
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
@@ -11,8 +12,9 @@ from pydantic import BaseModel
 from config import settings
 import yaml
 
-BASE_PATH = Path(os.getenv("CEOSYS_BASE_PATH")) / "data"  # type: ignore
 DATA_PATH = Path(os.getenv("CEOSYS_DATA_PATH"))  # type : ignore
+GUIDELINE_SERVER = os.getenv("GUIDELINE_SERVER")
+PATIENTDATA_SERVER = os.getenv("PATIENTDATA_SERVER")
 
 data = {}
 
@@ -130,11 +132,6 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-@app.on_event("startup")
-async def startup_event():
-    data["patients"] = pd.read_pickle(BASE_PATH / "sample_data_shuffle_large.pkl.gz")
-
-
 @app.get("/users/me/", response_model=User)
 async def read_users_me(current_user: User = Depends(get_current_active_user)):
     return current_user
@@ -150,26 +147,80 @@ async def root():
     return {"message": "Patient Viz Server"}
 
 
+def get_guideline_results_summary(guideline_id):
+    try:
+        r = pd.read_pickle(
+            DATA_PATH / f"guideline_{guideline_id}_results_summary.pkl"
+        ).fillna("nan")
+    except FileNotFoundError:
+        raise HTTPException(404, "Guideline not found")
+    return r
+
+
+def get_guideline_results_details(guideline_id):
+    try:
+        r = pd.read_pickle(
+            DATA_PATH / f"guideline_{guideline_id}_results_detail.pkl"
+        ).fillna("nan")
+    except FileNotFoundError:
+        raise HTTPException(404, "Guideline not found")
+    return r
+
+
+def get_guideline_ids() -> Dict:
+    r = requests.get(GUIDELINE_SERVER + "/guideline/list")
+    return r.json()
+
+
+def get_patients_from_guideline(guideline_id) -> List:
+    ret = (
+        get_guideline_results_summary(guideline_id)
+        .reset_index()["pseudo_fallnr"]
+        .unique()
+    )
+    return list(ret)
+
+
+def request_data(variables: List[str]) -> pd.DataFrame:
+    r = requests.post(PATIENTDATA_SERVER + "/patients/", json=variables)
+
+    df = pd.DataFrame(r.json()).set_index("pseudo_fallnr")
+
+    return df
+
+
+def get_variables_from_guideline(guideline_id: str) -> List:
+    return list(get_guideline_results_details(guideline_id)["variable_name"].unique())
+
+
+@app.get("/guideline/list")
+async def get_guideline_list(current_user: User = Depends(get_current_active_user)):
+    return get_guideline_ids()
+
+
 @app.get("/guideline/get/{guideline_id}")
 async def get_guideline_results(
     guideline_id: str, current_user: User = Depends(get_current_active_user)
 ):
-    return pd.from_pickle(DATA_PATH / f"guideline_{guideline_id}_results.pkl")
+    df_summary = get_guideline_results_summary(guideline_id)
+    df_detail = get_guideline_results_details(guideline_id)
+
+    return {"summary": df_summary.to_dict(), "detail": df_detail.to_dict()}
 
 
-@app.get("/patient/list/")
-async def list_patients(current_user: User = Depends(get_current_active_user)):
-    ret = data["patients"]["pseudo_fallnr"].unique()
-    return list(ret)
-
-
-@app.get("/patient/get/{fallnr}")
-async def list_patient(
-    fallnr: str, current_user: User = Depends(get_current_active_user)
+@app.get("/patient/list/{guideline_id}")
+async def list_patients(
+    guideline_id: str, current_user: User = Depends(get_current_active_user)
 ):
-    patient = data["patients"].query("pseudo_fallnr==@fallnr")
+    return get_patients_from_guideline(guideline_id)
 
-    if len(patient) == 0:
-        raise HTTPException(status_code=404, detail="Patient not found")
 
-    return patient.fillna("").to_dict(orient="list")
+@app.get("/patient/get/{guideline_id}")
+async def list_patient(
+    guideline_id: str, current_user: User = Depends(get_current_active_user)
+):
+    variables = get_variables_from_guideline(guideline_id)
+    print(variables)
+    df = request_data(variables)
+
+    return df.to_dict()

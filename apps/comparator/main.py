@@ -20,6 +20,15 @@ async def root() -> Dict:
     return {"message": "Comparator"}
 
 
+def save_results(res, variables, guideline_id):
+    summary = res[["valid_exposure", "valid_population", "valid_treatment"]].droplevel(
+        level=1, axis=1
+    )
+    details = res[variables].stack("variable_name").reset_index("variable_name")
+    summary.to_pickle(Path(DATA_PATH) / f"guideline_{guideline_id}_results_summary.pkl")
+    details.to_pickle(Path(DATA_PATH) / f"guideline_{guideline_id}_results_detail.pkl")
+
+
 @app.get("/run")
 async def run() -> Dict:
     guideline_ids = get_guideline_ids()
@@ -29,8 +38,7 @@ async def run() -> Dict:
         variables, q_population, q_exposure = process_guideline(guideline)
         data = request_data(variables)
         res = compare(data, q_population, q_exposure)
-
-        res.to_pickle(Path(DATA_PATH) / f"guideline_{guideline_id}_results.pkl")
+        save_results(res, variables, guideline_id)
 
     return "Success"
 
@@ -48,7 +56,7 @@ def get_guideline(guideline_id: str) -> Dict:
 
 
 def request_data(variables: List[str]) -> pd.DataFrame:
-    r = requests.post(PATIENTDATA_SERVER + "/patient/", json=variables)
+    r = requests.post(PATIENTDATA_SERVER + "/patients/", json=variables)
 
     df = pd.DataFrame(r.json())
     df = (
