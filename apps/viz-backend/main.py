@@ -184,7 +184,7 @@ def get_patients_from_guideline(guideline_id) -> List:
 def request_data(variables: List[str]) -> pd.DataFrame:
     r = requests.post(PATIENTDATA_SERVER + "/patients/", json=variables)
 
-    df = pd.DataFrame(r.json()).set_index("pseudo_fallnr")
+    df = pd.DataFrame(r.json())
 
     return df
 
@@ -205,7 +205,10 @@ async def get_guideline_results(
     df_summary = get_guideline_results_summary(guideline_id)
     df_detail = get_guideline_results_details(guideline_id)
 
-    return {"summary": df_summary.to_dict(), "detail": df_detail.to_dict()}
+    return {
+        "summary": df_summary.to_dict(orient="records"),
+        "detail": df_detail.to_dict(orient="records"),
+    }
 
 
 @app.get("/patients/list")
@@ -233,7 +236,6 @@ async def get_patient_info(
     guideline_id: str, current_user: User = Depends(get_current_active_user)
 ):
     variables = get_variables_from_guideline(guideline_id)
-    print(variables)
     df = request_data(variables)
 
-    return df.to_dict()
+    return df.to_dict(orient="records")
