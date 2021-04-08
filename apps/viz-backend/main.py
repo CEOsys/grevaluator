@@ -208,15 +208,28 @@ async def get_guideline_results(
     return {"summary": df_summary.to_dict(), "detail": df_detail.to_dict()}
 
 
+@app.get("/patients/list")
+async def list_patients(current_user: User = Depends(get_current_active_user)):
+    r = requests.get(PATIENTDATA_SERVER + "/patients/list")
+    df = pd.DataFrame(r.json())
+    df = (
+        df.sort_values(by=["pseudo_fallnr", "variable_name", "datetime"])
+        .groupby(["pseudo_fallnr", "variable_name"])
+        .nth(-1)["value"]
+        .unstack("variable_name")
+    )
+    return df.reset_index().to_dict(orient="records")
+
+
 @app.get("/patient/list/{guideline_id}")
-async def list_patients(
+async def list_patient_by_guideline(
     guideline_id: str, current_user: User = Depends(get_current_active_user)
 ):
     return get_patients_from_guideline(guideline_id)
 
 
 @app.get("/patient/get/{guideline_id}")
-async def list_patient(
+async def get_patient_info(
     guideline_id: str, current_user: User = Depends(get_current_active_user)
 ):
     variables = get_variables_from_guideline(guideline_id)

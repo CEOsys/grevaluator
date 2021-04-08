@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 from fastapi import FastAPI, HTTPException
 import json
+from fhir.resources.bundle import Bundle
 
 app = FastAPI()
 
@@ -15,7 +16,7 @@ async def root():
 
 
 def get_file_list(path, pattern):
-    res = [f for f in os.listdir(path) if re.search(pattern, f)]
+    res = [os.path.join(path, f) for f in os.listdir(path) if re.search(pattern, f)]
     return res
 
 
@@ -23,10 +24,16 @@ def get_file_list(path, pattern):
 async def list_guidelines():
     pattern = r"Recommendation_MA(\d+)\.fhir\.json$"
 
-    return [
-        re.search(pattern, fname).group(1)
-        for fname in get_file_list(BASE_PATH, pattern)
-    ]
+    guidelines = []
+
+    for fname in get_file_list(BASE_PATH, pattern):
+        id = re.search(pattern, fname).group(1)
+        bundle = Bundle.parse_file(fname)
+        title = bundle.entry[0].resource.title
+
+        guidelines.append({"id": id, "title": title})
+
+    return guidelines
 
 
 @app.get("/guideline/get/{guideline_id}")

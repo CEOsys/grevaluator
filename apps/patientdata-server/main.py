@@ -20,6 +20,16 @@ async def root():
     return {"message": "Patient Data Server"}
 
 
+@app.get("/patients/list")
+async def get_patient_list():
+    df = data["patients"]
+    variable_names = ["ward", "birth_date", "admission_hospitalisation"]
+
+    return (
+        df[df["variable_name"].isin(variable_names)].fillna("").to_dict(orient="list")
+    )
+
+
 @app.post("/patients/")
 async def get_data(variable_name: List[str]):
     df = data["patients"]
