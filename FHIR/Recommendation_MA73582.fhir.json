@@ -7,6 +7,7 @@
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
+        "title": "Dexamethason bei kritisch kranken Patienten mit COVID-19",
         "identifier": [
           {
             "value": "4568",

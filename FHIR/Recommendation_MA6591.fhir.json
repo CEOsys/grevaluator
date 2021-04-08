@@ -7,6 +7,7 @@
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
+        "title": "COVID-19 Sedation RASS body position",
         "identifier": [
           {
             "value": "6591",
