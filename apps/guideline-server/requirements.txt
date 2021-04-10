@@ -1,1 +1,1 @@
-git+git://github.com/glichtner/fhir.resources
+git+https://github.com/glichtner/fhir.resources
