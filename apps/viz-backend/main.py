@@ -12,9 +12,9 @@ from pydantic import BaseModel
 from config import settings
 import yaml
 
-DATA_PATH = Path(os.getenv("CEOSYS_DATA_PATH"))  # type : ignore
-GUIDELINE_SERVER = os.getenv("GUIDELINE_SERVER")
-PATIENTDATA_SERVER = os.getenv("PATIENTDATA_SERVER")
+DATA_PATH = Path(os.environ["CEOSYS_DATA_PATH"])
+GUIDELINE_SERVER = os.environ["GUIDELINE_SERVER"]
+PATIENTDATA_SERVER = os.environ["PATIENTDATA_SERVER"]
 
 data = {}
 
@@ -185,8 +185,8 @@ def get_patients_from_guideline(guideline_id) -> List:
     return list(ret)
 
 
-def request_data(variables: List[str]) -> pd.DataFrame:
-    r = requests.post(PATIENTDATA_SERVER + "/patients/", json=variables)
+def request_patient_data(patient_id: str, variables: List[str]) -> pd.DataFrame:
+    r = requests.post(PATIENTDATA_SERVER + f"/patient/{patient_id}", json=variables)
 
     df = pd.DataFrame(r.json())
 
@@ -235,11 +235,13 @@ async def list_patient_by_guideline(
     return get_patients_from_guideline(guideline_id)
 
 
-@app.get("/patient/get/{guideline_id}")
+@app.get("/patient/get")
 async def get_patient_info(
-    guideline_id: str, current_user: User = Depends(get_current_active_user)
+    patient_id: str,
+    guideline_id: str,
+    current_user: User = Depends(get_current_active_user),
 ):
     variables = get_variables_from_guideline(guideline_id)
-    df = request_data(variables)
+    df = request_patient_data(patient_id, variables)
 
     return df.to_dict(orient="records")
