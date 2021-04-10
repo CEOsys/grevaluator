@@ -7,7 +7,7 @@ from fhir.resources.bundle import Bundle
 
 app = FastAPI()
 
-BASE_PATH = Path(os.getenv("CEOSYS_BASE_PATH"), ".") / "FHIR"
+BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"], ".") / "FHIR"
 
 
 @app.get("/")
@@ -30,8 +30,9 @@ async def list_guidelines():
         id = re.search(pattern, fname).group(1)
         bundle = Bundle.parse_file(fname)
         title = bundle.entry[0].resource.title
+        text = bundle.entry[0].resource.text.div
 
-        guidelines.append({"id": id, "title": title})
+        guidelines.append({"id": id, "title": title, "text": text})
 
     return guidelines
 

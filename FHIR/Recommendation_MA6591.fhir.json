@@ -8,6 +8,10 @@
         "resourceType": "EvidenceReport",
         "status": "draft",
         "title": "COVID-19 Sedation RASS body position",
+        "text": {
+          "status": "generated",
+          "div": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine \u00dcbersedierung ist vermeiden!<br/>Ziel-RASS in RL: 0/-1<br/>Ziel-RASS in \u00fcberdrehter Seitenlage: 0/-1/-2<br/>Ziel-RASS in BL:  -3/-4 (\u201econscious proning\u201c erw\u00e4gen bei technischen und patientenindividuellen Voraussetzungen)<br/>Andernfalls m\u00fcssen Ausnahmen begr\u00fcnden werden.<br/>Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!"
+        },
         "identifier": [
           {
             "value": "6591",

@@ -8,6 +8,10 @@
         "resourceType": "EvidenceReport",
         "status": "draft",
         "title": "Dexamethason bei kritisch kranken Patienten mit COVID-19",
+        "text": {
+          "status": "generated",
+          "div": "Bei Patienten mit schwerer (SpO2 < 90 %, Atemfrequenz > 30/min) oder kritischer (ARDS, Sepsis, Beatmung, Vasopressorengabe) COVID-19-Erkrankung soll eine Therapie mit Dexamethason erfolgen.<br/>Die Dosis betr\u00e4gt 6 mg Dexamethason p. o./i. v. t\u00e4glich f\u00fcr 10."
+        },
         "identifier": [
           {
             "value": "4568",
