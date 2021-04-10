@@ -27,7 +27,7 @@ services:
     ports:
       - "5004:80"
     volumes:
-      - comparator-results:/var/datavizuguidiz
+      - comparator-results:/var/data
 #  viz:
 #    build:
 #      context: .

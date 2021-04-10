@@ -10,9 +10,9 @@ from comparator.quantity import Quantity
 
 
 app = FastAPI()
-GUIDELINE_SERVER = os.getenv("GUIDELINE_SERVER")
-PATIENTDATA_SERVER = os.getenv("PATIENTDATA_SERVER")
-DATA_PATH = os.getenv("CEOSYS_DATA_PATH")
+GUIDELINE_SERVER: str = os.environ["GUIDELINE_SERVER"]
+PATIENTDATA_SERVER: str = os.environ["PATIENTDATA_SERVER"]
+DATA_PATH: str = os.environ["CEOSYS_DATA_PATH"]
 
 
 @app.get("/")
@@ -30,7 +30,7 @@ def save_results(res, variables, guideline_id):
 
 
 @app.get("/run")
-async def run() -> Dict:
+async def run() -> str:
     guideline_ids = get_guideline_ids()
 
     for guideline_id in guideline_ids:
@@ -43,9 +43,9 @@ async def run() -> Dict:
     return "Success"
 
 
-def get_guideline_ids() -> Dict:
+def get_guideline_ids() -> List:
     r = requests.get(GUIDELINE_SERVER + "/guideline/list")
-    return r.json()
+    return [gl["id"] for gl in r.json()]
 
 
 def get_guideline(guideline_id: str) -> Dict:

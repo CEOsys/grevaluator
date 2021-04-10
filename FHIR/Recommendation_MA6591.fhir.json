@@ -3,7 +3,7 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://example.org/fhir/EvidenceReport/MA6591",
+      "fullUrl": "https://covid-evidenz.de/fhir/EvidenceReport/MA6591",
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
