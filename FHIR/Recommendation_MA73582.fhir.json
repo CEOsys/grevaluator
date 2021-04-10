@@ -162,6 +162,276 @@
         "resourceType": "Group",
         "identifier": [
           {
+            "value": "Population_COVID-19_Respiratory_Rate>30/min",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Respiratory Rate > 30/min",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Respiratory-Rate > 30/min"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_ARDS",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, ARDS",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "ARDS"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Sepsis",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Sepsis",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Sepsis"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Ventilated",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Ventilated",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Ventilated"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Vasopressor_Therapy",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Vasopressor Therapy",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Vasopressor Therapy"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
             "value": "COVID-19",
             "system": "https://covid-evidenz.de/"
           }
@@ -264,7 +534,7 @@
                 },
                 {
                   "system": "https://snomed.info/sct",
-                  "code": "431314004",
+                  "code": "86290005",
                   "display": "SnomedCT: Respiratory measure (observable entity)"
                 }
               ]
@@ -361,7 +631,7 @@
         "resourceType": "Group",
         "identifier": [
           {
-            "value": "Catecholamine Therapy",
+            "value": "Vasopressor Therapy",
             "system": "https://covid-evidenz.de/"
           }
         ],
@@ -369,7 +639,7 @@
         "actual": false,
         "text": {
           "status": "generated",
-          "div": "Catecholamine Therapy"
+          "div": "Vasopressor Therapy"
         },
         "characteristic": [
           {
@@ -377,12 +647,62 @@
               "coding": [
                 {
                   "system": "https://covid-evidenz.de/concepts/",
-                  "code": "catecholamine-therapy",
-                  "display": "CEOsys: Catecholamine Therapy"
+                  "code": "vasopressor-therapy",
+                  "display": "CEOsys: Vasopressor Therapy"
                 }
               ]
             },
             "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Ventilated",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "Ventilated"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp38jjqmxs",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Ventilation Finding"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "128258000",
+                  "display": "SnomedCT: Ventilation Finding (finding) "
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp399q34v1",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Patient Ventilated"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "371820004",
+                  "display": "SnomedCT: Patient ventilated (finding)"
+                }
+              ]
+            },
             "exclude": false
           }
         ]
@@ -562,6 +882,91 @@
                 "value": "Population_COVID-19_Oxygen-Saturation<90"
               },
               "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Oxygen-Saturation<90"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Respiratory_Rate>30/min"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Respiratory Rate > 30/min"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_ARDS"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, ARDS"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Sepsis"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Sepsis"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Ventilated"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Ventilated"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Vasopressor_Therapy"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Vasopressor Therapy"
             }
           },
           {

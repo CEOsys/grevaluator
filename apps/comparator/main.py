@@ -20,11 +20,15 @@ async def root() -> Dict:
     return {"message": "Comparator"}
 
 
-def save_results(res, variables, guideline_id):
-    summary = res[["valid_exposure", "valid_population", "valid_treatment"]].droplevel(
-        level=1, axis=1
-    )
-    details = res[variables].stack("variable_name").reset_index("variable_name")
+def save_results(res, variable_names, guideline_id):
+    summary = res[
+        [("valid_exposure", ""), ("valid_population", ""), ("valid_treatment", "")]
+    ].droplevel(level=1, axis=1)
+
+    variable_names = [v for v in variable_names if v in res]
+
+    details = res[variable_names].stack("variable_name").reset_index("variable_name")
+
     summary.to_pickle(Path(DATA_PATH) / f"guideline_{guideline_id}_results_summary.pkl")
     details.to_pickle(Path(DATA_PATH) / f"guideline_{guideline_id}_results_detail.pkl")
 
@@ -35,10 +39,10 @@ async def run() -> str:
 
     for guideline_id in guideline_ids:
         guideline = get_guideline(guideline_id)
-        variables, q_population, q_exposure = process_guideline(guideline)
-        data = request_data(variables)
+        variable_names, q_population, q_exposure = process_guideline(guideline)
+        data = request_data(list(variable_names))
         res = compare(data, q_population, q_exposure)
-        save_results(res, variables, guideline_id)
+        save_results(res, variable_names, guideline_id)
 
     return "Success"
 
@@ -68,27 +72,42 @@ def request_data(variables: List[str]) -> pd.DataFrame:
     return df
 
 
+def validate(df, quantity_groups, type_name):
+    if type_name not in ["population", "exposure"]:
+        raise ValueError(f'Invalid type_name "{type_name}"')
+
+    col_names_group = []
+    for group_name, quantities in quantity_groups.items():
+        col_names_variables = []
+        for q in quantities:
+            if q.variable_name not in df.columns:
+                continue
+
+            col_name = (q.variable_name, f"valid_{type_name}")
+            df[col_name] = df[(q.variable_name, "value")].apply(q.valid)
+            col_names_variables.append(col_name)
+
+        col_name = (f"valid_{type_name}", group_name)
+        df[col_name] = df[col_names_variables].all(axis=1)
+        col_names_group.append(col_name)
+
+    df[(f"valid_{type_name}", "")] = df[col_names_group].any(axis=1)
+
+    return df
+
+
 def compare(
-    df: pd.DataFrame, q_population: List[Quantity], q_exposure: List[Quantity]
+    df: pd.DataFrame,
+    q_populations: Dict[str, List[Quantity]],
+    q_exposures: Dict[str, List[Quantity]],
 ) -> pd.DataFrame:
-    for q in q_population:
-        df[(q.variable_name, "valid_population")] = df[
-            (q.variable_name, "value")
-        ].apply(q.valid)
 
-    for q in q_exposure:
-        df[(q.variable_name, "valid_exposure")] = df[(q.variable_name, "value")].apply(
-            q.valid
-        )
+    df = validate(df, q_populations, "population")
+    df = validate(df, q_exposures, "exposure")
 
-    col_population = [(q.variable_name, "valid_population") for q in q_population]
-    col_exposure = [(q.variable_name, "valid_exposure") for q in q_exposure]
-
-    df["valid_population"] = df[col_population].all(axis=1)
-    df["valid_exposure"] = df[col_exposure].all(axis=1)
-    df["valid_treatment"] = (df["valid_population"] & df["valid_exposure"]) | (
-        ~df["valid_population"]
-    )
+    df["valid_treatment"] = (
+        df[("valid_population", "")] & df[("valid_exposure", "")]
+    ) | (~df[("valid_population", "")])
 
     df = df.sort_index(axis=1)
 

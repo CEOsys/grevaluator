@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Optional, Set, Tuple
 import pandas as pd
 import pint
 from jsonpath_ng.ext import parse
@@ -39,27 +39,71 @@ def find_resource(bundle, resource_name, identifier=None):
     return res
 
 
-def get_mapping(coding):
+def get_mapping(coding: Dict) -> Dict:
+    """
+    Get mapping from guideline coding to specific variables from mapping table
+
+    Args:
+        coding: Coding from guideline
+
+    Returns: Mapping information from mapping table
+
+    """
     system = coding["system"].rstrip("/").strip()  # noqa
     code = coding["code"].strip()  # noqa
     res = mapping_table.query("(code==@code) & (system==@system)")
     if len(res) == 0:
         raise ValueError(f"Could not find mapping for code {coding}")
-    elif len(res) > 1:
-        raise ValueError(f"Multiple mappings found for code {coding}")
-    return res.iloc[0].to_dict()
+    return res.to_dict(orient="records")
 
 
-def nonify(v):
+def get_mappings(codeableConcept: Dict) -> List[Dict]:
+    """
+    Get mappings from guideline codeableConcept to specific variables from mapping table
+
+    Args:
+        codeableConcept: CodeableConcept from guideline
+
+    Returns: List of mapping information
+
+    """
+    mappings = []
+
+    for code in codeableConcept["coding"]:
+        mappings += get_mapping(code)
+
+    return mappings
+
+
+def nonify(v: float) -> Optional[float]:
+    """
+    Converts nan values to None
+
+    Args:
+        v: float
+
+    Returns: None if input value is NaN, else input value
+
+    """
     if pd.isna(v):
         return None
     return v
 
 
-def get_unique_mapping(codeableConcept):
-    mappings = []
-    for code in codeableConcept["coding"]:
-        mappings.append(get_mapping(code))
+def get_unique_mapping(codeableConcept: Dict) -> Dict:
+    """
+    Retrieve unique mapping for codeable concept.
+
+    If multiple codings are specified for a codeableConcept, this function makes
+    sure that all codings map to the same item.
+
+    Args:
+        codeableConcept: codeableConcept from guideline
+
+    Returns: unique mapping, if available
+
+    """
+    mappings = get_mappings(codeableConcept)
 
     cols = ["variable_name", "type", "value", "value_low", "value_high"]
     n_unique_concepts = (
@@ -99,9 +143,10 @@ def create_quantity_from_mapping(mapping):
 
 def get_unit(quantity: Dict) -> pint.Quantity:
     if "unit" in quantity:
-        if not quantity["system"] == "http://unitsofmeasure.org":
+        if not quantity["system"] == "https://unitsofmeasure.org":
             raise ValueError(
-                f'Can only use "http://unitsofmeasure.org" as unit system, got {quantity["system"]} instead'
+                f'Can only use "https://unitsofmeasure.org" as unit system, '
+                f'got {quantity["system"]} instead'
             )
         unit = quantity["code"]
     else:
@@ -169,7 +214,7 @@ def find_characteristic(resource, system, code):
 def is_drug_group(resource):
     return (
         find_characteristic(
-            resource, system="http://data.cochrane.org/ontologies/core/", code="Drug"
+            resource, system="https://data.cochrane.org/ontologies/core/", code="Drug"
         )
         is not None
     )
@@ -177,36 +222,43 @@ def is_drug_group(resource):
 
 def parse_characteristics(resource):
     characteristics = parse("$.characteristic[*]").find(resource)
+    quantities = []
 
     if len(characteristics) == 1:
         characteristic = characteristics[0]
-        mapping = get_unique_mapping(characteristic.value["code"])
-        q = get_quantity(
-            characteristic.value, variable_name=nonify(mapping["variable_name"])
-        )
+        for mapping in get_mappings(characteristic.value["code"]):
+            q = get_quantity(
+                characteristic.value, variable_name=nonify(mapping["variable_name"])
+            )
+            # only add quantity to list if not already contained (e.g. if multiple
+            # concepts from different vocabularies (SNOMED CT, Cochrane) point to the
+            # same mapping
+            if q not in quantities:
+                quantities.append(q)
     elif is_drug_group(resource):
         q = parse_drug_group(resource)
+        quantities.append(q)
     else:
         group_name = resource["identifier"][0]["value"]
         raise ValueError(
             f"Unknown combination of multiple characteristics in group {group_name}"
         )
 
-    return q
+    return quantities
 
 
 def parse_drug_group(resource):
     duration = find_characteristic(
-        resource, system="http://data.cochrane.org/ontologies/pico/", code="Duration"
+        resource, system="https://data.cochrane.org/ontologies/pico/", code="Duration"
     )
     schedule = find_characteristic(
-        resource, system="http://data.cochrane.org/ontologies/pico/", code="Schedule"
+        resource, system="https://data.cochrane.org/ontologies/pico/", code="Schedule"
     )
     dose = find_characteristic(
-        resource, system="http://data.cochrane.org/ontologies/pico/", code="Dose"
+        resource, system="https://data.cochrane.org/ontologies/pico/", code="Dose"
     )
     drug = find_characteristic(
-        resource, system="http://data.cochrane.org/ontologies/core/", code="Drug"
+        resource, system="https://data.cochrane.org/ontologies/core/", code="Drug"
     )
 
     dose = get_quantity(dose.context.context.context.value)
@@ -231,7 +283,16 @@ def parse_drug_group(resource):
     return q
 
 
-def get_population_exposure(content):
+def get_population_exposure(content: Dict) -> Dict[str, List[str]]:
+    """
+    Extract names of the population and exposure groups from the full guideline.
+
+    Args:
+        content: Guideline (json)
+
+    Returns: name of population and exposure groups
+
+    """
     evidence = find_resource(content, "Evidence")
     res = []
     for var in evidence["variableDefinition"]:
@@ -242,27 +303,37 @@ def get_population_exposure(content):
             )
         )
 
-    assert (
-        sum(r[0] == "population" for r in res) == 1
-    ), "Expected exactly one population entry in Evidence resource"
-    assert (
-        sum(r[0] == "exposure" for r in res) == 1
-    ), "Expected exactly one exposure entry in Evidence resource"
-
-    return dict(res)
+    return {
+        key: [v[1] for v in res if v[0] == key] for key in ["population", "exposure"]
+    }
 
 
-def get_group_names(content, evidence, key):
-    if key == "population":
+def get_group_names(
+    content: Dict, evidence_identifier: str, evidence_type: str
+) -> List[str]:
+    """
+    Get characteristics group names from guideline for population or exposure
+
+    Args:
+        content: Guideline
+        evidence_identifier: Identifier of the population or exposure resource
+        evidence_type: "population" or "exposure"
+
+    Returns: all group names belonging to the evidence identifier resource
+
+    """
+    if evidence_type == "population":
         resource_name = "Group"
         attribute = "valueReference"
-    elif key == "exposure":
+    elif evidence_type == "exposure":
         resource_name = "EvidenceVariable"
         attribute = "definitionReference"
     else:
-        raise ValueError(f'Invalid key {key}. Expected "population" or "exposure"')
+        raise ValueError(
+            f'Invalid key {evidence_type}. Expected "population" or "exposure"'
+        )
 
-    entity = find_resource(content, resource_name, identifier=evidence[key])
+    entity = find_resource(content, resource_name, identifier=evidence_identifier)
 
     group_names = [
         m.value
@@ -273,25 +344,115 @@ def get_group_names(content, evidence, key):
     return group_names
 
 
-def get_quantities(content: Dict, evidence: Dict, key: str) -> List[Quantity]:
+def get_quantities(
+    content: Dict, evidence_identifier: str, evidence_type: str
+) -> List[Quantity]:
+    """
+    Parses guideline into quantities (to test dataset)
 
-    group_names = get_group_names(content, evidence, key)
+    Args:
+        content: Guideline
+        evidence_identifier: Identifier of the population or exposure resource
+        evidence_type: "population" or "exposure"
+
+    Returns: Quantities belonging to the evidence identifier resource
+
+    """
+
+    group_names = get_group_names(content, evidence_identifier, evidence_type)
 
     quantities = []
 
     for group_name in group_names:
         resource = find_resource(content, "Group", group_name)
-        q = parse_characteristics(resource)
-        quantities.append(q)
+        quantities += parse_characteristics(resource)
 
     return quantities
 
 
-def process_guideline(content):
+def get_population_quantities(
+    content: Dict, populations: List[str]
+) -> Dict[str, List[Quantity]]:
+    """
+    Get all quantities from populations.
+
+    Returns a Dict of list of Quantity objects, where the first level specifies
+    OR relationships and the second AND relationships.
+
+    Args:
+        content: Guideline
+        populations: Name of population resource names
+
+    Returns: List of Dict of quantity objects
+
+    """
+    q_population = {}
+
+    for population in populations:
+        q_population[population] = get_quantities(content, population, "population")
+
+    return q_population
+
+
+def get_exposures_quantities(
+    content: Dict, exposures: List[str]
+) -> Dict[str, List[Quantity]]:
+    """
+    Get all quantities from exposures.
+
+    Returns a Dict of list of Quantity objects, where the first level specifies
+    OR relationships and the second AND relationships.
+
+    Args:
+        content: Guideline
+        exposures: Name of exposure resource names
+
+    Returns: Dict of list of quantity objects
+
+    """
+    q_exposure = {}
+
+    for exposure in exposures:
+        q_exposure[exposure] = get_quantities(content, exposure, "exposure")
+
+    return q_exposure
+
+
+def get_variable_names(quantities: Dict[str, List[Quantity]]) -> Set[str]:
+    """
+    Get unique variable names from dict of list of quantities.
+
+    Args:
+        quantities: Quantities
+
+    Returns: unique variable names
+
+    """
+    variables = []
+    for q_name in quantities:
+        variables += [qi.variable_name for qi in quantities[q_name]]
+
+    return set(variables)
+
+
+def process_guideline(
+    content: Dict,
+) -> Tuple[Set[str], Dict[str, List[Quantity]], Dict[str, List[Quantity]]]:
+    """
+    Convert guideline to Quantity objects for population and exposure
+
+    Args:
+        content: Guideline
+
+    Returns: variable names and quantities for population and exposure
+
+    """
     evidence = get_population_exposure(content)
-    q_population = get_quantities(content, evidence, "population")
-    q_exposure = get_quantities(content, evidence, "exposure")
+    q_population = get_population_quantities(content, evidence["population"])
+    q_exposure = get_exposures_quantities(content, evidence["exposure"])
 
-    variables = [q.variable_name for q in q_population + q_exposure]
+    variable_names = set()
+    variable_names = variable_names.union(get_variable_names(q_population))
+    variable_names = variable_names.union(get_variable_names(q_exposure))
 
-    return variables, q_population, q_exposure
+    return variable_names, q_population, q_exposure

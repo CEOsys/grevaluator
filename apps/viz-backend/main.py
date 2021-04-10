@@ -149,9 +149,11 @@ async def root():
 
 def get_guideline_results_summary(guideline_id):
     try:
-        r = pd.read_pickle(
-            DATA_PATH / f"guideline_{guideline_id}_results_summary.pkl"
-        ).fillna("nan")
+        r = (
+            pd.read_pickle(DATA_PATH / f"guideline_{guideline_id}_results_summary.pkl")
+            .fillna("nan")
+            .reset_index()
+        )
     except FileNotFoundError:
         raise HTTPException(404, "Guideline not found")
     return r
@@ -159,9 +161,11 @@ def get_guideline_results_summary(guideline_id):
 
 def get_guideline_results_details(guideline_id):
     try:
-        r = pd.read_pickle(
-            DATA_PATH / f"guideline_{guideline_id}_results_detail.pkl"
-        ).fillna("nan")
+        r = (
+            pd.read_pickle(DATA_PATH / f"guideline_{guideline_id}_results_detail.pkl")
+            .fillna("nan")
+            .reset_index()
+        )
     except FileNotFoundError:
         raise HTTPException(404, "Guideline not found")
     return r

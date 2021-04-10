@@ -133,6 +133,12 @@ class Quantity:
         s += ")"
         return s
 
+    def __eq__(self, other: "Quantity") -> bool:
+        if not isinstance(other, Quantity):
+            raise NotImplementedError
+
+        return str(self) == str(other)
+
 
 class Medication(Quantity):
     drug: Quantity

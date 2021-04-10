@@ -33,6 +33,14 @@ def init_unit_registry() -> pint.UnitRegistry:
             pint.converters.ScaleConverter(0.01),
         )
     )
+    ureg.define(
+        pint.unit.UnitDefinition(
+            "breaths",
+            "breaths",
+            (),
+            pint.converters.ScaleConverter(1),
+        )
+    )
 
     return ureg
 
