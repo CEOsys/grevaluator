@@ -3,7 +3,7 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "https://covid-evidenz.de/fhir/EvidenceReport/MA4568",
+      "fullUrl": "https://covid-evidenz.de/fhir/EvidenceReport/MA5062",
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
@@ -14,8 +14,12 @@
         },
         "identifier": [
           {
-            "value": "4568",
+            "value": "5062",
             "system": "https://app.magicapp.org/#/guidelines"
+          },
+          {
+            "value": "80618",
+            "system": "https://api.magicapp.org/api/v1/recommendations"
           }
         ],
         "subject": {
@@ -41,7 +45,7 @@
                 "text": "Recommendation"
               },
               "valueReference": {
-                "reference": "Recommendation_https://app.magicapp.org/#/guidelines_4568_1"
+                "reference": "Recommendation_https://app.magicapp.org/#/guidelines_5062_1"
               }
             }
           ]
@@ -92,13 +96,13 @@
             },
             "text": {
               "status": "generated",
-              "div": "https://app.magicapp.org/#/guidelines / 4568"
+              "div": "https://app.magicapp.org/#/guidelines / 5062"
             },
             "entryReference": [
               {
                 "type": "Evidence",
                 "identifier": {
-                  "value": "Recommendation_https://app.magicapp.org/#/guidelines_4568_1",
+                  "value": "Recommendation_https://app.magicapp.org/#/guidelines_5062_1",
                   "system": "https://covid-evidenz.de/"
                 }
               }
@@ -118,7 +122,7 @@
         ],
         "type": "person",
         "actual": false,
-        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Oxygen-Saturation<90",
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Oxygen-Saturation<90",
         "characteristic": [
           {
             "code": {
@@ -172,7 +176,7 @@
         ],
         "type": "person",
         "actual": false,
-        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Respiratory Rate > 30/min",
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Respiratory Rate > 30/min",
         "characteristic": [
           {
             "code": {
@@ -226,7 +230,7 @@
         ],
         "type": "person",
         "actual": false,
-        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, ARDS",
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, ARDS",
         "characteristic": [
           {
             "code": {
@@ -280,7 +284,7 @@
         ],
         "type": "person",
         "actual": false,
-        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Sepsis",
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Sepsis",
         "characteristic": [
           {
             "code": {
@@ -334,7 +338,7 @@
         ],
         "type": "person",
         "actual": false,
-        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Ventilated",
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Ventilated",
         "characteristic": [
           {
             "code": {
@@ -388,7 +392,7 @@
         ],
         "type": "person",
         "actual": false,
-        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Vasopressor Therapy",
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Vasopressor Therapy",
         "characteristic": [
           {
             "code": {
@@ -834,7 +838,7 @@
           }
         ],
         "status": "draft",
-        "name": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethasone, 6mg, 10d, once/d",
+        "name": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: Dexamethasone, 6mg, 10d, once/d",
         "characteristic": [
           {
             "definitionReference": {
@@ -863,11 +867,11 @@
         "resourceType": "Evidence",
         "identifier": [
           {
-            "value": "Recommendation_https://app.magicapp.org/#/guidelines_4568_1",
+            "value": "Recommendation_https://app.magicapp.org/#/guidelines_5062_1",
             "system": "https://covid-evidenz.de/"
           }
         ],
-        "title": "https://app.magicapp.org/#/guidelines / 4568",
+        "title": "https://app.magicapp.org/#/guidelines / 5062",
         "status": "draft",
         "description": "Bei Patienten mit schwerer (SpO2 < 90 %, Atemfrequenz > 30/min) oder kritischer (ARDS, Sepsis, Beatmung, Vasopressorengabe) COVID-19-Erkrankung soll eine Therapie mit Dexamethason erfolgen. Die Dosis betr\u00e4gt 6 mg Dexamethason p. o./i. v. t\u00e4glich f\u00fcr 10.",
         "variableDefinition": [
@@ -885,7 +889,7 @@
               "identifier": {
                 "value": "Population_COVID-19_Oxygen-Saturation<90"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Oxygen-Saturation<90"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Oxygen-Saturation<90"
             }
           },
           {
@@ -902,7 +906,7 @@
               "identifier": {
                 "value": "Population_COVID-19_Respiratory_Rate>30/min"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Respiratory Rate > 30/min"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Respiratory Rate > 30/min"
             }
           },
           {
@@ -919,7 +923,7 @@
               "identifier": {
                 "value": "Population_COVID-19_ARDS"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, ARDS"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, ARDS"
             }
           },
           {
@@ -936,7 +940,7 @@
               "identifier": {
                 "value": "Population_COVID-19_Sepsis"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Sepsis"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Sepsis"
             }
           },
           {
@@ -953,7 +957,7 @@
               "identifier": {
                 "value": "Population_COVID-19_Ventilated"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Ventilated"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Ventilated"
             }
           },
           {
@@ -970,7 +974,7 @@
               "identifier": {
                 "value": "Population_COVID-19_Vasopressor_Therapy"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Vasopressor Therapy"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Vasopressor Therapy"
             }
           },
           {
@@ -987,7 +991,7 @@
               "identifier": {
                 "value": "Intervention_6mg_10d_Dexamethasone_once/d"
               },
-              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethasone, 6mg, 10d, once/d"
+              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: Dexamethasone, 6mg, 10d, once/d"
             }
           }
         ],

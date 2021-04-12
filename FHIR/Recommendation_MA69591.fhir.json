@@ -3,7 +3,7 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "https://covid-evidenz.de/fhir/EvidenceReport/MA6591",
+      "fullUrl": "https://covid-evidenz.de/fhir/EvidenceReport/MA4546",
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
@@ -14,8 +14,12 @@
         },
         "identifier": [
           {
-            "value": "6591",
+            "value": "4546",
             "system": "https://app.magicapp.org/#/guidelines"
+          },
+          {
+            "value": "69591",
+            "system": "https://api.magicapp.org/api/v1/recommendations"
           }
         ],
         "subject": {
@@ -41,7 +45,7 @@
                 "text": "Recommendation"
               },
               "valueReference": {
-                "reference": "Recommendation_https://app.magicapp.org/#/guidelines_6591_1"
+                "reference": "Recommendation_https://app.magicapp.org/#/guidelines_4546_1"
               }
             }
           ]
@@ -92,13 +96,13 @@
             },
             "text": {
               "status": "generated",
-              "div": "https://app.magicapp.org/#/guidelines / 6591"
+              "div": "https://app.magicapp.org/#/guidelines / 4546"
             },
             "entryReference": [
               {
                 "type": "Evidence",
                 "identifier": {
-                  "value": "Recommendation_https://app.magicapp.org/#/guidelines_6591_1",
+                  "value": "Recommendation_https://app.magicapp.org/#/guidelines_4546_1",
                   "system": "https://covid-evidenz.de/"
                 }
               }
@@ -397,11 +401,11 @@
         "resourceType": "Evidence",
         "identifier": [
           {
-            "value": "Recommendation_https://app.magicapp.org/#/guidelines_6591_1",
+            "value": "Recommendation_https://app.magicapp.org/#/guidelines_4546_1",
             "system": "https://covid-evidenz.de/"
           }
         ],
-        "title": "https://app.magicapp.org/#/guidelines / 6591",
+        "title": "https://app.magicapp.org/#/guidelines / 4546",
         "status": "draft",
         "description": "Auch bei COVID-19 Erkrankten ist eine tiefe Sedierung ist nur spezifischen Indikationen vorbehalten und eine \u00dcbersedierung ist vermeiden! Ziel-RASS in RL: 0/-1 Ziel-RASS in \u00fcberdrehter Seitenlage: 0/-1/-2 Ziel-RASS in BL:  -3/-4 (\u201econscious proning\u201c erw\u00e4gen bei technischen und patientenindividuellen Voraussetzungen) Andernfalls m\u00fcssen Ausnahmen begr\u00fcnden werden. Bei Indikationen zur leichten Sedierung: Stress und Agitation reduzieren!",
         "variableDefinition": [
@@ -419,7 +423,7 @@
               "identifier": {
                 "value": "Population_BodyPosition-Supine_COVID-19_Ventilated"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 6591 with characteristics: BodyPosition-Supine, COVID-19, Ventilated"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4546 with characteristics: BodyPosition-Supine, COVID-19, Ventilated"
             }
           },
           {
@@ -436,7 +440,7 @@
               "identifier": {
                 "value": "Intervention_RASS-1to0"
               },
-              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 6591 with characteristics:: RASS -1 to 0"
+              "display": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4546 with characteristics:: RASS -1 to 0"
             }
           }
         ],
@@ -459,7 +463,7 @@
         ],
         "certainty": [
           {
-            "description": "Moderate certainty due to ...",
+            "description": "Low certainty due to ...",
             "type": {
               "coding": [
                 {
