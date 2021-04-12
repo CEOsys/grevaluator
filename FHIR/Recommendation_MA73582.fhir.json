@@ -3,10 +3,15 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://example.org/fhir/EvidenceReport/MA4568",
+      "fullUrl": "https://covid-evidenz.de/fhir/EvidenceReport/MA4568",
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
+        "title": "Dexamethason bei kritisch kranken Patienten mit COVID-19",
+        "text": {
+          "status": "generated",
+          "div": "Bei Patienten mit schwerer (SpO2 < 90 %, Atemfrequenz > 30/min) oder kritischer (ARDS, Sepsis, Beatmung, Vasopressorengabe) COVID-19-Erkrankung soll eine Therapie mit Dexamethason erfolgen.<br/>Die Dosis betr\u00e4gt 6 mg Dexamethason p. o./i. v. t\u00e4glich f\u00fcr 10."
+        },
         "identifier": [
           {
             "value": "4568",
@@ -16,19 +21,25 @@
         "subject": {
           "characteristic": [
             {
-              "code": "Population",
+              "code": {
+                "text": "Population"
+              },
               "valueReference": {
                 "reference": "Population_COVID-19_Oxygen-Saturation<90"
               }
             },
             {
-              "code": "Intervention",
+              "code": {
+                "text": "Intervention"
+              },
               "valueReference": {
                 "reference": "6mg_10d_Dexamethasone_once/d"
               }
             },
             {
-              "code": "Recommendation",
+              "code": {
+                "text": "Recommendation"
+              },
               "valueReference": {
                 "reference": "Recommendation_https://app.magicapp.org/#/guidelines_4568_1"
               }
@@ -38,8 +49,13 @@
         "section": [
           {
             "title": "Population Section",
-            "focus": "EvidenceVariable-population",
-            "text": "COVID-19_Oxygen-Saturation<90",
+            "focus": {
+              "text": "EvidenceVariable-population"
+            },
+            "text": {
+              "status": "generated",
+              "div": "COVID-19_Oxygen-Saturation<90"
+            },
             "entryReference": [
               {
                 "type": "Group",
@@ -52,8 +68,13 @@
           },
           {
             "title": "Intervention Section",
-            "focus": "EvidenceVariable-intended",
-            "text": "6mg_10d_Dexamethasone_once/d",
+            "focus": {
+              "text": "EvidenceVariable-intended"
+            },
+            "text": {
+              "status": "generated",
+              "div": "6mg_10d_Dexamethasone_once/d"
+            },
             "entryReference": [
               {
                 "type": "EvidenceVariable",
@@ -66,8 +87,13 @@
           },
           {
             "title": "Recommendation Section",
-            "focus": "Recommendation",
-            "text": "https://app.magicapp.org/#/guidelines / 4568",
+            "focus": {
+              "text": "Recommendation"
+            },
+            "text": {
+              "status": "generated",
+              "div": "https://app.magicapp.org/#/guidelines / 4568"
+            },
             "entryReference": [
               {
                 "type": "Evidence",
@@ -99,26 +125,17 @@
               "text": "Condition",
               "coding": [
                 {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "system": "https://data.cochrane.org/ontologies/pico/",
                   "code": "Condition",
                   "display": "Cochrane Pico Ontology: Condition"
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "text": "Covid-19",
-              "coding": [
-                {
-                  "system": "https://data.cochrane.org/concepts/",
-                  "code": "NrO30O5ZnYIkjE",
-                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "840539006",
-                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
-                }
-              ]
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
             },
             "exclude": false
           },
@@ -127,14 +144,348 @@
               "text": "Condition",
               "coding": [
                 {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "system": "https://data.cochrane.org/ontologies/pico/",
                   "code": "Condition",
                   "display": "Cochrane Pico Ontology - Condition"
                 }
               ]
             },
-            "valueCodeableConcept": {
-              "text": "Oxygen-Saturation<90",
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Oxygen-Saturation<90"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Respiratory_Rate>30/min",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Respiratory Rate > 30/min",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Respiratory-Rate > 30/min"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_ARDS",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, ARDS",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "ARDS"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Sepsis",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Sepsis",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Sepsis"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Ventilated",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Ventilated",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Ventilated"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Population_COVID-19_Vasopressor_Therapy",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Vasopressor Therapy",
+        "characteristic": [
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology: Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "COVID-19"
+              }
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "text": "Condition",
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Condition",
+                  "display": "Cochrane Pico Ontology - Condition"
+                }
+              ]
+            },
+            "valueReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Vasopressor Therapy"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "COVID-19",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "COVID-19"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "NrO30O5ZnYIkjE",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - COVID-19"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "840539006",
+                  "display": "SnomedCT: Disease caused by Severe acute respiratory syndrome coronavirus 2 (disorder)"
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Oxygen-Saturation<90",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "Oxygen-Saturation<90"
+        },
+        "characteristic": [
+          {
+            "code": {
               "coding": [
                 {
                   "system": "https://data.cochrane.org/concepts/",
@@ -142,19 +493,329 @@
                   "display": "Cochrane Linked Data Vocabulary: Condition - Oxygen Saturation"
                 },
                 {
-                  "system": "http://snomed.info/sct",
+                  "system": "https://snomed.info/sct",
                   "code": "431314004",
                   "display": "SnomedCT: Peripheral oxygen saturation (observable entity)"
+                }
+              ]
+            },
+            "valueRange": {
+              "high": {
+                "value": 90,
+                "unit": "%",
+                "system": "https://unitsofmeasure.org",
+                "code": "%"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Respiratory-Rate > 30/min",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "Respiratory-Rate > 30/min"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp3qg8yn71",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Respiratory Rate"
                 },
                 {
-                  "system": "http://unitsofmeasure.org",
-                  "code": "%",
-                  "display": "Unit: %"
+                  "system": "https://snomed.info/sct",
+                  "code": "86290005",
+                  "display": "SnomedCT: Respiratory measure (observable entity)"
+                }
+              ]
+            },
+            "valueRange": {
+              "low": {
+                "value": 30,
+                "unit": "{breaths}/min",
+                "system": "https://unitsofmeasure.org",
+                "code": "{breaths}/min"
+              }
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "ARDS",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "ARDS"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp3pkr3yl3",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Acute Respiratory Distress Syndrome"
                 },
                 {
-                  "system": "https://covid-evidenz.de/max",
-                  "code": "90",
-                  "display": "max-value = 90"
+                  "system": "https://snomed.info/sct",
+                  "code": "67782005",
+                  "display": "SnomedCT: Acute respiratory distress syndrome (disorder)"
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Sepsis",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "Sepsis"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp3p86xjp4",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Sepsis"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "91302008",
+                  "display": "SnomedCT: Sepsis (disorder)"
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Vasopressor Therapy",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "Vasopressor Therapy"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://covid-evidenz.de/concepts/",
+                  "code": "vasopressor-therapy",
+                  "display": "CEOsys: Vasopressor Therapy"
+                }
+              ]
+            },
+            "valueBoolean": true,
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "Ventilated",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "Ventilated"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp38jjqmxs",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Ventilation Finding"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "128258000",
+                  "display": "SnomedCT: Ventilation Finding (finding) "
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp399q34v1",
+                  "display": "Cochrane Linked Data Vocabulary: Condition - Patient Ventilated"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "371820004",
+                  "display": "SnomedCT: Patient ventilated (finding)"
+                }
+              ]
+            },
+            "exclude": false
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Group",
+        "identifier": [
+          {
+            "value": "6mg_10d_Dexamethasone_once/d",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "type": "person",
+        "actual": false,
+        "text": {
+          "status": "generated",
+          "div": "6mg_10d_Dexamethasone_once/d"
+        },
+        "characteristic": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Dose",
+                  "display": "Cochrane Pico Ontology - Dose"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "398232005",
+                  "display": "SnomedCT: Drug dose (finding)"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 6,
+              "unit": "mg",
+              "system": "https://unitsofmeasure.org",
+              "code": "mg"
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Duration",
+                  "display": "Cochrane Pico Ontology - Duration"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "261774000",
+                  "display": "SnomedCT: Duration of treatment (qualifier value)"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 10,
+              "unit": "d",
+              "system": "https://unitsofmeasure.org",
+              "code": "d"
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/core/",
+                  "code": "Drug",
+                  "display": "Cochrane Core Ontology - Drug"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/concepts/",
+                  "code": "r4hp13q3f0kh",
+                  "display": "Cochrane Linked Data Vocabulary: Drug - Dexamethasone"
+                },
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "372584003",
+                  "display": "SnomedCT: Dexamethasone (substance)"
+                }
+              ]
+            },
+            "exclude": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://data.cochrane.org/ontologies/pico/",
+                  "code": "Schedule",
+                  "display": "Cochrane Pico Ontology - Schedule"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://snomed.info/sct",
+                  "code": "229797004",
+                  "display": "SnomedCT: Once daily (qualifier value)"
                 }
               ]
             },
@@ -168,7 +829,7 @@
         "resourceType": "EvidenceVariable",
         "identifier": [
           {
-            "value": "6mg_10d_Dexamethasone_once/d",
+            "value": "Intervention_6mg_10d_Dexamethasone_once/d",
             "system": "https://covid-evidenz.de/"
           }
         ],
@@ -176,123 +837,19 @@
         "name": "Intervention for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: Dexamethasone, 6mg, 10d, once/d",
         "characteristic": [
           {
-            "definitionCodeableConcept": {
-              "text": "6mg",
-              "coding": [
-                {
-                  "system": "https://covid-evidenz.de/",
-                  "code": "6mg",
-                  "display": "6 milligram"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "398232005",
-                  "display": "SnomedCT: Drug dose (finding) "
-                },
-                {
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
-                },
-                {
-                  "system": "https://covid-evidenz.de/value",
-                  "code": "6"
-                }
-              ]
-            },
-            "method": {
-              "text": "Dose",
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Dose",
-                  "display": "Cochrane Pico Ontology - Dose"
-                }
-              ]
-            },
-            "exclude": false
-          },
-          {
-            "definitionCodeableConcept": {
-              "text": "10d",
-              "coding": [
-                {
-                  "system": "https://covid-evidenz.de/",
-                  "code": "10d",
-                  "display": "10 days"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "261774000",
-                  "display": "SnomedCT: Duration of treatment (qualifier value) "
-                },
-                {
-                  "system": "http://unitsofmeasure.org",
-                  "code": "d"
-                },
-                {
-                  "system": "https://covid-evidenz.de/value",
-                  "code": "10"
-                }
-              ]
-            },
-            "method": {
-              "text": "Duration",
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Duration",
-                  "display": "Cochrane Pico Ontology - Duration"
-                }
-              ]
-            },
-            "exclude": false
-          },
-          {
-            "definitionCodeableConcept": {
-              "text": "Dexamethasone",
-              "coding": [
-                {
-                  "system": "https://data.cochrane.org/concepts/",
-                  "code": "r4hp13q3f0kh",
-                  "display": "Cochrane Linked Data Vocabulary: Drug - Dexamethasone"
-                },
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "372584003",
-                  "display": "SnomedCT: Dexamethasone (substance)"
-                }
-              ]
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "6mg_10d_Dexamethasone_once/d"
+              }
             },
             "method": {
               "text": "Intervention",
               "coding": [
                 {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
+                  "system": "https://data.cochrane.org/ontologies/pico/",
                   "code": "Intervention",
                   "display": "Cochrane Pico Ontology - Intervention"
-                }
-              ]
-            },
-            "exclude": false
-          },
-          {
-            "definitionCodeableConcept": {
-              "text": "once/d",
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "229797004",
-                  "display": "SnomedCT: Once daily (qualifier value)"
-                }
-              ]
-            },
-            "method": {
-              "text": "Schedule",
-              "coding": [
-                {
-                  "system": "http://data.cochrane.org/ontologies/pico/",
-                  "code": "Schedule",
-                  "display": "Cochrane Pico Ontology - Schedule"
                 }
               ]
             },
@@ -318,7 +875,7 @@
             "variableRole": {
               "coding": [
                 {
-                  "system": "http://terminology.hl7.org/CodeSystem/variable-role/",
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
                   "code": "population"
                 }
               ]
@@ -335,7 +892,92 @@
             "variableRole": {
               "coding": [
                 {
-                  "system": "http://terminology.hl7.org/CodeSystem/variable-role/",
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Respiratory_Rate>30/min"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Respiratory Rate > 30/min"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_ARDS"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, ARDS"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Sepsis"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Sepsis"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Ventilated"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Ventilated"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
+                  "code": "population"
+                }
+              ]
+            },
+            "observed": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Vasopressor_Therapy"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 4568 with characteristics: COVID-19, Vasopressor Therapy"
+            }
+          },
+          {
+            "variableRole": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
                   "code": "exposure"
                 }
               ]
@@ -352,22 +994,37 @@
         "statistic": [
           {
             "description": "net effect estimate of 28d mortality",
-            "statisticType": "relative risk",
-            "modelCharacteristic": [
+            "statisticType": {
+              "coding": [
+                {
+                  "system": "https://terminology.hl7.org/CodeSystem/statistic-type",
+                  "code": "C93152",
+                  "display": "Relative Risk"
+                }
+              ]
+            },
+            "quantity": {
+              "value": 0.9
+            },
+            "attributeEstimate": [
               {
-                "code": "relative risk",
-                "value": "0.9",
-                "variable": [
-                  {
-                    "variableDefinition": "test",
-                    "valueRange": [
-                      {
-                        "low": "0.83",
-                        "high": "0.97"
-                      }
-                    ]
+                "type": {
+                  "coding": [
+                    {
+                      "system": "https://terminology.hl7.org/CodeSystem/attribute-estimate-type",
+                      "code": "C53324",
+                      "display": "Confidence interval"
+                    }
+                  ]
+                },
+                "range": {
+                  "low": {
+                    "value": 0.83
+                  },
+                  "high": {
+                    "value": 0.97
                   }
-                ]
+                }
               }
             ]
           }
@@ -378,7 +1035,7 @@
             "type": {
               "coding": [
                 {
-                  "system": "http://hl7.org/fhir/ValueSet/certainty-type/",
+                  "system": "https://hl7.org/fhir/ValueSet/certainty-type/",
                   "code": "Overall"
                 }
               ]
@@ -386,7 +1043,7 @@
             "rating": {
               "coding": [
                 {
-                  "system": "http://terminology.hl7.org/CodeSystem/certainty-rating/",
+                  "system": "https://terminology.hl7.org/CodeSystem/certainty-rating/",
                   "code": "moderate"
                 }
               ]
