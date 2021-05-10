@@ -113,6 +113,76 @@
     },
     {
       "resource": {
+        "resourceType": "EvidenceVariable",
+        "identifier": [
+          {
+            "value": "Population_severe_or_critical_COVID-19",
+            "system": "https://covid-evidenz.de/"
+          }
+        ],
+        "status": "draft",
+        "name": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: Severe or critical COVID-19",
+        "characteristicCombination": "union",
+        "characteristic": [
+          {
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Oxygen-Saturation<90"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Oxygen-Saturation<90"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Respiratory_Rate>30/min"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Respiratory Rate > 30/min"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_ARDS"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, ARDS"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Sepsis"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Sepsis"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Ventilated"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Ventilated"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Group",
+              "identifier": {
+                "value": "Population_COVID-19_Vasopressor_Therapy"
+              },
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Vasopressor Therapy"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
         "resourceType": "Group",
         "identifier": [
           {
@@ -885,96 +955,11 @@
               ]
             },
             "observed": {
-              "type": "Group",
+              "type": "EvidenceVariable",
               "identifier": {
-                "value": "Population_COVID-19_Oxygen-Saturation<90"
+                "value": "Population_severe_or_critical_COVID-19"
               },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Oxygen-Saturation<90"
-            }
-          },
-          {
-            "variableRole": {
-              "coding": [
-                {
-                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
-                  "code": "population"
-                }
-              ]
-            },
-            "observed": {
-              "type": "Group",
-              "identifier": {
-                "value": "Population_COVID-19_Respiratory_Rate>30/min"
-              },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Respiratory Rate > 30/min"
-            }
-          },
-          {
-            "variableRole": {
-              "coding": [
-                {
-                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
-                  "code": "population"
-                }
-              ]
-            },
-            "observed": {
-              "type": "Group",
-              "identifier": {
-                "value": "Population_COVID-19_ARDS"
-              },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, ARDS"
-            }
-          },
-          {
-            "variableRole": {
-              "coding": [
-                {
-                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
-                  "code": "population"
-                }
-              ]
-            },
-            "observed": {
-              "type": "Group",
-              "identifier": {
-                "value": "Population_COVID-19_Sepsis"
-              },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Sepsis"
-            }
-          },
-          {
-            "variableRole": {
-              "coding": [
-                {
-                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
-                  "code": "population"
-                }
-              ]
-            },
-            "observed": {
-              "type": "Group",
-              "identifier": {
-                "value": "Population_COVID-19_Ventilated"
-              },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Ventilated"
-            }
-          },
-          {
-            "variableRole": {
-              "coding": [
-                {
-                  "system": "https://terminology.hl7.org/CodeSystem/variable-role/",
-                  "code": "population"
-                }
-              ]
-            },
-            "observed": {
-              "type": "Group",
-              "identifier": {
-                "value": "Population_COVID-19_Vasopressor_Therapy"
-              },
-              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: COVID-19, Vasopressor Therapy"
+              "display": "Population for guideline from https://app.magicapp.org/#/guidelines / 5062 with characteristics: Severe or critical COVID-19"
             }
           },
           {
