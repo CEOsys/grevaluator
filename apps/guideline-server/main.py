@@ -107,17 +107,19 @@ def get_guideline_from_file(guideline_id: int):
 
 
 def get_guideline(guideline_id: int):
-
-    try:
-        print(f"Reading guideline {guideline_id} from MAGICapp server")
-        guideline = get_guideline_from_server(guideline_id)
-        print("Read guideline from server")
-        return guideline
-    except GuidelineException as e:
-        print(
-            f"Guideline {guideline_id} not found on server ({str(e)}), falling back to local file"
-        )
-        pass
+    if os.environ["MAGICAPP_USE"] == 1:
+        try:
+            print(f"Reading guideline {guideline_id} from MAGICapp server")
+            guideline = get_guideline_from_server(guideline_id)
+            print("Read guideline from server")
+            return guideline
+        except GuidelineException as e:
+            print(
+                f"Guideline {guideline_id} not found on server ({str(e)}), falling back to local file"
+            )
+            pass
+    else:
+        print(f"Reading guideline {guideline_id} from local storage")
 
     try:
         return get_guideline_from_file(guideline_id)

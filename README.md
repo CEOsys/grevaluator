@@ -27,23 +27,17 @@ sudo apt install docker docker-compose
    git clone https://github.com/glichtner/ceosys.git
    ```
 
-2. Copy a data sample (not included in this repository)
-   ``` shell
-   cd ceosys/
-   cp <path-to-example-file> data/sample_data_shuffle_large.pkl.gz
-   ```
-
-3. Generate secrets and user database
+2. Generate secrets, user database and patient sample data
    ``` shell
    ./generate.py
    ```
 
-4. Build docker containers
+3. Build docker containers
    ``` shell
    docker-compose build --parallel
    ```
 
-5. Run containers
+4. Run containers
    ``` shell
    docker-compose up
    ```
