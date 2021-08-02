@@ -39,19 +39,19 @@ else:
     username_magicapp = None
     password_magicapp = None
 
-print("Writing .env file in guideline server")
-with open(path / "apps/guideline-server/.env", "w") as f:
+print("Writing .env file in guideline interface")
+with open(path / "apps/guideline-interface/app/.env", "w") as f:
     f.write(f"MAGICAPP_USE={int(use_magicapp)}\n")
     f.write(f'MAGICAPP_EMAIL="{username_magicapp}"\n')
     f.write(f'MAGICAPP_PASSWORD="{password_magicapp}"\n')
 
-print("Writing .env file in viz app")
-with open(path / "apps/viz/.env", "w") as f:
-    f.write(f'VIZ_BACKEND_USERNAME="{username}"\n')
-    f.write(f'VIZ_BACKEND_PASSWORD="{password}"\n')
+print("Writing .env file in ui app")
+with open(path / "apps/ui/app/.env", "w") as f:
+    f.write(f'UI_BACKEND_USERNAME="{username}"\n')
+    f.write(f'UI_BACKEND_PASSWORD="{password}"\n')
 
-print("Writing .env file in viz backend")
-with open(path / "apps/viz-backend/.env", "w") as f:
+print("Writing .env file in ui backend")
+with open(path / "apps/ui-backend/app/.env", "w") as f:
     f.write(f'SECRET_KEY="{secret_key}"\n')
 
 users_db = {
@@ -63,8 +63,8 @@ users_db = {
         "disabled": False,
     }
 }
-print("Writing users_db.yml in viz backend")
-with open(path / "apps/viz-backend/auth/users_db.yml", "w") as outfile:
+print("Writing users_db.yml in ui backend")
+with open(path / "apps/ui-backend/app/auth/users_db.yml", "w") as outfile:
     yaml.dump(users_db, outfile)
 
 

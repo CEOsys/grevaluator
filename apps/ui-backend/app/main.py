@@ -15,6 +15,22 @@
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
 
+#  This file is part of CEOsys Recommendation Checker.
+#
+#
+#  CEOsys Recommendation Checker is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  CEOsys Recommendation Checker is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
+
 import os
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -32,8 +48,6 @@ import yaml
 DATA_PATH = Path(os.environ["CEOSYS_DATA_PATH"])
 GUIDELINE_SERVER = os.environ["GUIDELINE_SERVER"]
 PATIENTDATA_SERVER = os.environ["PATIENTDATA_SERVER"]
-
-data = {}
 
 
 class Token(BaseModel):
@@ -160,50 +174,64 @@ async def read_own_items(current_user: User = Depends(get_current_active_user)):
 
 
 @app.get("/")
-async def root():
-    return {"message": "Patient Viz Server"}
+async def root() -> Dict:
+    """
+    Server greeting.
+
+    Returns: Server greeting.
+
+    """
+    return {"message": "UI Backend Server"}
 
 
-def get_guideline_results_summary(guideline_id):
+def get_recommendation_results_summary(recommendation_id: str):
     try:
         r = (
-            pd.read_pickle(DATA_PATH / f"guideline_{guideline_id}_results_summary.pkl")
+            pd.read_pickle(
+                DATA_PATH
+                / f"guideline_recommendation_{recommendation_id}_results_summary.pkl"
+            )
             .fillna("nan")
             .reset_index()
         )
     except FileNotFoundError:
-        raise HTTPException(404, "Guideline not found")
+        raise HTTPException(404, "Guideline recommendation not found")
     return r
 
 
-def get_guideline_results_details(guideline_id):
+def get_recommendation_results_details(recommendation_id: str):
     try:
         r = (
-            pd.read_pickle(DATA_PATH / f"guideline_{guideline_id}_results_detail.pkl")
+            pd.read_pickle(
+                DATA_PATH
+                / f"guideline_recommendation_{recommendation_id}_results_detail.pkl"
+            )
             .fillna("nan")
             .reset_index()
         )
     except FileNotFoundError:
-        raise HTTPException(404, "Guideline not found")
+        raise HTTPException(404, "Guideline recommendation not found")
     return r
 
 
-def get_guideline_variables(guideline_id):
+def get_recommendation_variables(recommendation_id: str):
     try:
-        r = pd.read_pickle(DATA_PATH / f"guideline_{guideline_id}_variable_names.pkl")
+        r = pd.read_pickle(
+            DATA_PATH / f"guideline_{recommendation_id}_variable_names.pkl"
+        )
     except FileNotFoundError:
-        raise HTTPException(404, "Guideline not found")
+        raise HTTPException(404, "Guideline recommendation not found")
     return r
 
 
-def get_guideline_ids() -> Dict:
-    r = requests.get(GUIDELINE_SERVER + "/guideline/list")
+def get_recommendation_ids() -> Dict:
+    r = requests.get(GUIDELINE_SERVER + "/recommendation/list")
     return r.json()
 
 
-def get_patients_from_guideline(guideline_id) -> List:
+def get_patients_from_recommendation(recommendation_id: str) -> List:
     ret = (
-        get_guideline_results_summary(guideline_id)
+        get_recommendation_results_summary(recommendation_id)
         .reset_index()["pseudo_fallnr"]
         .unique()
     )
@@ -218,24 +246,26 @@ def request_patient_data(patient_id: str, variables: List[str]) -> pd.DataFrame:
     return df
 
 
-@app.get("/guideline/list")
-async def get_guideline_list(current_user: User = Depends(get_current_active_user)):
-    return get_guideline_ids()
-
-
-@app.get("/guideline/variables/{guideline_id}")
-async def get_guideline_variable_names(
-    guideline_id: str, current_user: User = Depends(get_current_active_user)
+@app.get("/recommendation/list")
+async def get_recommendation_list(
+    current_user: User = Depends(get_current_active_user),
 ):
-    return get_guideline_variables(guideline_id).to_dict(orient="records")
+    return get_recommendation_ids()
 
 
-@app.get("/guideline/get/{guideline_id}")
-async def get_guideline_results(
-    guideline_id: str, current_user: User = Depends(get_current_active_user)
+@app.get("/recommendation/variables/{recommendation_id}")
+async def get_recommendation_variable_names(
+    recommendation_id: str, current_user: User = Depends(get_current_active_user)
 ):
-    df_summary = get_guideline_results_summary(guideline_id)
-    df_detail = get_guideline_results_details(guideline_id)
+    return get_recommendation_variables(recommendation_id).to_dict(orient="records")
+
+
+@app.get("/recommendation/get/{recommendation_id}")
+async def get_recommendation_results(
+    recommendation_id: str, current_user: User = Depends(get_current_active_user)
+):
+    df_summary = get_recommendation_results_summary(recommendation_id)
+    df_detail = get_recommendation_results_details(recommendation_id)
 
     return {
         "summary": df_summary.to_dict(orient="records"),
@@ -256,20 +286,22 @@ async def list_patients(current_user: User = Depends(get_current_active_user)):
     return df.reset_index().to_dict(orient="records")
 
 
-@app.get("/patient/list/{guideline_id}")
-async def list_patient_by_guideline(
-    guideline_id: str, current_user: User = Depends(get_current_active_user)
+@app.get("/patient/list/{recommendation_id}")
+async def list_patient_by_recommendation(
+    recommendation_id: str, current_user: User = Depends(get_current_active_user)
 ):
-    return get_patients_from_guideline(guideline_id)
+    return get_patients_from_recommendation(recommendation_id)
 
 
 @app.get("/patient/get")
 async def get_patient_info(
     patient_id: str,
-    guideline_id: str,
+    recommendation_id: str,
     current_user: User = Depends(get_current_active_user),
 ):
-    variables = list(get_guideline_variables(guideline_id)["variable_name"].unique())
+    variables = list(
+        get_recommendation_variables(recommendation_id)["variable_name"].unique()
+    )
     df = request_patient_data(patient_id, variables)
 
     return df.to_dict(orient="records")

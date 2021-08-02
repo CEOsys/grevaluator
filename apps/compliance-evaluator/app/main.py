@@ -15,15 +15,31 @@
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
 
+#  This file is part of CEOsys Recommendation Checker.
+#
+#
+#  CEOsys Recommendation Checker is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  CEOsys Recommendation Checker is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
+
 import os
-from typing import Dict, List
+from typing import Dict, List, Set
 
 import requests
 from pathlib import Path
 import pandas as pd
 from fastapi import FastAPI
-from comparator.comparator import process_guideline
-from comparator.quantity import Quantity
+from compliance_evaluator.quantity import Quantity
+from compliance_evaluator.compliance_evaluator import ComplianceEvaluator
 
 
 app = FastAPI()
@@ -34,10 +50,16 @@ DATA_PATH: str = os.environ["CEOSYS_DATA_PATH"]
 
 @app.get("/")
 async def root() -> Dict:
-    return {"message": "Comparator"}
+    """
+    Server greeting.
+
+    Returns: Server greeting.
+
+    """
+    return {"message": "Compliance evaluator"}
 
 
-def save_results(res, variable_names, guideline_id):
+def save_results(res, variable_names, recommendation_id):
     summary = res[
         [("valid_exposure", ""), ("valid_population", ""), ("valid_treatment", "")]
     ].droplevel(level=1, axis=1)
@@ -51,14 +73,21 @@ def save_results(res, variable_names, guideline_id):
 
     details = res[variable_names].stack("variable_name").reset_index("variable_name")
 
-    summary.to_pickle(Path(DATA_PATH) / f"guideline_{guideline_id}_results_summary.pkl")
-    details.to_pickle(Path(DATA_PATH) / f"guideline_{guideline_id}_results_detail.pkl")
+    summary.to_pickle(
+        Path(DATA_PATH)
+        / f"guideline_recommendation_{recommendation_id}_results_summary.pkl"
+    )
+    details.to_pickle(
+        Path(DATA_PATH)
+        / f"guideline_recommendation_{recommendation_id}_results_detail.pkl"
+    )
     s_variable_names.to_pickle(
-        Path(DATA_PATH) / f"guideline_{guideline_id}_variable_names.pkl"
+        Path(DATA_PATH)
+        / f"guideline_recommendation_{recommendation_id}_variable_names.pkl"
     )
 
 
-def flatten(d: Dict[str, List[str]]) -> List[str]:
+def flatten(d: Dict[str, Set[str]]) -> List[str]:
     """
     Flatten a dict of lists to a list
 
@@ -68,33 +97,37 @@ def flatten(d: Dict[str, List[str]]) -> List[str]:
     Returns: flattened list
 
     """
-    return list(set().union(*d.values()))
+    return list(set().union(*d.values()))  # type: ignore
 
 
 @app.get("/run")
 async def run() -> str:
-    guideline_ids = get_guideline_ids()
+    recommendation_ids = get_recommendation_ids()
 
-    for guideline_id in guideline_ids:
-        guideline = get_guideline(guideline_id)
-        variable_names, q_population, q_exposure = process_guideline(guideline)
+    for recommendation_id in recommendation_ids:
+        rec = get_recommendation(recommendation_id)
+        variable_names, q_population, q_exposure = ComplianceEvaluator(
+            rec
+        ).process_guideline_recommendation()
         data = request_data(flatten(variable_names))
         res = compare(data, q_population, q_exposure)
-        save_results(res, variable_names, guideline_id)
+        save_results(res, variable_names, recommendation_id)
 
     return "Success"
 
 
-def get_guideline_ids() -> List:
-    r = requests.get(GUIDELINE_SERVER + "/guideline/list")
-    return [gl["id"] for gl in r.json()]
+def get_recommendation_ids() -> List:
+    r = requests.get(GUIDELINE_SERVER + "/recommendation/list")
+    return [rec["id"] for rec in r.json()]
 
 
-def get_guideline(guideline_id: str) -> Dict:
-    r_guideline = requests.get(GUIDELINE_SERVER + f"/guideline/get/{guideline_id}")
-    guideline = r_guideline.json()
+def get_recommendation(recommendation_id: str) -> Dict:
+    r_recommendation = requests.get(
+        GUIDELINE_SERVER + f"/recommendation/get/{recommendation_id}"
+    )
+    recommendation = r_recommendation.json()
 
-    return guideline
+    return recommendation
 
 
 def request_data(variables: List[str]) -> pd.DataFrame:

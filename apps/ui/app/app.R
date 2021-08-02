@@ -13,8 +13,8 @@ library(glue)
 
 source("load_data.R")
 patient_id <- patients$pseudo_fallnr[1]
-guideline_id <- guidelines$id[1]
-# patient_results <- load_guideline_results(guideline_id)
+recommendation_id <- recommendations$id[1]
+# patient_results <- load_recommendation_results(recommendation_id)
 
 variable_name_mappings <- list(
   test_covid19_pcr = "COVID19 PCR Test",
@@ -61,8 +61,8 @@ ui <- fluidPage(
     column(2, img(src = "logo_ceosys.jpg", height = 120), align = "right"),
     column(2, img(src = "logo_num.jpg", height = 120), align = "left"),
     column(4, selectInput(
-      inputId = "guideline_id", label = h3("Leitlinie"),
-      choices = setNames(guidelines$id, guidelines$title),
+      inputId = "recommendation_id", label = h3("Leitlinien-Empfehlung"),
+      choices = setNames(recommendations$id, recommendations$title),
       selected = NULL,
       width = "80%"
     ),
@@ -85,26 +85,26 @@ ui <- fluidPage(
       )
     ),
 
-    # Guideline Column
+    # recommendation Column
 
     column(
       7,
 
-      # Guideline-Text Row
+      # recommendation-Text Row
 
       wellPanel(
-        h1("Leitlinie"),
-        htmlOutput("guideline_text"),
-        tags$head(tags$style("#guideline_text { font-size:12px; max-height: 20%; }")),
+        h1("Leitlinien-Empfehlung"),
+        htmlOutput("recommendation_text"),
+        tags$head(tags$style("#recommendation_text { font-size:12px; max-height: 20%; }")),
       ),
 
-      # Guideline-Population Row
+      # recommendation-Population Row
       wellPanel(
         h1("Population"),
         uiOutput("population_main")
       ),
 
-      # Guideline-Intervention Row
+      # recommendation-Intervention Row
       wellPanel(
         h1("Intervention"),
         uiOutput("intervention_main")
@@ -177,8 +177,7 @@ server <- function(input, output, session) {
   tabldat <- reactive({
     if (input$ward == "Alle") {
       return(tabldspl())
-    }
-    else {
+    } else {
       return(tabldspl()[patient_results()$ward == input$ward, ])
     }
   })
@@ -231,8 +230,8 @@ server <- function(input, output, session) {
   rv$patient_id <- reactive({
     tabldat()[input$patienttable_rows_selected, ]$Name
   })
-  rv$guideline_id <- reactive({
-    input$guideline_id
+  rv$recommendation_id <- reactive({
+    input$recommendation_id
   })
 
 
@@ -242,11 +241,11 @@ server <- function(input, output, session) {
 
   patientdata <- reactive({
     print("load patientdata")
-    load_patient(rv$patient_id(), rv$guideline_id())
+    load_patient(rv$patient_id(), rv$recommendation_id())
   })
 
   patient_results <- reactive({
-    load_guideline_results(rv$guideline_id())
+    load_recommendation_results(rv$recommendation_id())
   })
 
   tabldspl <- reactive({
@@ -271,24 +270,24 @@ server <- function(input, output, session) {
     print("patient id changed")
   })
 
-  output$guideline_text <- renderUI({
-    HTML(guidelines[guidelines$id == input$guideline_id, ]$text)
+  output$recommendation_text <- renderUI({
+    HTML(recommendations[recommendations$id == input$recommendation_id, ]$text)
   })
 
 
-  observeEvent(input$guideline_id, {
-    print("guideline_id changed")
+  observeEvent(input$recommendation_id, {
+    print("recommendation_id changed")
 
     updateSelectInput(session, "ward", choices = c("Alle", unique(patient_results()$ward)))
 
-    guideline_variables <- load_guideline_variables(input$guideline_id)
+    recommendation_variables <- load_recommendation_variables(input$recommendation_id)
 
-    vars_population <- guideline_variables %>%
+    vars_population <- recommendation_variables %>%
       filter(type == "population") %>%
       pull(variable_name) %>%
       unique() %>%
       as.list()
-    vars_intervention <- guideline_variables %>%
+    vars_intervention <- recommendation_variables %>%
       filter(type == "exposure") %>%
       pull(variable_name) %>%
       unique() %>%

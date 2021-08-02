@@ -23,7 +23,7 @@ import pandas as pd
 
 def init_unit_registry() -> pint.UnitRegistry:
     """
-    Initializes the unit registry once for the module.
+    Initializes the unit registry once for the module (prevents the need for multiple initializations).
 
     Returns: Initialized unit registry
 

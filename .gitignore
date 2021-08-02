@@ -78,6 +78,3 @@ docs/_build
 notebooks/
 log/
 test.py
-
-data/*
-!data/.gitkeep

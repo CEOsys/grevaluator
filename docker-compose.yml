@@ -1,37 +1,32 @@
-version: '2'
+version: "3.7"
 services:
-  guideline-server:
+  guideline-interface:
     build:
-      context: .
-      dockerfile: apps/guideline-server/Dockerfile
+      context: apps/guideline-interface/
     ports:
       - "5001:80"
-  viz-backend:
+  ui-backend:
     build:
-      context: .
-      dockerfile: apps/viz-backend/Dockerfile
+      context: apps/ui-backend
     ports:
       - "5002:80"
     volumes:
       - comparator-results:/var/data
-  patientdata-server:
+  clinical-data-interface:
     build:
-      context: .
-      dockerfile: apps/patientdata-server/Dockerfile
+      context: apps/clinical-data-interface
     ports:
       - "5003:80"
-  comparator:
+  compliance-evaluator:
     build:
-      context: .
-      dockerfile: apps/comparator/Dockerfile
+      context: apps/compliance-evaluator
     ports:
       - "5004:80"
     volumes:
       - comparator-results:/var/data
-  viz:
+  ui:
     build:
-      context: .
-      dockerfile: apps/viz/Dockerfile
+      context: apps/ui
     ports:
       - "5000:3838"
 
