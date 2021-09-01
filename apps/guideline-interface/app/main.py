@@ -179,7 +179,8 @@ def get_guideline_recommendation(recommendation_id: int) -> Dict:
             return guideline
         except GuidelineException as e:
             print(
-                f"Guideline recommendation {recommendation_id} not found on server ({str(e)}), falling back to local file"
+                f"Guideline recommendation {recommendation_id} not found on server ({str(e)}), "
+                f"falling back to local file"
             )
             pass
     else:

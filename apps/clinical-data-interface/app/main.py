@@ -16,12 +16,13 @@
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
 """
 Mock implementation of the clinical data interface.
+
 Uses generated data to provide a patient list for downstream services.
 """
 from typing import List, Dict
 import os
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 import pandas as pd
 
 BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"]) / "data"
@@ -33,7 +34,7 @@ app = FastAPI()
 @app.on_event("startup")
 async def startup_event() -> None:
     """
-    Reads in the mocked patient data at startup.
+    Read in the mocked patient data at startup.
 
     Returns: None
 

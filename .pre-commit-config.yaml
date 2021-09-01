@@ -27,6 +27,7 @@ repos:
         files: ^apps/compliance-evaluator/
         entry: mypy apps/compliance-evaluator/
         pass_filenames: false
+        exclude: ^apps/compliance-evaluator/tests/.*
     -   id: mypy
         name: mypy-guideline-interface
         files: ^apps/guideline-interface/
@@ -44,11 +45,11 @@ repos:
         pass_filenames: false
     -   id: mypy
         name: mypy-rest
-        exclude: ^apps/(clinical-data-interface|compliance-evaluator|guideline-interface|ui|ui-backend)/
-#-   repo: https://github.com/pycqa/pydocstyle
-#    rev: '5.1.1'
-#    hooks:
-#    -   id: pydocstyle
+        exclude: ^(apps/(clinical-data-interface|compliance-evaluator|guideline-interface|ui|ui-backend)/|generate.py)
+-   repo: https://github.com/pycqa/pydocstyle
+    rev: '6.1.1'
+    hooks:
+    -   id: pydocstyle
 -   repo: https://github.com/PyCQA/bandit
     rev: '1.7.0'
     hooks:
