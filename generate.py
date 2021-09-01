@@ -16,7 +16,16 @@ password = token_hex(32)
 username = "testuser"
 
 
-def yes_or_no(question):
+def yes_or_no(question: str) -> bool:
+    """
+    Requests a (y)es or (n)o answer to a question from the user
+
+    Args:
+        question: The question to ask
+
+    Returns: True if user answered yes, False if user answered no
+
+    """
     while "the answer is invalid":
         reply = str(input(question + " (y/n): ")).lower().strip()
         if reply[0] == "y":
@@ -39,19 +48,19 @@ else:
     username_magicapp = None
     password_magicapp = None
 
-print("Writing .env file in guideline server")
-with open(path / "apps/guideline-server/.env", "w") as f:
+print("Writing .env file in guideline interface")
+with open(path / "apps/guideline-interface/app/.env", "w") as f:
     f.write(f"MAGICAPP_USE={int(use_magicapp)}\n")
     f.write(f'MAGICAPP_EMAIL="{username_magicapp}"\n')
     f.write(f'MAGICAPP_PASSWORD="{password_magicapp}"\n')
 
-print("Writing .env file in viz app")
-with open(path / "apps/viz/.env", "w") as f:
-    f.write(f'VIZ_BACKEND_USERNAME="{username}"\n')
-    f.write(f'VIZ_BACKEND_PASSWORD="{password}"\n')
+print("Writing .env file in ui app")
+with open(path / "apps/ui/app/.env", "w") as f:
+    f.write(f'UI_BACKEND_USERNAME="{username}"\n')
+    f.write(f'UI_BACKEND_PASSWORD="{password}"\n')
 
-print("Writing .env file in viz backend")
-with open(path / "apps/viz-backend/.env", "w") as f:
+print("Writing .env file in ui backend")
+with open(path / "apps/ui-backend/app/.env", "w") as f:
     f.write(f'SECRET_KEY="{secret_key}"\n')
 
 users_db = {
@@ -63,8 +72,8 @@ users_db = {
         "disabled": False,
     }
 }
-print("Writing users_db.yml in viz backend")
-with open(path / "apps/viz-backend/auth/users_db.yml", "w") as outfile:
+print("Writing users_db.yml in ui backend")
+with open(path / "apps/ui-backend/app/auth/users_db.yml", "w") as outfile:
     yaml.dump(users_db, outfile)
 
 
@@ -93,6 +102,22 @@ def random_dates(
 
 
 class Variable:
+    """
+    Variable value generator base class
+
+    Args:
+        name: Name of the variable
+        min: Minimal value of the variable (for numeric and datetime variables)
+        max: Maximal value of the variable (for numeric and datetime variables)
+        count: Number of variable values to generate (only count or rate may be set, not both)
+        rate: Rate of variable values to generate in 1/day (e.g. if rate = 4, 4 values will be generated for each day in the supplied range)
+        options: Valid options for Multiple choice variables (ChoiceVariable class)
+        rate_fixed: If true and rate is set, then the timepoint of each value will be on an equidistant grid. If false, the timepoints will be drawn randomly.
+        time_window: If true, then an end datetime for each variable is also generated, i.e. each value will define a time window rather than a single time point
+        min_values: Minimal number of values to create for this variable
+        value: Value to use for FixedVariable
+    """
+
     def __init__(
         self,
         name: str,
@@ -107,21 +132,6 @@ class Variable:
         min_values: int = 1,
         value: Optional[Any] = None,
     ):
-        """
-        Variable value generator base class
-
-        Args:
-            name: Name of the variable
-            min: Minimal value of the variable (for numeric and datetime variables)
-            max: Maximal value of the variable (for numeric and datetime variables)
-            count: Number of variable values to generate (only count or rate may be set, not both)
-            rate: Rate of variable values to generate in 1/day (e.g. if rate = 4, 4 values will be generated for each day in the supplied range)
-            options: Valid options for Multiple choice variables (ChoiceVariable class)
-            rate_fixed: If true and rate is set, then the timepoint of each value will be on an equidistant grid. If false, the timepoints will be drawn randomly.
-            time_window: If true, then an end datetime for each variable is also generated, i.e. each value will define a time window rather than a single time point
-            min_values: Minimal number of values to create for this variable
-            value: Value to use for FixedVariable
-        """
         self.name = name
         self.min = min
         self.max = max
@@ -221,7 +231,7 @@ class IntVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         return np.random.randint(self.min, self.max, count)
 
 
@@ -233,7 +243,7 @@ class ChoiceVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         return np.random.choice(self.options, count)
 
 
@@ -246,7 +256,7 @@ class FloatVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         return np.random.random_sample(count) * (self.max - self.min) + self.min
 
 
@@ -260,7 +270,7 @@ class GaussianVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         mean = (
             self.max - self.min
         ) / 2  # use 1/2 of the range as the mean of the Gaussian distribution
@@ -280,7 +290,7 @@ class BoolVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         return np.random.randint(0, 2, count) == 1
 
 
@@ -295,10 +305,20 @@ class EventVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         return [self.value] * count
 
-    def sample(self, start, end):
+    def sample(self, start: int, end: int) -> pd.DataFrame:
+        """
+        Sample data for this variable in the specified datetime range
+
+        Args:
+            start: Start of the datetime range for which data will be generated
+            end: End of the datetime range for which data will be generated
+
+        Returns: Pandas dataframe with generated sample values and time points / ranges
+
+        """
         df = super().sample(start, end)
 
         valid_events = np.random.randint(0, 2, len(df)) == 1
@@ -315,7 +335,7 @@ class DateTimeVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         return random_dates(start=self.min, end=self.max, count=count)
 
 
@@ -328,7 +348,7 @@ class FixedVariable(Variable):
     Optional parameters: rate_fixed, time_window, min_values
     """
 
-    def _sample_values(self, count):
+    def _sample_values(self, count: int) -> List:
         return [self.value] * count
 
 
@@ -391,6 +411,13 @@ df.loc[idx_dt, "value"] = (
     pd.to_datetime(df.loc[idx_dt, "value"]).dt.tz_localize("UTC").dt.tz_convert(tz)
 )
 
-df.to_pickle(path / "data/sample_data_shuffle_large.pkl.gz")
+df.to_pickle(
+    path
+    / "apps"
+    / "clinical-data-interface"
+    / "data"
+    / "sample_data_shuffle_large.pkl.gz",
+    protocol=3,
+)
 
 print("done")

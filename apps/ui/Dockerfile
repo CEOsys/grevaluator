@@ -1,7 +1,7 @@
 FROM rocker/shiny-verse:latest
 
-ENV COMPARATOR_SERVER http://comparator:80
-ENV VIZ_BACKEND_SERVER http://viz-backend:80
+ENV COMPARATOR_SERVER http://compliance-evaluator:80
+ENV UI_BACKEND_SERVER http://ui-backend:80
 
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -38,7 +38,8 @@ RUN R -e 'renv::restore()'
 
 # copy necessary files
 ## app folder
-COPY ./apps/viz/ ./app
+COPY ./app /app
+COPY ./www /app/www
 
 # expose port
 EXPOSE 3838

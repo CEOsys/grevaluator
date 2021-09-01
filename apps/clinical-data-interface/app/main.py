@@ -14,8 +14,12 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
+"""
+Mock implementation of the clinical data interface.
 
-from typing import List
+Uses generated data to provide a patient list for downstream services.
+"""
+from typing import List, Dict
 import os
 from pathlib import Path
 from fastapi import FastAPI
@@ -28,19 +32,37 @@ app = FastAPI()
 
 
 @app.on_event("startup")
-async def startup_event():
+async def startup_event() -> None:
+    """
+    Read in the mocked patient data at startup.
+
+    Returns: None
+
+    """
     data["patients"] = pd.read_pickle(
         BASE_PATH / "sample_data_shuffle_large.pkl.gz"
     ).dropna(subset=["value"])
 
 
 @app.get("/")
-async def root():
+async def root() -> Dict:
+    """
+    Server greeting.
+
+    Returns: Server greeting.
+
+    """
     return {"message": "Patient Data Server"}
 
 
 @app.get("/patients/list")
-async def get_patient_list():
+async def get_patient_list() -> Dict:
+    """
+    Get list of patients with their ward, birth date and admission date
+
+    Returns: List of patients
+
+    """
     df = data["patients"]
     variable_names = ["ward", "birth_date", "admission_hospitalisation"]
 
@@ -50,14 +72,33 @@ async def get_patient_list():
 
 
 @app.post("/patients/")
-async def get_data(variable_name: List[str]):
+async def get_data(variable_name: List[str]) -> Dict:
+    """
+    Get clinical data for all patients.
+
+    Args:
+        variable_name: List of clinical variable names to return for the patients.
+
+    Returns: List of all available values for the requested variables.
+
+    """
     df = data["patients"]
 
     return df[df["variable_name"].isin(variable_name)].fillna("").to_dict(orient="list")
 
 
 @app.post("/patient/{patient_id}")
-async def get_patient_data(patient_id: str, variable_name: List[str]):
+async def get_patient_data(patient_id: str, variable_name: List[str]) -> Dict:
+    """
+    Get clinical data for a specific patient.
+
+    Args:
+        patient_id: Patient identifier
+        variable_name: List of clinical variable names to return for the patients.
+
+    Returns: List of all available values for the requested variables for the specified patient.
+
+    """
     df = data["patients"]
     df = df[df["pseudo_fallnr"] == patient_id]
 

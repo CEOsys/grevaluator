@@ -14,7 +14,14 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
+"""
+CEOsys compliance evaluator.
 
+The compliance evaluator processes clinical guideline recommendations in FHIR format to identify which clinical
+variables are required to evaluate whether guideline recommendations are applicable and/or implemented and then creates
+Quantity objects for each rule in the recommendation that can be applied to the actual clinical data.
+
+"""
 import os
 from pathlib import Path
 import pint
@@ -23,7 +30,7 @@ import pandas as pd
 
 def init_unit_registry() -> pint.UnitRegistry:
     """
-    Initializes the unit registry once for the module.
+    Initialize the unit registry once for the module (prevents the need for multiple initializations).
 
     Returns: Initialized unit registry
 
@@ -64,7 +71,7 @@ def init_unit_registry() -> pint.UnitRegistry:
 
 def init_mapping_table() -> pd.DataFrame:
     """
-    Initializes the mapping table for concepts to specific variable names / values once for the module.
+    Initialize the mapping table for concepts to specific variable names / values once for the module.
 
     Returns: Mapping table
 

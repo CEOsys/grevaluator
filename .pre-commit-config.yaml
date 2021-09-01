@@ -18,10 +18,38 @@ repos:
     rev: 'v0.812'
     hooks:
     -   id: mypy
-#-   repo: https://github.com/pycqa/pydocstyle
-#    rev: '5.1.1'
-#    hooks:
-#    -   id: pydocstyle
+        name: mypy-clinical-data-interface
+        files: ^apps/clinical-data-interface/
+        entry: mypy apps/clinical-data-interface/
+        pass_filenames: false
+    -   id: mypy
+        name: mypy-compliance-evaluator
+        files: ^apps/compliance-evaluator/
+        entry: mypy apps/compliance-evaluator/
+        pass_filenames: false
+        exclude: ^apps/compliance-evaluator/tests/.*
+    -   id: mypy
+        name: mypy-guideline-interface
+        files: ^apps/guideline-interface/
+        entry: mypy apps/guideline-interface/
+        pass_filenames: false
+    -   id: mypy
+        name: mypy-ui
+        files: ^apps/ui/
+        entry: mypy apps/ui/
+        pass_filenames: false
+    -   id: mypy
+        name: mypy-ui-backend
+        files: ^apps/ui-backend/
+        entry: mypy apps/ui-backend/
+        pass_filenames: false
+    -   id: mypy
+        name: mypy-rest
+        exclude: ^(apps/(clinical-data-interface|compliance-evaluator|guideline-interface|ui|ui-backend)/|generate.py)
+-   repo: https://github.com/pycqa/pydocstyle
+    rev: '6.1.1'
+    hooks:
+    -   id: pydocstyle
 -   repo: https://github.com/PyCQA/bandit
     rev: '1.7.0'
     hooks:
