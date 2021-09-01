@@ -411,6 +411,13 @@ df.loc[idx_dt, "value"] = (
     pd.to_datetime(df.loc[idx_dt, "value"]).dt.tz_localize("UTC").dt.tz_convert(tz)
 )
 
-df.to_pickle(path / "data/sample_data_shuffle_large.pkl.gz")
+df.to_pickle(
+    path
+    / "apps"
+    / "clinical-data-interface"
+    / "data"
+    / "sample_data_shuffle_large.pkl.gz",
+    protocol=3,
+)
 
 print("done")

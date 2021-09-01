@@ -22,7 +22,7 @@ Uses generated data to provide a patient list for downstream services.
 from typing import List, Dict
 import os
 from pathlib import Path
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI
 import pandas as pd
 
 BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"]) / "data"
