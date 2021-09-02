@@ -7,7 +7,6 @@ sys.path.insert(0, os.path.abspath("../apps/compliance_evaluator"))
 extensions = [
     'sphinx_rtd_theme',
     'sphinx.ext.autodoc',
-    'scanpydoc.elegant_typehints',
     'sphinx.ext.autosummary',
     'sphinx.ext.coverage',
     'sphinx.ext.doctest',
@@ -61,11 +60,3 @@ napoleon_use_rtype = True
 napoleon_use_param = True
 
 add_module_names = False
-
-# workaround for https://github.com/sphinx-doc/sphinx/issues/7493
-# see https://icb-scanpydoc.readthedocs-hosted.com/en/latest/scanpydoc.elegant_typehints.html
-qualname_overrides = {
-    "compliance_evaluator.cgr_compliance.evaluator.ComplianceEvaluator": "cgr_compliance.ComplianceEvaluator",
-    "compliance_evaluator.cgr_compliance.quantity.Quantity": "cgr_compliance.Quantity",
-    "compliance_evaluator.cgr_compliance.quantity.Medication": "cgr_compliance.Medication"
-}

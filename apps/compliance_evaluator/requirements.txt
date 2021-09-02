@@ -5,6 +5,3 @@ Pint>=0.17
 requests>=2.25.1
 openpyxl
 xlrd
-python-jose[cryptography]
-passlib[bcrypt]
-PyYAML>=5.4.1
