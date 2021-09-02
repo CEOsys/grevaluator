@@ -14,6 +14,9 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
+"""
+Guideline Interface - FastAPI interface
+"""
 
 import os
 import re
@@ -26,11 +29,11 @@ import json
 from fhir.resources.bundle import Bundle
 from dotenv import load_dotenv
 
-load_dotenv()
-
 app = FastAPI()
 
-BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"], ".") / "FHIR"
+if __name__ == "__main__":
+    load_dotenv()
+    BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"], ".") / "FHIR"
 
 
 class GuidelineException(Exception):

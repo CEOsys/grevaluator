@@ -14,6 +14,9 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
+"""
+Guideline Recommendation Compliance Evaluator Module - FastAPI interface
+"""
 
 import os
 from typing import Dict, List, Set
@@ -22,14 +25,15 @@ import requests
 from pathlib import Path
 import pandas as pd
 from fastapi import FastAPI
-from compliance_evaluator.quantity import Quantity
-from compliance_evaluator.compliance_evaluator import ComplianceEvaluator
+from cgr_compliance.quantity import Quantity
+from cgr_compliance.evaluator import ComplianceEvaluator
 
 
 app = FastAPI()
-GUIDELINE_SERVER: str = os.environ["GUIDELINE_SERVER"]
-PATIENTDATA_SERVER: str = os.environ["PATIENTDATA_SERVER"]
-DATA_PATH: str = os.environ["CEOSYS_DATA_PATH"]
+if __name__ == "__main__":
+    GUIDELINE_SERVER: str = os.environ["GUIDELINE_SERVER"]
+    PATIENTDATA_SERVER: str = os.environ["PATIENTDATA_SERVER"]
+    DATA_PATH: str = os.environ["CEOSYS_DATA_PATH"]
 
 
 @app.get("/")
@@ -106,9 +110,11 @@ async def run() -> str:
 
     For each guideline recommendation, the guideline is fetched from the guideline interface. Then, the
     ComplianceEvaluator package is used to
+
     - (1) identify the clinical variables that are required to perform the guideline recommendation compliance check
-          are determined
+      are determined
     - (2) create Quantity objects to check the rules defined by the guideline recommendation
+
     Next, the required clinical variables are requested from the clinical data interface and the Quantity objects are
     applied to these datasets to determine guideline recommendation compliance.
 

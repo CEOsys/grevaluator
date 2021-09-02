@@ -1,3 +1,2 @@
 passlib>=1.7.4
 PyYAML>=5.4.1
-secrets>=1.0.2
