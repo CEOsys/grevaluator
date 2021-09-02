@@ -23,13 +23,14 @@ from .quantity import Quantity
 
 
 class ComplianceEvaluator:
-    def __init__(self, rec: Dict):
-        """
-        Compliance Evaluator Module
+    """
+    Compliance Evaluator Module
 
-        Args:
-            rec: Clinical guideline recommendation (json)
-        """
+    Args:
+        rec: Clinical guideline recommendation (json)
+    """
+
+    def __init__(self, rec: Dict):
         self.content = rec
 
     def _get_group_names(

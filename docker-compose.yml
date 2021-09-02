@@ -2,24 +2,24 @@ version: "3.7"
 services:
   guideline-interface:
     build:
-      context: apps/guideline-interface/
+      context: apps/guideline_interface/
     ports:
       - "5001:80"
   ui-backend:
     build:
-      context: apps/ui-backend
+      context: apps/ui_backend
     ports:
       - "5002:80"
     volumes:
       - comparator-results:/var/data
   clinical-data-interface:
     build:
-      context: apps/clinical-data-interface
+      context: apps/clinical_data_interface
     ports:
       - "5003:80"
   compliance-evaluator:
     build:
-      context: apps/compliance-evaluator
+      context: apps/compliance_evaluator
     ports:
       - "5004:80"
     volumes:

@@ -49,7 +49,7 @@ else:
     password_magicapp = None
 
 print("Writing .env file in guideline interface")
-with open(path / "apps/guideline-interface/app/.env", "w") as f:
+with open(path / "apps/guideline_interface/app/.env", "w") as f:
     f.write(f"MAGICAPP_USE={int(use_magicapp)}\n")
     f.write(f'MAGICAPP_EMAIL="{username_magicapp}"\n')
     f.write(f'MAGICAPP_PASSWORD="{password_magicapp}"\n')
@@ -60,7 +60,7 @@ with open(path / "apps/ui/app/.env", "w") as f:
     f.write(f'UI_BACKEND_PASSWORD="{password}"\n')
 
 print("Writing .env file in ui backend")
-with open(path / "apps/ui-backend/app/.env", "w") as f:
+with open(path / "apps/ui_backend/app/.env", "w") as f:
     f.write(f'SECRET_KEY="{secret_key}"\n')
 
 users_db = {
@@ -73,7 +73,7 @@ users_db = {
     }
 }
 print("Writing users_db.yml in ui backend")
-with open(path / "apps/ui-backend/app/auth/users_db.yml", "w") as outfile:
+with open(path / "apps/ui_backend/app/auth/users_db.yml", "w") as outfile:
     yaml.dump(users_db, outfile)
 
 
@@ -414,7 +414,7 @@ df.loc[idx_dt, "value"] = (
 df.to_pickle(
     path
     / "apps"
-    / "clinical-data-interface"
+    / "clinical_data_interface"
     / "data"
     / "sample_data_shuffle_large.pkl.gz",
     protocol=3,

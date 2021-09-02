@@ -14,6 +14,9 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
+"""
+User Interface Backend - FastAPI interface
+"""
 
 import os
 from pathlib import Path
@@ -28,10 +31,6 @@ from passlib.context import CryptContext
 from pydantic import BaseModel
 from config import settings
 import yaml
-
-DATA_PATH = Path(os.environ["CEOSYS_DATA_PATH"])
-GUIDELINE_SERVER = os.environ["GUIDELINE_SERVER"]
-PATIENTDATA_SERVER = os.environ["PATIENTDATA_SERVER"]
 
 
 class Token(BaseModel):
@@ -84,9 +83,14 @@ def load_user_db() -> Dict:
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-user_db = load_user_db()
-
 app = FastAPI()
+
+if __name__ == "__main__":
+    DATA_PATH = Path(os.environ["CEOSYS_DATA_PATH"])
+    GUIDELINE_SERVER = os.environ["GUIDELINE_SERVER"]
+    PATIENTDATA_SERVER = os.environ["PATIENTDATA_SERVER"]
+
+    user_db = load_user_db()
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
