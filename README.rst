@@ -2,7 +2,7 @@ Clinical guideline recommendation compliance monitor
 ####################################################
 .. start-badges
 
-.. image:: https://readthedocs.org/projects/pyperunner/badge/?version=latest
+.. image:: https://readthedocs.org/projects/ceosys/badge/?version=latest
     :target: https://ceosys.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
