@@ -8,10 +8,14 @@ Clinical guideline recommendation compliance monitor
 
 .. end-badges
 
-.. image:: docs/img/logo_ceosys.jpg
+|logo_ceosys|  |logo_num|
+
+
+.. |logo_ceosys| image:: docs/img/logo_ceosys.jpg
   :height: 100
   :alt: CEOsys
-.. image:: docs/img/logo_num.jpg
+
+.. |logo_num| image:: docs/img/logo_num.jpg
   :height: 100
   :alt: Netzwerk Universitätsmedizin
 
