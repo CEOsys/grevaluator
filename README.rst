@@ -11,7 +11,6 @@ Clinical guideline recommendation compliance monitor
 .. image:: docs/img/logo_ceosys.jpg
   :height: 100
   :alt: CEOsys
-
 .. image:: docs/img/logo_num.jpg
   :height: 100
   :alt: Netzwerk Universitätsmedizin
