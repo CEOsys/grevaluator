@@ -34,7 +34,7 @@ copyright = '{0}, {1}'.format(year, author)
 version = release = '0.1'
 
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
-autodoc_mock_imports = ["dotenv", "config", "pint", "pandas", "fastapi"]
+autodoc_mock_imports = ["dotenv", "config"]
 
 pygments_style = 'trac'
 templates_path = ['_templates']
