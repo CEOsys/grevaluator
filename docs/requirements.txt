@@ -13,4 +13,4 @@ fastapi
 python-jose[cryptography]
 passlib[bcrypt]
 PyYAML>=5.4.1
-
+python-multipart
