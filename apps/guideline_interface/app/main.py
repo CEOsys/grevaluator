@@ -29,11 +29,11 @@ import json
 from fhir.resources.bundle import Bundle
 from dotenv import load_dotenv
 
-load_dotenv()
-
 app = FastAPI()
 
-BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"], ".") / "FHIR"
+if __name__ == "__main__":
+    load_dotenv()
+    BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"], ".") / "FHIR"
 
 
 class GuidelineException(Exception):
