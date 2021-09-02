@@ -14,3 +14,4 @@ python-jose[cryptography]
 passlib[bcrypt]
 PyYAML>=5.4.1
 python-multipart
+git+https://github.com/glichtner/fhir.resources
