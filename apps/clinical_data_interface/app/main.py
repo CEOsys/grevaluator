@@ -24,12 +24,20 @@ import os
 from pathlib import Path
 from fastapi import FastAPI
 import pandas as pd
+from pydantic import BaseSettings
 
-if __name__ == "__main__":
-    BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"]) / "data"
 
-data = {}
+class Settings(BaseSettings):
+    """
+    FastAPI Settings for clinical guideline interface
+    """
+
+    ceosys_base_path: str
+
+
 app = FastAPI()
+settings = Settings()
+data = {}
 
 
 @app.on_event("startup")
@@ -41,7 +49,7 @@ async def startup_event() -> None:
 
     """
     data["patients"] = pd.read_pickle(
-        BASE_PATH / "sample_data_shuffle_large.pkl.gz"
+        Path(settings.ceosys_base_path) / "data" / "sample_data_shuffle_large.pkl.gz"
     ).dropna(subset=["value"])
 
 

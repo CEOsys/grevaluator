@@ -35,19 +35,19 @@ recommendation_id <- recommendations$id[1]
 
 variable_name_mappings <- list(
   test_covid19_pcr = "COVID19 PCR Test",
-  body_position = "Lagerungsposition",
-  ventilation_mode = "Beatmungsmodus",
+  body_position = "Body position",
+  ventilation_mode = "Ventilation Mode",
   RASS = "RASS",
-  drug_norepinephrine = "Katecholamine",
-  drug_epinephrine = "Epinephrin",
+  drug_norepinephrine = "Catecholamine",
+  drug_epinephrine = "Epinephrine",
   deltaSOFA = "ΔSOFA",
-  drug_dobutamine = "Dobutamin",
-  drug_dopamine = "Dopamin",
-  oxygenation_index_calc = "Oxygenierungsindex",
+  drug_dobutamine = "Dobutamine",
+  drug_dopamine = "Dopamine",
+  oxygenation_index_calc = "P/F ratio",
   drug_vasopressin = "Vasopressin",
   sO2 = "sO2",
-  respiratory_rate = "Atemfrequenz",
-  drug_dexamethason_bolus = "Dexamethason"
+  respiratory_rate = "Respiratory rate",
+  drug_dexamethason_bolus = "Dexamethasone"
 )
 
 ui <- fluidPage(
@@ -68,9 +68,9 @@ ui <- fluidPage(
 
   fluidRow(
     column(4, selectInput(
-      inputId = "ward", label = h3("Station"),
-      choices = c("Alle"),
-      selected = "Alle",
+      inputId = "ward", label = h3("Ward"),
+      choices = c("All"),
+      selected = "All",
       width = "80%"
     ),
     align = "center"
@@ -78,7 +78,7 @@ ui <- fluidPage(
     column(2, img(src = "logo_ceosys.jpg", height = 120), align = "right"),
     column(2, img(src = "logo_num.jpg", height = 120), align = "left"),
     column(4, selectInput(
-      inputId = "recommendation_id", label = h3("Leitlinien-Empfehlung"),
+      inputId = "recommendation_id", label = h3("Guideline Recommendation"),
       choices = setNames(recommendations$id, recommendations$title),
       selected = NULL,
       width = "80%"
@@ -97,7 +97,7 @@ ui <- fluidPage(
     column(
       5,
       wellPanel(
-        h1("Patienten"),
+        h1("Patients"),
         DT::dataTableOutput("patienttable")
       )
     ),
@@ -110,7 +110,7 @@ ui <- fluidPage(
       # recommendation-Text Row
 
       wellPanel(
-        h1("Leitlinien-Empfehlung"),
+        h1("Guideline Recommendation"),
         htmlOutput("recommendation_text"),
         tags$head(tags$style("#recommendation_text { font-size:12px; max-height: 20%; }")),
       ),
@@ -181,7 +181,7 @@ setPlotUIOutputs <- function(output, patientdata, vars, type) {
             geom_point()
         }
         ggplotly(ggp +
-          xlab("Datum") +
+          xlab("Date") +
           ylab(variable_name_mappings[[localvar]]) +
           coord_cartesian(xlim = c(max_dt - 86400 * 4, max_dt)))
       })
@@ -192,7 +192,7 @@ setPlotUIOutputs <- function(output, patientdata, vars, type) {
 ############# Server ############
 server <- function(input, output, session) {
   tabldat <- reactive({
-    if (input$ward == "Alle") {
+    if (input$ward == "All") {
       return(tabldspl())
     } else {
       return(tabldspl()[patient_results()$ward == input$ward, ])
@@ -208,7 +208,7 @@ server <- function(input, output, session) {
       DT::datatable(tabldat(),
         rownames = FALSE,
         selection = list(mode = "single", selected = c(1)),
-        colnames = c("Name", "Alter", "ITS-Tag ", "P", "I", "Leitlinienkonform"),
+        colnames = c("Name", "Age", "ICU day ", "P", "I", "Compliant"),
         options = list(
           columnDefs = list(
             list(
@@ -268,15 +268,15 @@ server <- function(input, output, session) {
   tabldspl <- reactive({
     t <- data.frame(
       "Name" = patient_results()$pseudo_fallnr,
-      "Alter" = patient_results()$age,
-      "ITSTag" = patient_results()$icu_day,
+      "Age" = patient_results()$age,
+      "ICU day" = patient_results()$icu_day,
       "P" = patient_results()$valid_population,
       "I" = patient_results()$valid_exposure,
-      "Leitlinienkonform" = patient_results()$valid_treatment
+      "Compliant" = patient_results()$valid_treatment
     )
 
     # set I and P&I to NA if P doesn't match the patient
-    t[!t$P, c("Leitlinienkonform")] <- NA
+    t[!t$P, c("Compliant")] <- NA
 
     return(t)
   })
@@ -295,7 +295,7 @@ server <- function(input, output, session) {
   observeEvent(input$recommendation_id, {
     print("recommendation_id changed")
 
-    updateSelectInput(session, "ward", choices = c("Alle", unique(patient_results()$ward)))
+    updateSelectInput(session, "ward", choices = c("All", unique(patient_results()$ward)))
 
     recommendation_variables <- load_recommendation_variables(input$recommendation_id)
 

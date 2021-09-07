@@ -27,13 +27,21 @@ import pandas as pd
 from fastapi import FastAPI
 from cgr_compliance.quantity import Quantity
 from cgr_compliance.evaluator import ComplianceEvaluator
+from pydantic import BaseSettings
+
+
+class Settings(BaseSettings):
+    """
+    FastAPI Settings for compliance evaluator
+    """
+
+    guideline_server: str
+    patientdata_server: str
+    ceosys_data_path: str
 
 
 app = FastAPI()
-if __name__ == "__main__":
-    GUIDELINE_SERVER: str = os.environ["GUIDELINE_SERVER"]
-    PATIENTDATA_SERVER: str = os.environ["PATIENTDATA_SERVER"]
-    DATA_PATH: str = os.environ["CEOSYS_DATA_PATH"]
+settings = Settings()
 
 
 @app.get("/")
@@ -77,15 +85,15 @@ def save_results(
     )
 
     summary.to_pickle(
-        Path(DATA_PATH)
+        Path(settings.ceosys_data_path)
         / f"guideline_recommendation_{recommendation_id}_results_summary.pkl"
     )
     details.to_pickle(
-        Path(DATA_PATH)
+        Path(settings.ceosys_data_path)
         / f"guideline_recommendation_{recommendation_id}_results_detail.pkl"
     )
     s_variable_names.to_pickle(
-        Path(DATA_PATH)
+        Path(settings.ceosys_data_path)
         / f"guideline_recommendation_{recommendation_id}_variable_names.pkl"
     )
 
@@ -142,7 +150,7 @@ def get_recommendation_ids() -> List[str]:
     Returns: List of available guideline recommendation identifier
 
     """
-    r = requests.get(GUIDELINE_SERVER + "/recommendation/list")
+    r = requests.get(settings.guideline_server + "/recommendation/list")
     return [rec["id"] for rec in r.json()]
 
 
@@ -157,7 +165,7 @@ def get_recommendation(recommendation_id: str) -> Dict:
 
     """
     r_recommendation = requests.get(
-        GUIDELINE_SERVER + f"/recommendation/get/{recommendation_id}"
+        settings.guideline_server + f"/recommendation/get/{recommendation_id}"
     )
     recommendation = r_recommendation.json()
 
@@ -174,7 +182,7 @@ def request_data(variables: List[str]) -> pd.DataFrame:
     Returns: DataFrame with clinical data
 
     """
-    r = requests.post(PATIENTDATA_SERVER + "/patients/", json=variables)
+    r = requests.post(settings.patientdata_server + "/patients/", json=variables)
 
     df = pd.DataFrame(r.json())
     df = (

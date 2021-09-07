@@ -27,13 +27,30 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 import json
 from fhir.resources.bundle import Bundle
-from dotenv import load_dotenv
+from pydantic import BaseSettings
+
+
+class Settings(BaseSettings):
+    """
+    FastAPI Settings for guideline interface
+    """
+
+    ceosys_base_path: str
+    magicapp_use: bool
+    magicapp_email: str
+    magicapp_password: str
+    magicapp_server: str
+
+    class Config:
+        """
+        Config sub class for FastAPI settings
+        """
+
+        env_file = ".env"
+
 
 app = FastAPI()
-
-if __name__ == "__main__":
-    load_dotenv()
-    BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"], ".") / "FHIR"
+settings = Settings()
 
 
 class GuidelineException(Exception):
@@ -97,10 +114,10 @@ def get_guideline_recommendation_from_magicapp(recommendation_id: int) -> Dict:
 
         """
         auth = {
-            "email": os.environ["MAGICAPP_EMAIL"],
-            "password": os.environ["MAGICAPP_PASSWORD"],
+            "email": settings.magicapp_email,
+            "password": settings.magicapp_password,
         }
-        url = os.environ["MAGICAPP_SERVER"] + "/auth/login"
+        url = settings.magicapp_server + "/auth/login"
         r = requests.post(url, data=auth)
 
         if r.status_code != 200:
@@ -116,7 +133,7 @@ def get_guideline_recommendation_from_magicapp(recommendation_id: int) -> Dict:
 
     auth_header = get_login_token()
     r = requests.get(
-        os.environ["MAGICAPP_SERVER"]
+        settings.magicapp_server
         + f"/api/v1/recommendations/{recommendation_id}/rational",
         headers=auth_header,
     )
@@ -149,7 +166,11 @@ def get_guideline_recommendation_from_file(recommendation_id: int) -> Dict:
     Returns: Guideline recommendation in FHIR format
 
     """
-    fname = BASE_PATH / f"Recommendation_MA{recommendation_id}.fhir.json"
+    fname = (
+        Path(settings.ceosys_base_path)
+        / "FHIR"
+        / f"Recommendation_MA{recommendation_id}.fhir.json"
+    )
 
     if not os.path.exists(fname):
         raise RecommendationNotFoundException(f'Guideline "{fname}" not found')
@@ -172,7 +193,7 @@ def get_guideline_recommendation(recommendation_id: int) -> Dict:
     Returns: Guideline recommendation in FHIR format
 
     """
-    if os.environ["MAGICAPP_USE"] == 1:
+    if settings.magicapp_use == 1:
         try:
             print(
                 f"Reading guideline recommendation {recommendation_id} from MAGICapp server"
@@ -224,7 +245,7 @@ async def list_guidelines() -> List[Dict]:
 
     guidelines = []
 
-    for fname in get_file_list(BASE_PATH, pattern):
+    for fname in get_file_list(Path(settings.ceosys_base_path) / "FHIR", pattern):
         id = re.search(pattern, fname).group(1)  # type: ignore
         bundle = Bundle.parse_file(fname)
         title = bundle.entry[0].resource.title
