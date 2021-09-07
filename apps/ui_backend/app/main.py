@@ -28,7 +28,7 @@ from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from pydantic import BaseModel
+from pydantic import BaseModel, BaseSettings
 from config import settings
 import yaml
 
@@ -83,13 +83,8 @@ def load_user_db() -> Dict:
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
 app = FastAPI()
-
-
-DATA_PATH = Path(os.environ["CEOSYS_DATA_PATH"])
-GUIDELINE_SERVER = os.environ["GUIDELINE_SERVER"]
-PATIENTDATA_SERVER = os.environ["PATIENTDATA_SERVER"]
-
 user_db = load_user_db()
 
 
@@ -282,7 +277,7 @@ def get_recommendation_results_summary(recommendation_id: str) -> pd.DataFrame:
     try:
         r = (
             pd.read_pickle(
-                DATA_PATH
+                Path(settings.ceosys_data_path)
                 / f"guideline_recommendation_{recommendation_id}_results_summary.pkl"
             )
             .fillna("nan")
@@ -308,7 +303,7 @@ def get_recommendation_results_details(recommendation_id: str) -> pd.DataFrame:
     try:
         r = (
             pd.read_pickle(
-                DATA_PATH
+                Path(settings.ceosys_data_path)
                 / f"guideline_recommendation_{recommendation_id}_results_detail.pkl"
             )
             .fillna("nan")
@@ -332,7 +327,8 @@ def get_recommendation_variables(recommendation_id: str) -> pd.DataFrame:
     """
     try:
         r = pd.read_pickle(
-            DATA_PATH / f"guideline_{recommendation_id}_variable_names.pkl"
+            Path(settings.ceosys_data_path)
+            / f"guideline_{recommendation_id}_variable_names.pkl"
         )
     except FileNotFoundError:
         raise HTTPException(404, "Guideline recommendation not found")
@@ -346,7 +342,7 @@ def get_recommendation_ids() -> Dict:
     Returns: List of available guideline recommendation identifier
 
     """
-    r = requests.get(GUIDELINE_SERVER + "/recommendation/list")
+    r = requests.get(settings.guideline_server + "/recommendation/list")
     return r.json()
 
 
@@ -379,7 +375,9 @@ def request_patient_data(patient_id: str, variable_name: List[str]) -> pd.DataFr
     Returns: List of all available values for the requested variables for the specified patient.
 
     """
-    r = requests.post(PATIENTDATA_SERVER + f"/patient/{patient_id}", json=variable_name)
+    r = requests.post(
+        settings.patientdata_server + f"/patient/{patient_id}", json=variable_name
+    )
 
     df = pd.DataFrame(r.json())
 
@@ -453,7 +451,7 @@ async def list_patients(current_user: User = Depends(get_current_active_user)) -
     Returns: Current patients
 
     """
-    r = requests.get(PATIENTDATA_SERVER + "/patients/list")
+    r = requests.get(settings.patientdata_server + "/patients/list")
     df = pd.DataFrame(r.json())
     df = (
         df.sort_values(by=["pseudo_fallnr", "variable_name", "datetime"])

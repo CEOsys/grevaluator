@@ -24,12 +24,16 @@ from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     """
-    FastAPI Settings
+    FastAPI Settings for ui backend
     """
 
     secret_key: str
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
+
+    ceosys_data_path: str
+    guideline_server: str
+    patientdata_server: str
 
     class Config:
         """
