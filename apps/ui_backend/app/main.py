@@ -85,12 +85,12 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 app = FastAPI()
 
-if __name__ == "__main__":
-    DATA_PATH = Path(os.environ["CEOSYS_DATA_PATH"])
-    GUIDELINE_SERVER = os.environ["GUIDELINE_SERVER"]
-    PATIENTDATA_SERVER = os.environ["PATIENTDATA_SERVER"]
 
-    user_db = load_user_db()
+DATA_PATH = Path(os.environ["CEOSYS_DATA_PATH"])
+GUIDELINE_SERVER = os.environ["GUIDELINE_SERVER"]
+PATIENTDATA_SERVER = os.environ["PATIENTDATA_SERVER"]
+
+user_db = load_user_db()
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:

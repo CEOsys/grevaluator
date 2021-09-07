@@ -25,8 +25,7 @@ from pathlib import Path
 from fastapi import FastAPI
 import pandas as pd
 
-if __name__ == "__main__":
-    BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"]) / "data"
+BASE_PATH = Path(os.environ["CEOSYS_BASE_PATH"]) / "data"
 
 data = {}
 app = FastAPI()

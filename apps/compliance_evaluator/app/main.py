@@ -30,10 +30,9 @@ from cgr_compliance.evaluator import ComplianceEvaluator
 
 
 app = FastAPI()
-if __name__ == "__main__":
-    GUIDELINE_SERVER: str = os.environ["GUIDELINE_SERVER"]
-    PATIENTDATA_SERVER: str = os.environ["PATIENTDATA_SERVER"]
-    DATA_PATH: str = os.environ["CEOSYS_DATA_PATH"]
+GUIDELINE_SERVER: str = os.environ["GUIDELINE_SERVER"]
+PATIENTDATA_SERVER: str = os.environ["PATIENTDATA_SERVER"]
+DATA_PATH: str = os.environ["CEOSYS_DATA_PATH"]
 
 
 @app.get("/")
