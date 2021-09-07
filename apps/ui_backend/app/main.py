@@ -76,8 +76,12 @@ def load_user_db() -> Dict:
     Returns: User database as dictionary
 
     """
-    with open(os.path.dirname(__file__) + "/auth/users_db.yml") as f:
-        content = yaml.load(f, Loader=yaml.SafeLoader)
+    try:
+        with open(os.path.dirname(__file__) + "/auth/users_db.yml") as f:
+            content = yaml.load(f, Loader=yaml.SafeLoader)
+    except FileNotFoundError:
+        content = dict()
+
     return content
 
 
