@@ -65,3 +65,4 @@ add_module_names = False
 os.environ['GUIDELINE_SERVER'] = "https://mock-guideline-server"
 os.environ['PATIENTDATA_SERVER'] = "https://mock-patientdata-server"
 os.environ['CEOSYS_DATA_PATH'] = "/dev/null"
+os.environ['CEOSYS_BASE_PATH'] = "/dev/null"
