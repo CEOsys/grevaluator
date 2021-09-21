@@ -39,8 +39,8 @@ The is being developed in the context of the `CEOsys: Living evidence synthesis 
 Quickstart
 ============
 
-Pre-requisites
-------------
+Prerequisites
+-------------
 
 Docker and docker-compose needs to be installed, e.g. under linux via:
 
