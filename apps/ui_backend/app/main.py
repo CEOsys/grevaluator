@@ -332,7 +332,7 @@ def get_recommendation_variables(recommendation_id: str) -> pd.DataFrame:
     try:
         r = pd.read_pickle(
             Path(settings.ceosys_data_path)
-            / f"guideline_{recommendation_id}_variable_names.pkl"
+            / f"guideline_recommendation_{recommendation_id}_variable_names.pkl"
         )
     except FileNotFoundError:
         raise HTTPException(404, "Guideline recommendation not found")
