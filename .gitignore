@@ -78,3 +78,5 @@ docs/_build
 notebooks/
 log/
 test.py
+.Rhistory
+

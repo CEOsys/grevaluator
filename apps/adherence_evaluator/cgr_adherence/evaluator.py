@@ -22,9 +22,9 @@ from .parser import parse_characteristics
 from .quantity import Quantity
 
 
-class ComplianceEvaluator:
+class AdherenceEvaluator:
     """
-    Compliance Evaluator Module
+    Adherence Evaluator Module
 
     Args:
         rec: Clinical guideline recommendation (json)

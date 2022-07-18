@@ -51,24 +51,15 @@ variable_name_mappings <- list(
 )
 
 ui <- fluidPage(
-  # themeSelector(),
   theme = shinytheme("cerulean"),
-  # tags$script(src = "absolute-sorting.js"),
-  # tags$head(tags$script(src = "https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js", type = "text/javascript")),
-  # tags$head(tags$script(src = "https://cdn.datatables.net/plug-ins/1.10.24/sorting/absolute.js", type = "text/javascript")),
-  # tags$head(tags$script(HTML(  "var nameType = $.fn.dataTable.absoluteOrder( 'F00000092' );"))),
-  # tags$head(tags$script(HTML(
-  # "var numbersType = $.fn.dataTable.absoluteOrderNumber( [
-  #  { value: 'N/A', position: 'bottom' }
-  # ] );"
-  # ))),
+
   tags$style(type = "text/css", "h1 { margin-top:0;} "),
   #*************************************************************************
   # Title Row
 
   fluidRow(
     column(4, selectInput(
-      inputId = "ward", label = h3("Ward"),
+      inputId = "ward", label = h1("Ward"),
       choices = c("All"),
       selected = "All",
       width = "80%"
@@ -78,7 +69,7 @@ ui <- fluidPage(
     column(2, img(src = "logo_ceosys.jpg", height = 120), align = "right"),
     column(2, img(src = "logo_num.jpg", height = 120), align = "left"),
     column(4, selectInput(
-      inputId = "recommendation_id", label = h3("Guideline Recommendation"),
+      inputId = "recommendation_id", label = h1("Guideline Recommendation"),
       choices = setNames(recommendations$id, recommendations$title),
       selected = NULL,
       width = "80%"
@@ -102,7 +93,7 @@ ui <- fluidPage(
       )
     ),
 
-    # recommendation Column
+    # Recommendation Column
 
     column(
       7,
@@ -112,7 +103,7 @@ ui <- fluidPage(
       wellPanel(
         h1("Guideline Recommendation"),
         htmlOutput("recommendation_text"),
-        tags$head(tags$style("#recommendation_text { font-size:12px; max-height: 20%; }")),
+        tags$head(tags$style("#recommendation_text { font-size:18px; max-height: 20%; }")),
       ),
 
       # recommendation-Population Row
@@ -135,7 +126,7 @@ getPlotUIs <- function(vars, type) {
     myTabs <- map(vars, ~ tabPanel(
       title = glue("{variable_name_mappings[.x]}"),
       wellPanel(
-        plotlyOutput(paste("plot", type, .x, sep = "_"), height = 300),
+        plotlyOutput(paste("plot", type, .x, sep = "_"), height = 230),
         style = "padding:0;margin-bottom:0;"
       )
     ))
@@ -201,7 +192,7 @@ server <- function(input, output, session) {
 
 
   # Patient data table
-  options(DT.options = list(pageLength = 20))
+  options(DT.options = list(pageLength = 15))
   observeEvent(input$ward, {
     output$patienttable <- DT::renderDataTable(
       server = FALSE,

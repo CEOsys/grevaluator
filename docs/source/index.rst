@@ -8,7 +8,7 @@ API Documentation
 
     guideline_interface
     clinical_data_interface
-    compliance_evaluator
+    adherence_evaluator
     ui_backend
     ui
 

@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 COPY ./app /app
 COPY ./res /res
-COPY cgr_compliance /app/cgr_compliance
+COPY cgr_adherence /app/cgr_adherence

@@ -7,10 +7,10 @@
       "resource": {
         "resourceType": "EvidenceReport",
         "status": "draft",
-        "title": "Dexamethason bei kritisch kranken Patienten mit COVID-19",
+        "title": "Dexamethasone in critically ill patients with COVID-19",
         "text": {
           "status": "generated",
-          "div": "Bei Patienten mit schwerer (SpO2 < 90 %, Atemfrequenz > 30/min) oder kritischer (ARDS, Sepsis, Beatmung, Vasopressorengabe) COVID-19-Erkrankung soll eine Therapie mit Dexamethason erfolgen.<br/>Die Dosis betr\u00e4gt 6 mg Dexamethason p. o./i. v. t\u00e4glich f\u00fcr 10."
+          "div": "Patients with severe (SpO2 < 90%, respiratory rate > 30/min) or critical (ARDS, sepsis, ventilation, vasopressor administration) COVID-19 disease should receive therapy with dexamethasone. The dose is 6 mg dexamethasone p. o./i. v. daily for 10."
         },
         "identifier": [
           {
@@ -873,7 +873,7 @@
         ],
         "title": "https://app.magicapp.org/#/guidelines / 5062",
         "status": "draft",
-        "description": "Bei Patienten mit schwerer (SpO2 < 90 %, Atemfrequenz > 30/min) oder kritischer (ARDS, Sepsis, Beatmung, Vasopressorengabe) COVID-19-Erkrankung soll eine Therapie mit Dexamethason erfolgen. Die Dosis betr\u00e4gt 6 mg Dexamethason p. o./i. v. t\u00e4glich f\u00fcr 10.",
+        "description": "Patients with severe (SpO2 < 90%, respiratory rate > 30/min) or critical (ARDS, sepsis, ventilation, vasopressor administration) COVID-19 disease should receive therapy with dexamethasone. The dose is 6 mg dexamethasone p. o./i. v. daily for 10.",
         "variableDefinition": [
           {
             "variableRole": {

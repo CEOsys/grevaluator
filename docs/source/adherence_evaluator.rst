@@ -1,18 +1,18 @@
-Guideline Recommendation Compliance Evaluator
-=============================================
+Guideline Recommendation Adherence Evaluator
+============================================
 
-.. currentmodule:: compliance_evaluator
+.. currentmodule:: adherence_evaluator
 
 .. autosummary::
     app.main
-    compliance_evaluator.cgr_compliance.evaluator.ComplianceEvaluator
-    compliance_evaluator.cgr_compliance.quantity.Quantity
-    compliance_evaluator.cgr_compliance.quantity.Medication
+    adherence_evaluator.cgr_adherence.evaluator.AdherenceEvaluator
+    adherence_evaluator.cgr_adherence.quantity.Quantity
+    adherence_evaluator.cgr_adherence.quantity.Medication
 
-Compliance Evaluator
---------------------
+Adherence Evaluator
+-------------------
 
-.. autoclass:: cgr_compliance.evaluator.ComplianceEvaluator
+.. autoclass:: cgr_adherence.evaluator.AdherenceEvaluator
     :members:
     :undoc-members:
     :show-inheritance:
@@ -20,7 +20,7 @@ Compliance Evaluator
 Quantity object (recommendation rule)
 -------------------------------------
 
-.. autoclass:: cgr_compliance.quantity.Quantity
+.. autoclass:: cgr_adherence.quantity.Quantity
     :members:
     :undoc-members:
     :show-inheritance:
@@ -28,7 +28,7 @@ Quantity object (recommendation rule)
 Medication object (recommendation rule)
 ---------------------------------------
 
-.. autoclass:: cgr_compliance.quantity.Medication
+.. autoclass:: cgr_adherence.quantity.Medication
     :members:
     :undoc-members:
     :show-inheritance:
@@ -36,21 +36,21 @@ Medication object (recommendation rule)
 
 Concept to clinical variable mapping
 ------------------------------------
-.. automodule:: compliance_evaluator.cgr_compliance.mapping
+.. automodule:: adherence_evaluator.cgr_adherence.mapping
     :members:
     :undoc-members:
     :show-inheritance:
 
 Guideline recommendation FHIR parser
 ------------------------------------
-.. automodule:: compliance_evaluator.cgr_compliance.parser
+.. automodule:: adherence_evaluator.cgr_adherence.parser
     :members:
     :undoc-members:
     :show-inheritance:
 
 Utility functions
 -----------------
-.. automodule:: compliance_evaluator.cgr_compliance.utils
+.. automodule:: adherence_evaluator.cgr_adherence.utils
     :members:
     :undoc-members:
     :show-inheritance:
@@ -59,7 +59,7 @@ Utility functions
 FastAPI app
 -----------
 
-.. automodule:: compliance_evaluator.app.main
+.. automodule:: adherence_evaluator.app.main
     :members:
     :undoc-members:
     :show-inheritance:

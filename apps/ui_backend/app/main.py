@@ -267,7 +267,7 @@ async def root() -> Dict:
 
 def get_recommendation_results_summary(recommendation_id: str) -> pd.DataFrame:
     """
-    Retrieves the summary of the guideline recommendation compliance evaluation.
+    Retrieves the summary of the guideline recommendation adherence evaluation.
 
     The summary includes patient identifier, ward, birth date, time on ICU and whether the guideline recommendation
     is applicable and implemented.
@@ -275,7 +275,7 @@ def get_recommendation_results_summary(recommendation_id: str) -> pd.DataFrame:
     Args:
         recommendation_id: Guideline recommendation identifier.
 
-    Returns: Summary of the guideline recommendation compliance evaluation
+    Returns: Summary of the guideline recommendation adherence evaluation
 
     """
     try:
@@ -294,14 +294,14 @@ def get_recommendation_results_summary(recommendation_id: str) -> pd.DataFrame:
 
 def get_recommendation_results_details(recommendation_id: str) -> pd.DataFrame:
     """
-    Retrieves the details of the guideline recommendation compliance evaluation.
+    Retrieves the details of the guideline recommendation adherence evaluation.
 
-    The detailed results include all clinical data that was used to evaluated the guideline recommendation compliance.
+    The detailed results include all clinical data that was used to evaluated the guideline recommendation adherence.
 
     Args:
         recommendation_id: Guideline recommendation identifier.
 
-    Returns: Details of the guideline recommendation compliance evaluation.
+    Returns: Details of the guideline recommendation adherence evaluation.
 
     """
     try:
@@ -320,7 +320,7 @@ def get_recommendation_results_details(recommendation_id: str) -> pd.DataFrame:
 
 def get_recommendation_variables(recommendation_id: str) -> pd.DataFrame:
     """
-    Retrieve the clinical variables names that are required to evaluate guideline recommendation compliance of the
+    Retrieve the clinical variables names that are required to evaluate guideline recommendation adherence of the
     given recommendation.
 
     Args:

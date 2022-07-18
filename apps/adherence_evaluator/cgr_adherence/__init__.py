@@ -15,9 +15,9 @@
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
 """
-CEOsys compliance evaluator.
+CEOsys adherence evaluator.
 
-The compliance evaluator processes clinical guideline recommendations in FHIR format to identify which clinical
+The adherence evaluator processes clinical guideline recommendations in FHIR format to identify which clinical
 variables are required to evaluate whether guideline recommendations are applicable and/or implemented and then creates
 Quantity objects for each rule in the recommendation that can be applied to the actual clinical data.
 

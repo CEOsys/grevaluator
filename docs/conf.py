@@ -3,7 +3,7 @@ import time
 import sys
 
 sys.path.insert(0, os.path.abspath("../apps/"))
-sys.path.insert(0, os.path.abspath("../apps/compliance_evaluator"))
+sys.path.insert(0, os.path.abspath("../apps/adherence_evaluator"))
 
 extensions = [
     "sphinx_rtd_theme",

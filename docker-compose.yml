@@ -17,9 +17,9 @@ services:
       context: apps/clinical_data_interface
     ports:
       - "5003:80"
-  compliance-evaluator:
+  adherence-evaluator:
     build:
-      context: apps/compliance_evaluator
+      context: apps/adherence_evaluator
     ports:
       - "5004:80"
     volumes:

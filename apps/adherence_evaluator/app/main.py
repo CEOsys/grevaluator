@@ -15,7 +15,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with CEOsys Recommendation Checker.  If not, see <https://www.gnu.org/licenses/>.
 """
-Guideline Recommendation Compliance Evaluator Module - FastAPI interface
+Guideline Recommendation Adherence Evaluator Module - FastAPI interface
 """
 
 import os
@@ -25,14 +25,14 @@ import requests
 from pathlib import Path
 import pandas as pd
 from fastapi import FastAPI
-from cgr_compliance.quantity import Quantity
-from cgr_compliance.evaluator import ComplianceEvaluator
+from cgr_adherence.quantity import Quantity
+from cgr_adherence.evaluator import AdherenceEvaluator
 from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
     """
-    FastAPI Settings for compliance evaluator
+    FastAPI Settings for adherence evaluator
     """
 
     guideline_server: str
@@ -52,18 +52,18 @@ async def root() -> Dict:
     Returns: Server greeting.
 
     """
-    return {"message": "Compliance evaluator"}
+    return {"message": "Adherence evaluator"}
 
 
 def save_results(
     res: pd.DataFrame, variable_names: Dict[str, Set[str]], recommendation_id: str
 ) -> None:
     """
-    Save results of the guideline recommendations compliance check to a file (to be read by the ui backend).
+    Save results of the guideline recommendations adherence check to a file (to be read by the ui backend).
 
     Args:
-        res: Results of the guideline recommendation compliance check
-        variable_names: Clinical variable names that were required to evaluate guideline recommendation compliance
+        res: Results of the guideline recommendation adherence check
+        variable_names: Clinical variable names that were required to evaluate guideline recommendation adherence
         recommendation_id: Guideline recommendation identifier
 
     Returns: None
@@ -114,17 +114,17 @@ def flatten(d: Dict[str, Set[str]]) -> List[str]:
 @app.get("/run")
 async def run() -> str:
     """
-    Performs guideline recommendation compliance evaluation.
+    Performs guideline recommendation adherence evaluation.
 
     For each guideline recommendation, the guideline is fetched from the guideline interface. Then, the
-    ComplianceEvaluator package is used to
+    AdherenceEvaluator package is used to
 
-    - (1) identify the clinical variables that are required to perform the guideline recommendation compliance check
+    - (1) identify the clinical variables that are required to perform the guideline recommendation adherence check
       are determined
     - (2) create Quantity objects to check the rules defined by the guideline recommendation
 
     Next, the required clinical variables are requested from the clinical data interface and the Quantity objects are
-    applied to these datasets to determine guideline recommendation compliance.
+    applied to these datasets to determine guideline recommendation adherence.
 
     Returns: "Success"
 
@@ -133,7 +133,7 @@ async def run() -> str:
 
     for recommendation_id in recommendation_ids:
         rec = get_recommendation(recommendation_id)
-        variable_names, q_population, q_exposure = ComplianceEvaluator(
+        variable_names, q_population, q_exposure = AdherenceEvaluator(
             rec
         ).process_guideline_recommendation()
         data = request_data(flatten(variable_names))

@@ -23,11 +23,11 @@ repos:
         entry: mypy apps/clinical_data_interface/
         pass_filenames: false
     -   id: mypy
-        name: mypy-compliance-evaluator
-        files: ^apps/compliance_evaluator/
-        entry: mypy apps/compliance_evaluator/
+        name: mypy-adherence-evaluator
+        files: ^apps/adherence_evaluator/
+        entry: mypy apps/adherence_evaluator/
         pass_filenames: false
-        exclude: ^apps/compliance_evaluator/tests/.*
+        exclude: ^apps/adherence_evaluator/tests/.*
     -   id: mypy
         name: mypy-guideline-interface
         files: ^apps/guideline_interface/
@@ -45,7 +45,7 @@ repos:
         pass_filenames: false
     -   id: mypy
         name: mypy-rest
-        exclude: ^(apps/(clinical_data_interface|compliance_evaluator|guideline_interface|ui|ui_backend)/|generate.py)
+        exclude: ^(apps/(clinical_data_interface|adherence_evaluator|guideline_interface|ui|ui_backend)/|generate.py)
 -   repo: https://github.com/pycqa/pydocstyle
     rev: '6.1.1'
     hooks:
