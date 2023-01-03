@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
 ENV CEOSYS_BASE_PATH /
 ENV GUIDELINE_SERVER http://guideline-interface:80

@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
 ENV CEOSYS_BASE_PATH /
 ENV CEOSYS_DATA_PATH /var/data
